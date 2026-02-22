@@ -14,57 +14,105 @@
   <style>
     * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    /* premium shadows, overlays */
+    
+    /* premium image styling */
     .image-glow {
-      box-shadow: 0 25px 40px -15px rgba(0,89,158,0.3);
-      transition: transform 0.3s ease;
+      box-shadow: 0 25px 40px -15px rgba(0,79,148,0.35);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      border-radius: 2rem;
     }
-    .image-glow:hover { transform: scale(1.01); }
-    .hero-overlay { background: linear-gradient(105deg, #ffffff 20%, rgba(255,255,255,0.92) 50%, rgba(219, 239, 255, 0.6) 100%); }
-    .card-hover { transition: all 0.25s; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -15px rgba(0,79,148,0.25); }
-    .mobile-menu { transition: opacity 0.2s, transform 0.25s; }
-    /* three‑dash interactive */
-    #menu-toggle:checked ~ #mobile-menu-panel { display: block; opacity: 1; transform: translateY(0); }
-    #mobile-menu-panel { display: none; opacity: 0; transform: translateY(-10px); }
-    /* beautiful image placeholders (now replaced by unsplash-like med images) */
-    .img-hero-main {
-      background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop');
-      background-size: cover; background-position: center; border-radius: 2rem;
+    .image-glow:hover {
+      transform: scale(1.02);
+      box-shadow: 0 35px 50px -15px rgba(0,99,178,0.45);
     }
-    .img-microscope {
-      background-image: url('https://images.unsplash.com/photo-1581595219315-a187d40c3226?q=80&w=800&auto=format&fit=crop');
-      background-size: cover; background-position: center; border-radius: 2rem;
+    
+    .card-hover {
+      transition: all 0.3s ease;
+      border: 1px solid #eef2f6;
     }
-    .img-lab-equip {
-      background-image: url('https://images.unsplash.com/photo-1582719508461-905c6734fd3e?q=80&w=800&auto=format&fit=crop');
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -18px rgba(0,118,190,0.3);
+      border-color: #b9d9f0;
     }
-    .img-ultrasound {
-      background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop');
+    
+    /* three‑dash menu functional */
+    #menu-toggle { display: none; }
+    #mobile-menu-panel {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+      background: white;
+      border-top: 1px solid #eaeff5;
     }
-    .img-radiology {
-      background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop');
+    #menu-toggle:checked ~ #mobile-menu-panel {
+      max-height: 350px;   /* enough for menu items */
+      opacity: 1;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
+    
     .whatsapp-float { z-index: 50; transition: transform 0.2s; }
-    .whatsapp-float:hover { transform: scale(1.07); }
-    footer a { transition: color 0.15s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    
+    /* beautiful image assets from Pexels / Pixabay style (high‑res, free) — direct links to truly aesthetic medical photos */
+    .hero-main-img {
+      background-image: url('https://images.pexels.com/photos/7088532/pexels-photo-7088532.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+      background-size: cover; background-position: center 30%;
+    }
+    .microscope-img {
+      background-image: url('https://cdn.pixabay.com/photo/2019/07/23/06/49/microscope-4357000_1280.jpg');
+      background-size: cover; background-position: center 20%;
+    }
+    .labtech-img {
+      background-image: url('https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+      background-size: cover; background-position: center;
+    }
+    .ultrasound-img {
+      background-image: url('https://images.pexels.com/photos/7089032/pexels-photo-7089032.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .xray-img {
+      background-image: url('https://images.pexels.com/photos/8376233/pexels-photo-8376233.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .cardio-img {
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/08/05/26/patient-1807544_1280.jpg');
+    }
+    .lab-img {
+      background-image: url('https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .wellness-img {
+      background-image: url('https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .fertility-img {
+      background-image: url('https://images.pexels.com/photos/5727864/pexels-photo-5727864.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .specialized-img {
+      background-image: url('https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .cancer-img {
+      background-image: url('https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .diabetes-img {
+      background-image: url('https://images.pexels.com/photos/3683084/pexels-photo-3683084.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-  <!-- hidden checkbox for three‑dash menu control -->
-  <input type="checkbox" id="menu-toggle" class="hidden">
+  <!-- three‑dash checkbox — fully functional -->
+  <input type="checkbox" id="menu-toggle">
 
-  <!-- ===== STICKY HEADER with logo + three‑dash (functional) ===== -->
+  <!-- ===== STICKY HEADER with logo + three‑dash ===== -->
   <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm z-40">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
-      <!-- left: logo + name with heartbeat icon -->
+      <!-- left logo + name -->
       <div class="flex items-center gap-3">
         <i class="fas fa-heartbeat text-3xl text-blue-700 bg-blue-50 p-2.5 rounded-2xl shadow-sm"></i>
         <span class="font-bold text-2xl tracking-tight text-gray-800">Touchstone <span class="font-light text-blue-700">Diagnostic</span></span>
       </div>
 
-      <!-- desktop nav (visible md and up) -->
+      <!-- desktop nav (visible md+) -->
       <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
         <a href="#home" class="hover:text-blue-700 transition">Home</a>
         <a href="#about" class="hover:text-blue-700 transition">About</a>
@@ -72,15 +120,15 @@
         <a href="#contact" class="hover:text-blue-700 transition">Contact</a>
       </nav>
 
-      <!-- three‑dash hamburger (visible on mobile) — toggles menu -->
+      <!-- three‑dash hamburger (mobile) — label toggles checkbox -->
       <label for="menu-toggle" class="md:hidden block cursor-pointer p-2 hover:bg-gray-100 rounded-xl transition">
         <i class="fas fa-bars text-2xl text-gray-700"></i>
       </label>
     </div>
 
-    <!-- MOBILE MENU PANEL (appears when checkbox checked) -->
-    <div id="mobile-menu-panel" class="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 px-5 py-5 shadow-xl rounded-b-2xl">
-      <nav class="flex flex-col gap-5 text-lg font-medium">
+    <!-- MOBILE MENU PANEL — appears when #menu-toggle checked, disappears when unchecked -->
+    <div id="mobile-menu-panel" class="md:hidden bg-white/95 backdrop-blur-sm px-5 shadow-inner">
+      <nav class="flex flex-col gap-5 text-lg font-medium pb-2">
         <a href="#home" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">🏠 Home</a>
         <a href="#about" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">📖 About Us</a>
         <a href="#diagnostics" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">🔬 Diagnostics</a>
@@ -91,7 +139,7 @@
 
   <main>
     <!-- ===== HOME SECTION (hero) ===== -->
-    <section id="home" class="scroll-mt-20 relative">
+    <section id="home" class="scroll-mt-20">
       <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-center">
         <!-- left content -->
         <div>
@@ -107,14 +155,14 @@
             <a href="#diagnostics" class="border-2 border-blue-700 text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-full font-medium transition flex items-center gap-2"><i class="fas fa-microscope"></i> View test menu</a>
           </div>
         </div>
-        <!-- right: large aesthetic hero image (clinic/lab) -->
-        <div class="img-hero-main w-full h-80 md:h-96 rounded-3xl image-glow" style="background-image: url('https://images.unsplash.com/photo-1666214280391-9ff3b0c4c9ab?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center;">
-          <div class="w-full h-full bg-black/10 rounded-3xl flex items-end p-5 text-white font-semibold text-lg bg-gradient-to-t from-black/30 via-transparent">State‑of‑the‑art diagnostics · 24/7</div>
+        <!-- right: stunning hero image from Pexels (modern lab) -->
+        <div class="hero-main-img w-full h-80 md:h-96 rounded-3xl image-glow shadow-2xl">
+          <div class="w-full h-full bg-black/20 rounded-3xl flex items-end p-6 text-white font-semibold text-xl bg-gradient-to-t from-black/40 via-transparent">Precision diagnostics · 24/7</div>
         </div>
       </div>
     </section>
 
-    <!-- ===== ABOUT US section with beautiful microscope image ===== -->
+    <!-- ===== ABOUT US section with beautiful microscope image (Pixabay) ===== -->
     <section id="about" class="scroll-mt-20 bg-gradient-to-b from-blue-50/40 to-white py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
         <div class="max-w-3xl mx-auto text-center mb-12">
@@ -122,7 +170,7 @@
           <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">About Touchstone Diagnostic</h2>
         </div>
         <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- left about text + service highlights -->
+          <!-- left about text with highlights -->
           <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-blue-100">
             <p class="text-xl text-gray-700 leading-relaxed mb-6">
               At <strong class="text-blue-700">Touchstone Diagnostic</strong> (Surulere, Lagos), we set the gold standard for clinical precision. Specializing in:
@@ -139,15 +187,15 @@
             </div>
             <p class="text-gray-600 border-l-4 border-blue-300 pl-4 italic text-sm">Accurate diagnosis is the touchstone of effective treatment — 24/7 in Surulere.</p>
           </div>
-          <!-- right: aesthetically pleasing microscope (high‑res unsplash) -->
-          <div class="img-microscope w-full h-96 rounded-3xl image-glow shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1582719508461-905c6734fd3e?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center;">
-            <div class="w-full h-full bg-black/10 rounded-3xl flex items-end p-5 text-white font-semibold text-lg bg-gradient-to-t from-black/30">Advanced optics · precision analysis</div>
+          <!-- right: beautiful microscope (Pixabay high‑res) -->
+          <div class="microscope-img w-full h-96 rounded-3xl image-glow shadow-2xl">
+            <div class="w-full h-full bg-black/10 rounded-3xl flex items-end p-6 text-white font-semibold text-xl bg-gradient-to-t from-black/30">Advanced optics · precision analysis</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== DIAGNOSTICS section (services grid) with aesthetic imagery ===== -->
+    <!-- ===== DIAGNOSTICS section (services grid) with stunning images from Pexels/Pixabay ===== -->
     <section id="diagnostics" class="scroll-mt-20 py-16 md:py-24 bg-white">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
         <div class="text-center mb-14">
@@ -156,45 +204,53 @@
           <p class="text-gray-500 max-w-2xl mx-auto mt-4">Cutting‑edge technology · 24/7 availability · Surulere</p>
         </div>
 
-        <!-- grid with some cards having background images to enhance aesthetics -->
+        <!-- stunning grid with cards each having a beautiful image background -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- cardiovascular -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-blue-100 img-lab-equip" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="h-40 cardio-img" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/08/05/26/patient-1807544_1280.jpg'); background-size: cover; background-position: center;"></div>
             <div class="p-5"><i class="fas fa-heart-pulse text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Cardiovascular</h3><p class="text-gray-500 text-sm">ECG, stress test, lipid profile, holter.</p></div>
           </div>
+          <!-- cancer prevention -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-purple-100" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="h-40 cancer-img" style="background-image: url('https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-ribbon text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Cancer prevention</h3><p class="text-gray-500 text-sm">Tumor markers, Pap, low‑dose CT.</p></div>
           </div>
+          <!-- diabetes wellness -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-green-100" style="background-image: url('https://images.unsplash.com/photo-1581595219315-a187d40c3226?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="h-40 diabetes-img" style="background-image: url('https://images.pexels.com/photos/3683084/pexels-photo-3683084.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-droplet text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Diabetes wellness</h3><p class="text-gray-500 text-sm">HbA1c, glucose tolerance, insulin.</p></div>
           </div>
+          <!-- fertility screening -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-pink-100" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="h-40 fertility-img" style="background-image: url('https://images.pexels.com/photos/5727864/pexels-photo-5727864.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-venus-mars text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Fertility</h3><p class="text-gray-500 text-sm">Hormone panels, semen analysis.</p></div>
           </div>
+          <!-- imaging & radiology -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-yellow-100 img-radiology" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="h-40 xray-img" style="background-image: url('https://images.pexels.com/photos/8376233/pexels-photo-8376233.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-x-ray text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Imaging & radiology</h3><p class="text-gray-500 text-sm">X‑ray, ultrasound, MRI, CT.</p></div>
           </div>
+          <!-- laboratory tests -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-indigo-100" style="background-image: url('https://images.unsplash.com/photo-1582719508461-905c6734fd3e?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="h-40 lab-img" style="background-image: url('https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-microscope text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Laboratory tests</h3><p class="text-gray-500 text-sm">Hematology, microbiology.</p></div>
           </div>
+          <!-- wellness screenings -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-teal-100" style="background-image: url('https://images.unsplash.com/photo-1666214280391-9ff3b0c4c9ab?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="h-40 wellness-img" style="background-image: url('https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-spa text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Wellness screenings</h3><p class="text-gray-500 text-sm">Executive checkup, wellman.</p></div>
           </div>
+          <!-- specialized diagnostics -->
           <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
-            <div class="h-40 bg-blue-100" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="h-40 specialized-img" style="background-image: url('https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
             <div class="p-5"><i class="fas fa-dna text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Specialized</h3><p class="text-gray-500 text-sm">Allergy, hormonal, genetic.</p></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CONTACT section with exact address & hours (Surulere) ===== -->
+    <!-- ===== CONTACT section with exact address & hours ===== -->
     <section id="contact" class="scroll-mt-20 py-16 bg-gradient-to-b from-white to-blue-50">
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
         <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Connect with us</h2>
@@ -255,21 +311,5 @@
     <span class="font-medium text-sm sm:text-base">Need Help? Chat with us</span>
     <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic" target="_blank" class="absolute inset-0"></a>
   </div>
-
-  <!-- ensure mobile menu closes when clicking outside? optional but fine -->
-  <script>
-    (function() {
-      const menuToggle = document.getElementById('menu-toggle');
-      // close menu when any mobile link clicked (already via onclick)
-      // also close if click outside (optional for better UX)
-      window.addEventListener('click', function(e) {
-        const isLabel = e.target.closest('label[for="menu-toggle"]');
-        const isPanel = e.target.closest('#mobile-menu-panel');
-        if (!isLabel && !isPanel && menuToggle.checked) {
-          menuToggle.checked = false;
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
