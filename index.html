@@ -3,46 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Touchstone Diagnostic · Advanced care · Lagos</title>
-  <!-- SEO meta (powerful phrases) -->
-  <meta name="description" content="Touchstone Diagnostic: reliable, fast & affordable cardiovascular health, cancer prevention, diabetes wellness, fertility screening, imaging & lab services in Badagry. Same‑day results.">
-  <meta name="keywords" content="cardiovascular health screening Nigeria, cancer prevention Lagos, diabetes wellness check, fertility screening Badagry, affordable ultrasound, laboratory tests, wellness diagnostics">
-  <!-- Tailwind + inter -->
+  <title>Touchstone Diagnostic · Surulere · 24hr lab & imaging</title>
+  <!-- SEO core -->
+  <meta name="description" content="Touchstone Diagnostic in Surulere, Lagos: 24/7 reliable, fast & affordable cardiovascular health, cancer prevention, diabetes wellness, fertility screening, imaging & lab services. Open 24 hours daily.">
+  <meta name="keywords" content="Best Diagnostic Center Surulere, 24 hour medical lab Lagos, affordable ultrasound Lagos, fertility screening Nigeria, cardiovascular health screening, cancer prevention, diabetes wellness">
+  <!-- Tailwind + Inter + Font Awesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-  <!-- font awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { font-family: 'Inter', system-ui, sans-serif; }
     html { scroll-behavior: smooth; }
-    /* subtle medical tint */
-    .bg-subtle { background-color: #f4f9fc; }
-    .text-whisper { color: #2b4b6f; }
-    /* mobile menu animation */
-    .mobile-nav { transition: all 0.25s ease-in-out; }
-    .whatsapp-float { transition: transform 0.2s; }
-    .whatsapp-float:hover { transform: scale(1.1); }
-    /* footer & whatsapp don't disturb each other */
-    footer { position: relative; z-index: 10; }
-    .whatsapp-float { z-index: 50; }
+    .bg-subtle { background-color: #f5fafd; }
+    .mobile-nav { transition: all 0.25s ease; }
+    .whatsapp-float { transition: transform 0.2s; z-index: 50; }
+    .whatsapp-float:hover { transform: scale(1.05); }
+    /* microscope image blend */
+    .microscope-blend {
+      background: linear-gradient(145deg, #e1eefb 0%, #c9e2f5 100%);
+      border-radius: 2.5rem 2.5rem 2.5rem 2.5rem;
+      box-shadow: 20px 25px 40px -15px rgba(0,67,126,0.25);
+      padding: 1.2rem;
+    }
+    .microscope-blend img {
+      mix-blend-mode: multiply;
+      filter: contrast(1.02) brightness(1.02);
+      border-radius: 2rem;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    footer a:hover { color: #9fc5ff; }
   </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-  <!-- hidden checkbox for hamburger toggle -->
+  <!-- hidden checkbox for hamburger -->
   <input type="checkbox" id="menu-toggle" class="hidden peer">
 
   <!-- ===== STICKY HEADER with logo + three‑dash ===== -->
-  <header class="sticky top-0 bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm z-40">
+  <header class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm z-40">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
-      <!-- Left: logo + name exactly as described (icon from uploaded) -->
+      <!-- left: logo + name -->
       <div class="flex items-center gap-3">
-        <!-- icon: heartbeat + hand concept (we use stethoscope / medical icon) -->
         <i class="fas fa-heartbeat text-3xl text-blue-700 bg-blue-50 p-2 rounded-2xl"></i>
         <span class="font-bold text-2xl tracking-tight text-gray-800">Touchstone <span class="font-light text-blue-700">Diagnostic</span></span>
       </div>
 
-      <!-- desktop nav (hidden on mobile) -->
+      <!-- desktop nav -->
       <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
         <a href="#home" class="hover:text-blue-700 transition">Home</a>
         <a href="#about" class="hover:text-blue-700 transition">About</a>
@@ -50,13 +58,13 @@
         <a href="#contact" class="hover:text-blue-700 transition">Contact</a>
       </nav>
 
-      <!-- three‑dash hamburger (only mobile) + label for toggle -->
+      <!-- three‑dash hamburger (mobile) -->
       <label for="menu-toggle" class="md:hidden block cursor-pointer p-2 hover:bg-gray-100 rounded-xl">
         <i class="fas fa-bars text-2xl text-gray-700"></i>
       </label>
     </div>
 
-    <!-- MOBILE DROPDOWN (peers to checkbox) -->
+    <!-- MOBILE MENU (peers) -->
     <div class="hidden peer-checked:block md:hidden bg-white border-t border-gray-200 px-5 py-4 shadow-lg mobile-nav">
       <nav class="flex flex-col gap-4 text-lg font-medium">
         <a href="#home" class="py-2 border-b border-gray-100" onclick="document.getElementById('menu-toggle').checked = false;">🏠 Home</a>
@@ -71,170 +79,139 @@
     <!-- ===== HOME section (hero) ===== -->
     <section id="home" class="scroll-mt-20">
       <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-10 pb-16 md:py-20 grid md:grid-cols-2 gap-12 items-center">
-        <!-- left: powerful headline & description -->
+        <!-- left headline -->
         <div>
-          <div class="inline-block bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"><i class="fas fa-flask mr-2"></i>ISO‑certified · 24/7 service</div>
+          <div class="inline-block bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6"><i class="fas fa-flask mr-2"></i>24/7 · Surulere, Lagos</div>
           <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-6">
             Precision diagnostics for a <span class="text-blue-700">healthier tomorrow</span>
           </h1>
           <p class="text-lg text-gray-600 mb-8 max-w-xl">
-            <span class="font-semibold text-gray-800">Reliable, fast, and affordable</span> — cardiovascular screening, cancer prevention, fertility, imaging & lab services in Badagry. Same‑day results, compassionate care.
+            <span class="font-semibold text-gray-800">Reliable, fast & affordable</span> — cardiovascular screening, cancer prevention, fertility, imaging & lab services. Open 24 hours daily.
           </p>
           <div class="flex flex-wrap gap-4">
-            <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-medium px-7 py-3 rounded-full shadow-md transition flex items-center gap-2"><i class="fas fa-calendar-check"></i> Book a test</a>
-            <a href="#diagnostics" class="border-2 border-blue-700 text-blue-700 hover:bg-blue-50 px-7 py-3 rounded-full font-medium transition flex items-center gap-2"><i class="fas fa-microscope"></i> View services</a>
+            <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-medium px-7 py-3 rounded-full shadow-md transition flex items-center gap-2"><i class="fas fa-calendar-check"></i> Book an appointment</a>
+            <a href="#diagnostics" class="border-2 border-blue-700 text-blue-700 hover:bg-blue-50 px-7 py-3 rounded-full font-medium transition flex items-center gap-2"><i class="fas fa-microscope"></i> View test menu</a>
           </div>
         </div>
-        <!-- right: image capturing functionality (diagnostic center) -->
+        <!-- right: hero image -->
         <div class="bg-blue-50/70 rounded-3xl p-4 shadow-xl">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23bfdbfe'/%3E%3Ccircle cx='300' cy='170' r='60' fill='%233b82f6' opacity='0.5'/%3E%3Cpath d='M190 260 L280 180 L360 240 L450 150' stroke='%231e3a8a' stroke-width='5' fill='none' stroke-dasharray='8 6'/%3E%3Ctext x='180' y='300' font-size='26' fill='%23000' font-weight='bold'%3E🔬 modern lab%3C/text%3E%3Ctext x='180' y='350' font-size='22' fill='%233b82f6'%3E24/7 imaging%3C/text%3E%3C/svg%3E"
-               alt="Touchstone Diagnostic modern lab and imaging" class="rounded-2xl w-full h-auto object-cover">
-          <!-- subtle badge -->
-          <div class="flex justify-end mt-3 gap-3 text-sm text-gray-600"><i class="fas fa-check-circle text-blue-600"></i> Radiology & lab on site</div>
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23bfdbfe'/%3E%3Ccircle cx='300' cy='170' r='60' fill='%233b82f6' opacity='0.5'/%3E%3Cpath d='M190 260 L280 180 L360 240 L450 150' stroke='%231e3a8a' stroke-width='5' fill='none' stroke-dasharray='8 6'/%3E%3Ctext x='180' y='300' font-size='26' fill='%23000' font-weight='bold'%3E🔬 24hr lab%3C/text%3E%3Ctext x='180' y='350' font-size='22' fill='%233b82f6'%3EImaging & radiology%3C/text%3E%3C/svg%3E"
+               alt="Touchstone Diagnostic modern lab" class="rounded-2xl w-full h-auto">
+          <div class="flex justify-end mt-3 gap-3 text-sm text-gray-600"><i class="fas fa-check-circle text-blue-600"></i> 66 Ogunlana Dr, Surulere</div>
         </div>
       </div>
     </section>
 
-    <!-- ===== ABOUT us section ===== -->
+    <!-- ===== ABOUT us section with beautiful microscope image blending ===== -->
     <section id="about" class="scroll-mt-20 bg-subtle py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
         <div class="max-w-3xl mx-auto text-center mb-12">
           <span class="text-blue-700 font-semibold tracking-wider text-sm uppercase">our vision</span>
           <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">Where precision meets empathy</h2>
         </div>
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-md border border-gray-100">
-          <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
-            At <strong class="text-blue-700">Touchstone Diagnostic</strong>, we specialize in delivering <span class="bg-blue-50 px-2 py-1 font-semibold">reliable, fast and affordable</span> diagnostic services including:
-          </p>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 my-10">
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-heart-circle text-blue-600 text-xl"></i> Cardiovascular health</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-ribbon text-blue-600 text-xl"></i> Cancer prevention</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-droplet text-blue-600 text-xl"></i> Diabetes wellness</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-venus-mars text-blue-600 text-xl"></i> Fertility screening</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-x-ray text-blue-600 text-xl"></i> Imaging & radiology</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-microscope text-blue-600 text-xl"></i> Laboratory tests</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-spa text-blue-600 text-xl"></i> Wellness screenings</div>
-            <div class="bg-blue-50 p-4 rounded-2xl flex items-center gap-3"><i class="fas fa-dna text-blue-600 text-xl"></i> Specialized diagnostics</div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- left side: powerful about text with all services -->
+          <div class="bg-white p-8 rounded-3xl shadow-md border border-gray-100">
+            <p class="text-xl text-gray-700 leading-relaxed mb-6">
+              At <strong class="text-blue-700">Touchstone Diagnostic</strong> (Surulere, Lagos), we set the gold standard for clinical precision. We specialize in:
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-heart-circle text-blue-600"></i> <span class="text-sm font-medium">Cardiovascular health</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-ribbon text-blue-600"></i> <span class="text-sm font-medium">Cancer prevention</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-droplet text-blue-600"></i> <span class="text-sm font-medium">Diabetes wellness</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-venus-mars text-blue-600"></i> <span class="text-sm font-medium">Fertility screening</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-x-ray text-blue-600"></i> <span class="text-sm font-medium">Imaging & radiology</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-microscope text-blue-600"></i> <span class="text-sm font-medium">Laboratory tests</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-spa text-blue-600"></i> <span class="text-sm font-medium">Wellness screenings</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-dna text-blue-600"></i> <span class="text-sm font-medium">Specialized diagnostics</span></div>
+            </div>
+            <p class="text-gray-600 border-l-4 border-blue-300 pl-4 italic text-sm">Accurate diagnosis is the touchstone of effective treatment — we deliver 24/7.</p>
           </div>
-          <p class="text-gray-600 text-lg border-l-4 border-blue-300 pl-6 italic">
-            “We believe accurate diagnosis is the cornerstone of effective treatment — your health is our touchstone.”
-          </p>
+
+          <!-- right side: beautiful microscope image (blended) -->
+          <div class="microscope-blend">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='450' viewBox='0 0 600 450'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2390c6f0'/%3E%3Cstop offset='100%25' stop-color='%23d3e9fc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='450' fill='url(%23g)'/%3E%3C!-- beautiful microscope vector --%3E%3Ccircle cx='280' cy='190' r='45' fill='%23333333' opacity='0.2'/%3E%3Ccircle cx='280' cy='170' r='38' fill='%23555555' /%3E%3Ccircle cx='280' cy='170' r='30' fill='%23eeeeee' /%3E%3Ccircle cx='280' cy='170' r='20' fill='%2390c6f0' /%3E%3C!-- arm --%3E%3Crect x='310' y='170' width='110' height='20' rx='10' fill='%23444444' /%3E%3Crect x='390' y='140' width='30' height='80' rx='8' fill='%23333' /%3E%3C!-- eyepiece --%3E%3Ccircle cx='420' cy='120' r='22' fill='%23666' /%3E%3Ccircle cx='420' cy='120' r='15' fill='%23bbd8f7' /%3E%3C!-- stage --%3E%3Crect x='200' y='250' width='180' height='25' rx='12' fill='%235a5a5a' /%3E%3Crect x='260' y='220' width='60' height='40' rx='6' fill='%234a4a4a' /%3E%3C!-- slide with specimen --%3E%3Crect x='270' y='230' width='40' height='15' fill='%23b0d4f0' /%3E%3Ccircle cx='290' cy='237' r='4' fill='%23aa4f4f' /%3E%3Ccircle cx='300' cy='242' r='3' fill='%234b7bb3' /%3E%3Ctext x='220' y='320' font-size='28' fill='%23002b4f' font-weight='bold'%3E🔬 modern optics%3C/text%3E%3Ctext x='220' y='370' font-size='22' fill='%23002b4f'%3Eprecision microscopy%3C/text%3E%3C/svg%3E"
+                 alt="High‑precision microscope at Touchstone Diagnostic" class="w-full h-auto">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== DIAGNOSTICS section (services list) ===== -->
+    <!-- ===== DIAGNOSTICS section (services grid) ===== -->
     <section id="diagnostics" class="scroll-mt-20 py-16 md:py-24 bg-white">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
         <div class="text-center mb-14">
           <span class="text-blue-700 font-semibold text-sm uppercase tracking-wider">comprehensive menu</span>
           <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">Diagnostics we offer</h2>
-          <p class="text-gray-500 max-w-2xl mx-auto mt-4">SEO‑optimized categories — every test designed for precision & early detection</p>
+          <p class="text-gray-500 max-w-2xl mx-auto mt-4">24/7 availability · ISO‑aligned processes · Surulere</p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Card 1 : cardio -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-heart-pulse text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Cardiovascular health</h3>
-            <p class="text-gray-500 text-sm">ECG, stress test, lipid profile, holter monitoring.</p>
-          </div>
-          <!-- 2 : cancer prevention -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-ribbon text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Cancer prevention</h3>
-            <p class="text-gray-500 text-sm">Tumor markers, Pap smear, low‑dose CT, genetic risk.</p>
-          </div>
-          <!-- 3 : diabetes wellness -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-droplet text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Diabetes wellness</h3>
-            <p class="text-gray-500 text-sm">HbA1c, glucose tolerance, insulin resistance, foot check.</p>
-          </div>
-          <!-- 4 : fertility screening -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-venus-mars text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Fertility screening</h3>
-            <p class="text-gray-500 text-sm">Hormone panels, semen analysis, pelvic ultrasound.</p>
-          </div>
-          <!-- 5 : imaging & radiology -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-x-ray text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Imaging & radiology</h3>
-            <p class="text-gray-500 text-sm">X‑ray, ultrasound, MRI, CT scan, mammography.</p>
-          </div>
-          <!-- 6 : laboratory tests -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-microscope text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Laboratory tests</h3>
-            <p class="text-gray-500 text-sm">Hematology, microbiology, immunology, chemistry.</p>
-          </div>
-          <!-- 7 : wellness screenings -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-spa text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Wellness screenings</h3>
-            <p class="text-gray-500 text-sm">Executive checkup, annual physical, wellwoman/wellman.</p>
-          </div>
-          <!-- 8 : specialized diagnostics -->
-          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white">
-            <i class="fas fa-dna text-3xl text-blue-600 mb-4"></i>
-            <h3 class="text-xl font-bold mb-2">Specialized diagnostics</h3>
-            <p class="text-gray-500 text-sm">Allergy, hormonal, genetic, infectious disease.</p>
-          </div>
+          <!-- card 1-8 exactly as before but with updated subtlety -->
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-heart-pulse text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Cardiovascular health</h3><p class="text-gray-500 text-sm">ECG, stress test, lipid profile, holter.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-ribbon text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Cancer prevention</h3><p class="text-gray-500 text-sm">Tumor markers, Pap, low‑dose CT.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-droplet text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Diabetes wellness</h3><p class="text-gray-500 text-sm">HbA1c, glucose tolerance, insulin.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-venus-mars text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Fertility screening</h3><p class="text-gray-500 text-sm">Hormone panels, semen analysis.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-x-ray text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Imaging & radiology</h3><p class="text-gray-500 text-sm">X‑ray, ultrasound, MRI, CT.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-microscope text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Laboratory tests</h3><p class="text-gray-500 text-sm">Hematology, microbiology, immunology.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-spa text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Wellness screenings</h3><p class="text-gray-500 text-sm">Executive checkup, wellman/wellwoman.</p></div>
+          <div class="border border-gray-200 rounded-3xl p-6 hover:shadow-xl transition bg-white"><i class="fas fa-dna text-3xl text-blue-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Specialized diagnostics</h3><p class="text-gray-500 text-sm">Allergy, hormonal, genetic.</p></div>
         </div>
-        <!-- additional SEO text -->
-        <p class="text-center text-gray-500 mt-10 text-sm">24‑hour medical lab in Badagry · affordable ultrasound · fertility screening Nigeria</p>
       </div>
     </section>
 
-    <!-- ===== CONTACT section (exact as 1st image) ===== -->
+    <!-- ===== CONTACT section with EXACT address & hours as provided ===== -->
     <section id="contact" class="scroll-mt-20 py-16 bg-blue-50">
-      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
         <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Connect with us</h2>
 
-        <!-- three‑column exactly like "Give us a call / Send us a Message / Visit our Location" -->
+        <!-- three columns with contact, message, location (1st image style) -->
         <div class="grid md:grid-cols-3 gap-8 bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-blue-100">
           <!-- column 1: call -->
           <div class="text-center md:text-left flex flex-col items-center md:items-start">
             <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fas fa-phone-alt text-2xl"></i></div>
             <h3 class="text-xl font-bold text-gray-800 mb-2">Give us a call</h3>
-            <!-- tel links – click to call -->
-            <a href="tel:+2348166620737" class="text-blue-700 text-lg font-medium hover:underline block">+234 816 662 0737</a>
-            <a href="tel:+2349015650017" class="text-blue-700 text-lg font-medium hover:underline block">+234 901 565 0017</a>
-            <p class="text-gray-500 text-sm mt-2">24/7 support</p>
+            <a href="tel:+2349018888143" class="text-blue-700 text-lg font-medium hover:underline block">0901 888 8143</a>
+            <p class="text-gray-500 text-sm mt-2">24/7 hotline</p>
           </div>
-          <!-- column 2: message (direct whatsapp) -->
+          <!-- column 2: message (direct whatsapp) using same number -->
           <div class="text-center md:text-left flex flex-col items-center md:items-start">
             <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fab fa-whatsapp text-2xl"></i></div>
             <h3 class="text-xl font-bold text-gray-800 mb-2">Send us a Message</h3>
-            <!-- WhatsApp link (direct chat) using first number but both appear -->
-            <a href="https://wa.me/2348166620737?text=Hello%20Touchstone%20Diagnostic%2C%20I%20need%20more%20information" target="_blank" class="text-green-600 text-lg font-medium hover:underline block">+234 816 662 0737 <i class="fab fa-whatsapp ml-1"></i></a>
-            <a href="https://wa.me/2349015650017?text=Hello%20Touchstone%20Diagnostic" target="_blank" class="text-green-600 text-sm font-medium hover:underline block mt-1">+234 901 565 0017 (also WhatsApp)</a>
-            <p class="text-gray-500 text-sm mt-2">quick response</p>
+            <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic%2C%20I%20need%20assistance" target="_blank" class="text-green-600 text-lg font-medium hover:underline block">0901 888 8143 <i class="fab fa-whatsapp ml-1"></i></a>
+            <p class="text-gray-500 text-sm mt-2">chat via WhatsApp</p>
           </div>
-          <!-- column 3: location with map link -->
+          <!-- column 3: location with full address & hours as provided -->
           <div class="text-center md:text-left flex flex-col items-center md:items-start">
             <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fas fa-map-pin text-2xl"></i></div>
             <h3 class="text-xl font-bold text-gray-800 mb-2">Visit our Location</h3>
-            <!-- google map link (click address open maps) -->
-            <a href="https://maps.google.com/?q=White+House+Moshalashi+St+Mowo+Badagry" target="_blank" class="text-blue-700 hover:underline text-md font-medium">
-              White House, Moshalashi St,<br>Mowo, Badagry
+            <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank" class="text-blue-700 hover:underline text-md font-medium">
+              66 Ogunlana Dr, Surulere,<br>Lagos 101283, G932+HH Lagos
             </a>
-            <p class="text-gray-500 text-sm mt-2">Mon–Sun: 8am – 8pm</p>
+            <!-- hours exactly as provided: open 24 hours each day -->
+            <div class="mt-3 text-xs text-gray-600 space-y-1">
+              <p><span class="font-semibold">Sunday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Monday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Tuesday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Wednesday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Thursday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Friday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Saturday:</span> Open 24 hours</p>
+            </div>
           </div>
         </div>
 
-        <!-- subtle hint of additional numbers from uploaded? we use exactly the first image numbers -->
-        <p class="text-center text-gray-600 mt-8 text-sm"><i class="fas fa-clock text-blue-600 mr-2"></i>Open 24 hours for emergencies</p>
+        <!-- extra note of 24/7 -->
+        <p class="text-center text-gray-600 mt-8 text-sm"><i class="fas fa-clock text-blue-600 mr-2"></i>Open 24 hours every day · 0901 888 8143</p>
       </div>
     </section>
 
-    <!-- ===== FOOTER exact as 2nd image ===== -->
+    <!-- ===== FOOTER (2nd image style) ===== -->
     <footer class="bg-gray-900 text-white py-8">
       <div class="max-w-7xl mx-auto px-5 sm:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-6">
           <p class="text-sm text-gray-300">© 2026 Lighthouse Diagnostics Ltd. All Rights Reserved.</p>
-          <!-- nav links exactly "Home   About Us   Contact Us" -->
           <div class="flex gap-8 text-sm font-medium text-gray-200 mt-4 md:mt-0">
             <a href="#home" class="hover:text-white transition">Home</a>
             <a href="#about" class="hover:text-white transition">About Us</a>
@@ -242,42 +219,31 @@
           </div>
         </div>
         <div class="pt-5 text-xs text-gray-500 text-center md:text-left">
-          Touchstone Diagnostic – precision, empathy & 24/7 service in Badagry.
+          Touchstone Diagnostic – 66 Ogunlana Dr, Surulere, Lagos 101283 · 24/7 precision diagnostics.
         </div>
       </div>
     </footer>
   </main>
 
-  <!-- ===== WHATSAPP floating button exactly as 3rd image: "Need Help? Chat with us" ===== -->
-  <div class="whatsapp-float fixed bottom-6 right-6 flex items-center gap-3 bg-green-600 text-white pl-4 pr-5 py-3 rounded-full shadow-xl hover:bg-green-700 transition-all cursor-pointer group z-50">
+  <!-- ===== WHATSAPP floating button "Need Help? Chat with us" (3rd image) ===== -->
+  <div class="whatsapp-float fixed bottom-6 right-6 flex items-center gap-3 bg-green-600 text-white pl-4 pr-5 py-3 rounded-full shadow-xl hover:bg-green-700 transition-all cursor-pointer">
     <i class="fab fa-whatsapp text-2xl"></i>
     <span class="font-medium text-sm sm:text-base">Need Help? Chat with us</span>
-    <!-- direct link hidden but wraps whole div as clickable -->
-    <a href="https://wa.me/2348166620737?text=Hello%20Touchstone%20Diagnostic%2C%20I%20have%20a%20question" target="_blank" class="absolute inset-0"></a>
+    <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic%2C%20I%20have%20a%20question" target="_blank" class="absolute inset-0"></a>
   </div>
 
-  <!-- tiny script to close mobile menu on anchor click (already inline) but also toggle off after click -->
+  <!-- script to close mobile menu on link click -->
   <script>
     (function() {
       const menuToggle = document.getElementById('menu-toggle');
       const mobileLinks = document.querySelectorAll('.mobile-nav a');
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle.checked = false;
-        });
-      });
-
-      // Optional: close if click outside (just bonus)
-      window.addEventListener('click', function(e) {
+      mobileLinks.forEach(link => link.addEventListener('click', () => { menuToggle.checked = false; }));
+      window.addEventListener('click', (e) => {
         const isLabel = e.target.closest('label[for="menu-toggle"]');
         const isMobileNav = e.target.closest('.mobile-nav');
-        if (!isLabel && !isMobileNav && menuToggle.checked) {
-          menuToggle.checked = false;
-        }
+        if (!isLabel && !isMobileNav && menuToggle.checked) menuToggle.checked = false;
       });
     })();
   </script>
-
-  <!-- ensure that any click on whatsapp float anchor works; absolute wrapper covers all -->
 </body>
 </html>
