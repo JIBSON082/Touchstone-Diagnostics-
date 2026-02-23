@@ -225,9 +225,10 @@
       text-decoration: none;
     }
 
-    /* hero */
+    /* hero - with improved image blending */
     .hero {
       padding: 2rem 0 3rem;
+      background: linear-gradient(115deg, #ffffff 50%, rgba(0,119,190,0.02) 100%);
     }
     .hero .container {
       display: flex;
@@ -316,11 +317,26 @@
       background: var(--navy);
       color: white;
     }
+    
+    /* IMPROVED HERO IMAGE BLENDING */
     .hero-image {
       flex: 1;
       border-radius: 2rem;
       overflow: hidden;
       box-shadow: 0 30px 40px -20px var(--navy);
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(0,33,71,0.1) 0%, rgba(0,119,190,0.1) 100%);
+      pointer-events: none;
+      z-index: 1;
     }
     .hero-image img {
       width: 100%;
@@ -328,9 +344,13 @@
       display: block;
       object-fit: cover;
       aspect-ratio: 4/3;
+      transition: transform 0.3s ease;
+    }
+    .hero-image:hover img {
+      transform: scale(1.02);
     }
 
-    /* about section with image */
+    /* about section with improved image blending */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -343,17 +363,50 @@
         align-items: center;
       }
     }
+    
+    /* IMPROVED ABOUT IMAGE BLENDING */
     .about-image {
       border-radius: 2rem;
       overflow: hidden;
       box-shadow: 0 30px 40px -20px var(--navy);
+      position: relative;
+      border: 1px solid rgba(0,119,190,0.2);
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,33,71,0.08) 0%, rgba(0,119,190,0.08) 100%);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 2rem;
+    }
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 1.5rem;
+      pointer-events: none;
+      z-index: 2;
     }
     .about-image img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
+      transition: transform 0.4s ease;
     }
+    .about-image:hover img {
+      transform: scale(1.03);
+    }
+    
     .about-text p {
       font-size: 1.1rem;
       color: #2d3f53;
@@ -672,14 +725,14 @@
     </div>
   </header>
 
-  <!-- hero with new cinematic image and updated copy -->
+  <!-- hero with improved image blending -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge"><i class="fas fa-flask"></i> The Gold Standard of Clinical Precision</div>
         <h1>Touchstone Diagnostics:</h1>
         <h2>Where Precision Meets Compassion</h2>
-        <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
+        <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence. Located at 66 Ogunlana Drive, we are Lagos's trusted partner for wellness, imaging, and specialized medical testing.</p>
         <div class="hero-buttons">
           <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn btn-primary">Book an Appointment</a>
           <a href="#services" class="btn btn-outline">Explore Services</a>
@@ -694,7 +747,7 @@
     </div>
   </section>
 
-  <!-- about with new microscope image and heartbeat logo -->
+  <!-- about with improved image blending -->
   <section id="about" class="section">
     <div class="container">
       <h2 class="section-title">About Touchstone Diagnostics</h2>
