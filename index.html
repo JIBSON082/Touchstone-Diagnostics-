@@ -3,540 +3,313 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Touchstone Diagnostic · 3D experience</title>
-  <!-- SEO meta (compact) -->
-  <meta name="description" content="Touchstone Diagnostic Surulere: 24/7 cardiovascular, cancer prevention, fertility, imaging & lab services. Cutting-edge 3D experience.">
-
-<link rel="stylesheet" href="style.css">
-
-  <!-- Font & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <title>Touchstone Diagnostic · Surulere · 24hr excellence</title>
+  <!-- SEO meta -->
+  <meta name="description" content="Touchstone Diagnostic in Surulere: 24/7 cardiovascular, cancer prevention, fertility, imaging & lab services. Same-day results, ISO-level care.">
+  <meta name="keywords" content="Best Diagnostic Center Surulere, 24 hour medical lab Lagos, affordable ultrasound Lagos, fertility screening Nigeria">
+  <!-- Tailwind + Inter + Font Awesome 6 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ========== RESET & GLOBAL ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      perspective: 1200px; /* 3D depth base */
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fcfdff;
-      color: #1a2e3f;
-      line-height: 1.5;
-      overflow-x: hidden;
-      width: 100%;
-    }
-    /* ========== CUSTOM ANIMATIONS & 3D ========== */
-    @keyframes floatGlow {
-      0% { transform: translateY(0px) rotateX(0deg) scale(1); filter: brightness(1); }
-      50% { transform: translateY(-8px) rotateX(2deg) scale(1.01); filter: brightness(1.03); box-shadow: 0 40px 50px -20px rgba(0,110,230,0.5); }
-      100% { transform: translateY(0px) rotateX(0deg) scale(1); filter: brightness(1); }
-    }
-    @keyframes cardRise {
-      0% { transform: translateZ(0) rotateY(0deg); box-shadow: 0 20px 30px -15px rgba(0,60,130,0.2); }
-      100% { transform: translateZ(35px) rotateY(2deg) rotateX(1deg); box-shadow: 0 40px 50px -18px rgba(0,100,210,0.5); }
-    }
-    @keyframes softAppear {
-      0% { opacity: 0; transform: translateY(30px) translateZ(-50px) scale(0.95); }
-      100% { opacity: 1; transform: translateY(0) translateZ(0) scale(1); }
-    }
-    .section-3d {
-      animation: softAppear 1s ease-out forwards;
-      transform-style: preserve-3d;
-      transition: all 0.3s;
-    }
-    .hover-3d {
-      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s;
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-    }
-    .hover-3d:hover {
-      transform: translateZ(28px) rotateX(1.2deg) rotateY(1deg) scale(1.02);
-      box-shadow: 0 45px 60px -20px rgba(0,88,179,0.5);
-    }
-    .card-float {
-      animation: floatGlow 5s infinite ease-in-out;
-      transform-style: preserve-3d;
-    }
-    /* global section style */
-    section {
-      padding: 5rem 1.5rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      transform-style: preserve-3d;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(145deg, #002147, #0165ad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.5rem;
-      transform: translateZ(20px);
-    }
-    /* header */
-    .sticky-header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,99,199,0.15);
-      z-index: 100;
-      padding: 0.8rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 10px 30px -10px rgba(0,60,130,0.2);
-      transform-style: preserve-3d;
-      transform: translateZ(30px);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo i {
-      font-size: 2.4rem;
-      color: #0077be;
-      filter: drop-shadow(0 5px 12px rgba(0,119,190,0.4));
-      transform: translateZ(15px);
-    }
-    .logo span {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #002147;
-    }
-    .nav a {
-      margin-left: 2.2rem;
-      text-decoration: none;
-      font-weight: 500;
-      color: #002147;
-      position: relative;
-      transition: 0.2s;
-    }
-    .nav a:hover {
-      color: #0077be;
-      transform: translateZ(12px);
-    }
-    /* hero (ONLY SECTION WITH IMAGE) */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      padding-top: 2rem;
-      padding-bottom: 4rem;
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      color: #002147;
-    }
-    .hero .highlight {
-      color: #0077be;
-      border-bottom: 4px solid #0077be;
-      display: inline-block;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #2b4a5e;
-      margin: 1.8rem 0;
-    }
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-    }
-    .btn {
-      background: #0077be;
-      color: white;
-      padding: 0.9rem 2rem;
-      border-radius: 3rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 15px 25px -8px #0077be70;
-      transition: 0.2s;
-      transform-style: preserve-3d;
-    }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #002147;
-      color: #002147;
-      box-shadow: none;
-    }
-    .btn:hover {
-      transform: translateZ(25px) scale(1.06);
-      box-shadow: 0 30px 35px -10px #00214780;
-    }
-    /* HERO IMAGE — the only image in the whole site */
-    .hero-image {
-      width: 100%;
-      height: 400px;
-      background-image: url('https://cdn.pixabay.com/photo/2019/07/23/06/49/microscope-4357000_1280.jpg');
-      background-size: cover;
-      background-position: center 20%;
-      border-radius: 3rem 3rem 3rem 3rem;
-      box-shadow: 0 40px 60px -15px #00214780, 0 0 0 2px rgba(255,255,255,0.5) inset;
-      transform: rotateY(3deg) rotateX(2deg) translateZ(35px);
-      transition: 0.4s;
-      animation: floatGlow 7s infinite;
-    }
-    .hero-image:hover {
-      transform: rotateY(1deg) rotateX(0deg) translateZ(60px) scale(1.01);
-    }
-    /* about section 3d grid */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .glass-card {
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(0,119,190,0.2);
-      border-radius: 2.8rem;
-      padding: 2.5rem;
-      box-shadow: 0 35px 50px -25px #012754;
-      transform: translateZ(25px) rotateX(0.5deg);
-      transition: all 0.3s;
-    }
-    .glass-card:hover {
-      transform: translateZ(45px) rotateX(0.8deg) rotateY(0.6deg);
-      box-shadow: 0 55px 70px -25px #0165ad;
-    }
-    .pill-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .pill {
-      background: #e3f0ff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 4rem;
-      font-weight: 500;
-      font-size: 0.9rem;
-      color: #002147;
-      box-shadow: 0 8px 12px -6px #b3d6ff;
-      transform: translateZ(10px);
-    }
-    /* diagnostics grid 3d cards */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .service-card {
-      background: white;
-      border-radius: 2.5rem;
-      padding: 2rem 1.5rem;
-      border: 1px solid rgba(0,100,200,0.15);
-      box-shadow: 0 25px 35px -18px #002147;
-      transform-style: preserve-3d;
-      transition: transform 0.25s, box-shadow 0.3s;
-      text-align: center;
-      animation: cardRise 5s infinite alternate ease-in-out;
-      transform-origin: center;
-    }
-    .service-card i {
-      font-size: 2.6rem;
-      color: #0077be;
-      filter: drop-shadow(0 8px 12px #7ab9e6);
-      margin-bottom: 1rem;
-      transform: translateZ(25px);
-    }
-    .service-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #002147;
-    }
-    .service-card p {
-      color: #3a5668;
-      transform: translateZ(12px);
-    }
-    /* contact section with instagram */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(8px);
-      border-radius: 3.5rem;
-      padding: 3rem;
-      border: 1px solid rgba(0,119,190,0.3);
-      transform: rotateX(1deg) translateZ(30px);
-      box-shadow: 0 55px 70px -35px #002147;
-    }
-    .contact-item {
-      text-align: center;
-      transform-style: preserve-3d;
-      transition: 0.2s;
-    }
-    .contact-item:hover {
-      transform: translateZ(45px) scale(1.07);
-    }
-    .contact-item .icon {
-      font-size: 3rem;
-      background: linear-gradient(145deg, #e6f2ff, #ffffff);
-      width: 90px;
-      height: 90px;
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      box-shadow: 0 35px 40px -20px #002147;
-    }
-    .instagram a {
-      color: #d62976;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.3rem;
-    }
-    .instagram a i {
-      margin-right: 8px;
-    }
-    /* footer */
-    footer {
-      background: #002147;
-      color: white;
-      border-radius: 4rem 4rem 0 0;
-      padding: 3rem 2rem;
-      margin-top: 3rem;
-      transform: translateZ(20px);
-      box-shadow: 0 -30px 50px -20px #001433;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    .footer-inner a {
-      color: #bbdbff;
-      text-decoration: none;
-    }
-    /* responsiveness */
-    @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      h2 { font-size: 2.2rem; }
-      .nav { display: none; } /* mobile menu hidden, but kept minimal */
-    }
-    /* 3d elements everywhere */
-    .section-3d, .hover-3d, .glass-card, .service-card, .contact-item, .btn, .hero-image {
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-    }
-    /* whatsapp float */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: #25D366;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      color: white;
-      box-shadow: 0 30px 40px -10px #075e54;
-      z-index: 99;
-      transform: translateZ(90px) rotate(2deg);
-      animation: floatGlow 4s infinite;
-    }
-    .whatsapp-float a {
-      color: white;
-    }
-    /* three dash – simple, but we don't need extra js; just styling */
-    .mobile-menu-icon {
-      display: none;
-      font-size: 2rem;
-      color: #002147;
-    }
-    @media (max-width: 800px) {
-      .mobile-menu-icon {
-        display: block;
-        cursor: pointer;
-      }
-      .nav-links-mobile {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        background: white;
-        padding: 1.5rem;
-        border-radius: 2rem;
-        margin-top: 1rem;
-        box-shadow: 0 40px 50px -20px #002147;
-        transform: translateZ(50px);
-      }
-      .nav-links-mobile a {
-        color: #002147;
-        text-decoration: none;
-        font-weight: 600;
-      }
-    }
-    .no-js-menu { display: none; } /* hidden by default – we show via checkbox later */
-    /* we include a tiny checkbox hack for the dash, but no actual js file */
-    #dash-toggle { display: none; }
-    #dash-toggle:checked ~ .mobile-dash-menu { display: flex; }
-    .mobile-dash-menu {
-      display: none;
-      flex-direction: column;
-      background: white;
-      padding: 1.5rem;
+    * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    /* premium image styling */
+    .image-glow {
+      box-shadow: 0 25px 40px -15px rgba(0,79,148,0.35);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       border-radius: 2rem;
-      margin: 0.5rem 1.5rem 0;
-      box-shadow: 0 40px 55px -25px #002147;
-      transform: translateZ(60px);
+    }
+    .image-glow:hover {
+      transform: scale(1.02);
+      box-shadow: 0 35px 50px -15px rgba(0,99,178,0.45);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+      border: 1px solid #eef2f6;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -18px rgba(0,118,190,0.3);
+      border-color: #b9d9f0;
+    }
+    
+    /* three‑dash menu functional */
+    #menu-toggle { display: none; }
+    #mobile-menu-panel {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+      background: white;
+      border-top: 1px solid #eaeff5;
+    }
+    #menu-toggle:checked ~ #mobile-menu-panel {
+      max-height: 350px;   /* enough for menu items */
+      opacity: 1;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    
+    .whatsapp-float { z-index: 50; transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    
+    /* beautiful image assets from Pexels / Pixabay style (high‑res, free) — direct links to truly aesthetic medical photos */
+    .hero-main-img {
+      background-image: url('https://images.pexels.com/photos/7088532/pexels-photo-7088532.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+      background-size: cover; background-position: center 30%;
+    }
+    .microscope-img {
+      background-image: url('https://cdn.pixabay.com/photo/2019/07/23/06/49/microscope-4357000_1280.jpg');
+      background-size: cover; background-position: center 20%;
+    }
+    .labtech-img {
+      background-image: url('https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+      background-size: cover; background-position: center;
+    }
+    .ultrasound-img {
+      background-image: url('https://images.pexels.com/photos/7089032/pexels-photo-7089032.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .xray-img {
+      background-image: url('https://images.pexels.com/photos/8376233/pexels-photo-8376233.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .cardio-img {
+      background-image: url('https://cdn.pixabay.com/photo/2016/11/08/05/26/patient-1807544_1280.jpg');
+    }
+    .lab-img {
+      background-image: url('https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .wellness-img {
+      background-image: url('https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .fertility-img {
+      background-image: url('https://images.pexels.com/photos/5727864/pexels-photo-5727864.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .specialized-img {
+      background-image: url('https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .cancer-img {
+      background-image: url('https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
+    }
+    .diabetes-img {
+      background-image: url('https://images.pexels.com/photos/3683084/pexels-photo-3683084.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop');
     }
   </style>
 </head>
-<body>
-  <!-- tiny checkbox for three-dash (no js) -->
-  <input type="checkbox" id="dash-toggle">
+<body class="bg-white text-gray-800 antialiased">
 
-  <!-- header with three-dash -->
-  <header class="sticky-header">
-    <div class="logo">
-      <i class="fas fa-heartbeat"></i>
-      <span>Touchstone <span style="font-weight:300;">Diagnostic</span></span>
+  <!-- three‑dash checkbox — fully functional -->
+  <input type="checkbox" id="menu-toggle">
+
+  <!-- ===== STICKY HEADER with logo + three‑dash ===== -->
+  <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm z-40">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
+      <!-- left logo + name -->
+      <div class="flex items-center gap-3">
+        <i class="fas fa-heartbeat text-3xl text-blue-700 bg-blue-50 p-2.5 rounded-2xl shadow-sm"></i>
+        <span class="font-bold text-2xl tracking-tight text-gray-800">Touchstone <span class="font-light text-blue-700">Diagnostic</span></span>
+      </div>
+
+      <!-- desktop nav (visible md+) -->
+      <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
+        <a href="#home" class="hover:text-blue-700 transition">Home</a>
+        <a href="#about" class="hover:text-blue-700 transition">About</a>
+        <a href="#diagnostics" class="hover:text-blue-700 transition">Diagnostics</a>
+        <a href="#contact" class="hover:text-blue-700 transition">Contact</a>
+      </nav>
+
+      <!-- three‑dash hamburger (mobile) — label toggles checkbox -->
+      <label for="menu-toggle" class="md:hidden block cursor-pointer p-2 hover:bg-gray-100 rounded-xl transition">
+        <i class="fas fa-bars text-2xl text-gray-700"></i>
+      </label>
     </div>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#diagnostics">Diagnostics</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <label for="dash-toggle" class="mobile-menu-icon"><i class="fas fa-bars"></i></label>
+
+    <!-- MOBILE MENU PANEL — appears when #menu-toggle checked, disappears when unchecked -->
+    <div id="mobile-menu-panel" class="md:hidden bg-white/95 backdrop-blur-sm px-5 shadow-inner">
+      <nav class="flex flex-col gap-5 text-lg font-medium pb-2">
+        <a href="#home" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">🏠 Home</a>
+        <a href="#about" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">📖 About Us</a>
+        <a href="#diagnostics" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">🔬 Diagnostics</a>
+        <a href="#contact" class="py-2 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">📞 Contact Us</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- mobile dash menu (opens when checkbox checked) -->
-  <div class="mobile-dash-menu">
-    <a href="#home" onclick="document.getElementById('dash-toggle').checked=false">🏠 Home</a>
-    <a href="#about" onclick="document.getElementById('dash-toggle').checked=false">📖 About</a>
-    <a href="#diagnostics" onclick="document.getElementById('dash-toggle').checked=false">🔬 Diagnostics</a>
-    <a href="#contact" onclick="document.getElementById('dash-toggle').checked=false">📞 Contact</a>
-  </div>
-
   <main>
-    <!-- HOME / HERO section (only image) -->
-    <section id="home" class="hero container section-3d">
-      <div>
-        <h1>Precision diagnostics <br><span class="highlight">24/7 in Surulere</span></h1>
-        <p>Reliable, fast & affordable — cardiovascular, cancer prevention, fertility, imaging & lab services. Always open.</p>
-        <div class="hero-btns">
-          <a href="#contact" class="btn">📅 Book appointment</a>
-          <a href="#diagnostics" class="btn btn-outline">🔬 View tests</a>
-        </div>
-      </div>
-      <!-- this is the ONLY image used on the entire website -->
-      <div class="hero-image" title="state-of-the-art clinical microscope" role="img" aria-label="Microscope in modern lab"></div>
-    </section>
-
-    <!-- ABOUT section (no image, only 3d glassmorphism) -->
-    <section id="about" class="container section-3d">
-      <h2>About Touchstone</h2>
-      <div class="about-grid">
-        <div class="glass-card hover-3d">
-          <p style="font-size:1.4rem; font-weight:500;">At Touchstone Diagnostic (Surulere, Lagos) we set the gold standard for clinical precision.</p>
-          <div class="pill-group">
-            <span class="pill">🏥 Cardiovascular</span>
-            <span class="pill">🎗️ Cancer prevention</span>
-            <span class="pill">🩸 Diabetes wellness</span>
-            <span class="pill">👶 Fertility</span>
-            <span class="pill">📡 Imaging</span>
-            <span class="pill">🔬 Laboratory</span>
-            <span class="pill">🌿 Wellness</span>
-            <span class="pill">🧬 Specialized</span>
+    <!-- ===== HOME SECTION (hero) ===== -->
+    <section id="home" class="scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+        <!-- left content -->
+        <div>
+          <span class="inline-block bg-blue-600/10 text-blue-800 px-5 py-2 rounded-full text-sm font-semibold mb-6"><i class="fas fa-flask mr-2 text-blue-700"></i>24/7 · Surulere, Lagos</span>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-5">
+            Where precision meets <span class="text-blue-700">compassion</span>
+          </h1>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl">
+            <span class="font-semibold text-gray-800">Reliable, fast & affordable</span> — cardiovascular screening, cancer prevention, fertility, imaging & lab services. Open 24 hours daily.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg transition flex items-center gap-2"><i class="fas fa-calendar-check"></i> Book an appointment</a>
+            <a href="#diagnostics" class="border-2 border-blue-700 text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-full font-medium transition flex items-center gap-2"><i class="fas fa-microscope"></i> View test menu</a>
           </div>
         </div>
-        <div class="glass-card hover-3d" style="background: rgba(0,119,190,0.08);">
-          <i class="fas fa-quote-right" style="font-size:3rem; color:#0077be;"></i>
-          <p class="pill" style="font-size:1.3rem; background:none; padding:1rem 0;">Accurate diagnosis is the touchstone of effective treatment. 24/7 emergency lab.</p>
+        <!-- right: stunning hero image from Pexels (modern lab) -->
+        <div class="hero-main-img w-full h-80 md:h-96 rounded-3xl image-glow shadow-2xl">
+          <div class="w-full h-full bg-black/20 rounded-3xl flex items-end p-6 text-white font-semibold text-xl bg-gradient-to-t from-black/40 via-transparent">Precision diagnostics · 24/7</div>
         </div>
       </div>
     </section>
 
-    <!-- DIAGNOSTICS section (full 3D cards) -->
-    <section id="diagnostics" class="container section-3d">
-      <h2>Specialized diagnostics</h2>
-      <div class="services-grid">
-        <div class="service-card hover-3d"><i class="fas fa-heart-pulse"></i><h3>Cardiovascular</h3><p>ECG, stress test, lipid profile</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-ribbon"></i><h3>Cancer prevention</h3><p>Tumor markers, low-dose CT</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-droplet"></i><h3>Diabetes wellness</h3><p>HbA1c, glucose, insulin</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-venus-mars"></i><h3>Fertility</h3><p>Hormone panels, semen analysis</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-x-ray"></i><h3>Imaging & radiology</h3><p>X-ray, ultrasound, MRI</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-microscope"></i><h3>Laboratory</h3><p>Hematology, microbiology</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-spa"></i><h3>Wellness screenings</h3><p>Executive checkup</p></div>
-        <div class="service-card hover-3d"><i class="fas fa-dna"></i><h3>Specialized</h3><p>Allergy, hormonal, genetic</p></div>
-      </div>
-    </section>
-
-    <!-- CONTACT + INSTAGRAM section (no image) -->
-    <section id="contact" class="container section-3d">
-      <h2>Connect with us</h2>
-      <div class="contact-grid">
-        <div class="contact-item hover-3d">
-          <div class="icon"><i class="fas fa-phone-alt"></i></div>
-          <h3>Call us</h3>
-          <a href="tel:+2349018888143" style="color:#002147; font-size:1.3rem; text-decoration:none;">0901 888 8143</a>
-          <p>24/7 hotline</p>
+    <!-- ===== ABOUT US section with beautiful microscope image (Pixabay) ===== -->
+    <section id="about" class="scroll-mt-20 bg-gradient-to-b from-blue-50/40 to-white py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="text-blue-700 font-semibold tracking-wider text-sm uppercase">excellence in every slide</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">About Touchstone Diagnostic</h2>
         </div>
-        <div class="contact-item hover-3d">
-          <div class="icon"><i class="fab fa-whatsapp"></i></div>
-          <h3>WhatsApp</h3>
-          <a href="https://wa.me/2349018888143" style="color:#25D366; font-weight:600;">Chat with us</a>
-        </div>
-        <div class="contact-item hover-3d instagram">
-          <div class="icon"><i class="fab fa-instagram"></i></div>
-          <h3>Instagram</h3>
-          <a href="https://www.instagram.com/touchstone_diagnostics?igsh=MW1sb242cDhsa2EweQ==" target="_blank"><i class="fab fa-instagram"></i> @touchstone_diagnostics</a>
-        </div>
-        <div class="contact-item hover-3d" style="grid-column: span 3; display:flex; flex-direction:column;">
-          <div class="icon"><i class="fas fa-map-pin"></i></div>
-          <h3>66 Ogunlana Dr, Surulere, Lagos 101283</h3>
-          <p style="margin-top:0.5rem;">Open 24 hours · Sunday–Saturday</p>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- left about text with highlights -->
+          <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-blue-100">
+            <p class="text-xl text-gray-700 leading-relaxed mb-6">
+              At <strong class="text-blue-700">Touchstone Diagnostic</strong> (Surulere, Lagos), we set the gold standard for clinical precision. Specializing in:
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-heart-circle text-blue-600"></i><span class="text-sm font-medium">Cardiovascular health</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-ribbon text-blue-600"></i><span class="text-sm font-medium">Cancer prevention</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-droplet text-blue-600"></i><span class="text-sm font-medium">Diabetes wellness</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-venus-mars text-blue-600"></i><span class="text-sm font-medium">Fertility screening</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-x-ray text-blue-600"></i><span class="text-sm font-medium">Imaging & radiology</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-microscope text-blue-600"></i><span class="text-sm font-medium">Laboratory tests</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-spa text-blue-600"></i><span class="text-sm font-medium">Wellness screenings</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-dna text-blue-600"></i><span class="text-sm font-medium">Specialized diagnostics</span></div>
+            </div>
+            <p class="text-gray-600 border-l-4 border-blue-300 pl-4 italic text-sm">Accurate diagnosis is the touchstone of effective treatment — 24/7 in Surulere.</p>
+          </div>
+          <!-- right: beautiful microscope (Pixabay high‑res) -->
+          <div class="microscope-img w-full h-96 rounded-3xl image-glow shadow-2xl">
+            <div class="w-full h-full bg-black/10 rounded-3xl flex items-end p-6 text-white font-semibold text-xl bg-gradient-to-t from-black/30">Advanced optics · precision analysis</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER with 2nd image style -->
-    <footer>
-      <div class="footer-inner">
-        <div>© 2026 Lighthouse Diagnostics Ltd. All rights reserved.</div>
-        <div style="display:flex; gap:2rem;">
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#contact">Contact Us</a>
+    <!-- ===== DIAGNOSTICS section (services grid) with stunning images from Pexels/Pixabay ===== -->
+    <section id="diagnostics" class="scroll-mt-20 py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="text-center mb-14">
+          <span class="text-blue-700 font-semibold text-sm uppercase tracking-wider">comprehensive menu</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">Diagnostics we offer</h2>
+          <p class="text-gray-500 max-w-2xl mx-auto mt-4">Cutting‑edge technology · 24/7 availability · Surulere</p>
+        </div>
+
+        <!-- stunning grid with cards each having a beautiful image background -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- cardiovascular -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 cardio-img" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/08/05/26/patient-1807544_1280.jpg'); background-size: cover; background-position: center;"></div>
+            <div class="p-5"><i class="fas fa-heart-pulse text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Cardiovascular</h3><p class="text-gray-500 text-sm">ECG, stress test, lipid profile, holter.</p></div>
+          </div>
+          <!-- cancer prevention -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 cancer-img" style="background-image: url('https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-ribbon text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Cancer prevention</h3><p class="text-gray-500 text-sm">Tumor markers, Pap, low‑dose CT.</p></div>
+          </div>
+          <!-- diabetes wellness -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 diabetes-img" style="background-image: url('https://images.pexels.com/photos/3683084/pexels-photo-3683084.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-droplet text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Diabetes wellness</h3><p class="text-gray-500 text-sm">HbA1c, glucose tolerance, insulin.</p></div>
+          </div>
+          <!-- fertility screening -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 fertility-img" style="background-image: url('https://images.pexels.com/photos/5727864/pexels-photo-5727864.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-venus-mars text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Fertility</h3><p class="text-gray-500 text-sm">Hormone panels, semen analysis.</p></div>
+          </div>
+          <!-- imaging & radiology -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 xray-img" style="background-image: url('https://images.pexels.com/photos/8376233/pexels-photo-8376233.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-x-ray text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Imaging & radiology</h3><p class="text-gray-500 text-sm">X‑ray, ultrasound, MRI, CT.</p></div>
+          </div>
+          <!-- laboratory tests -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 lab-img" style="background-image: url('https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-microscope text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Laboratory tests</h3><p class="text-gray-500 text-sm">Hematology, microbiology.</p></div>
+          </div>
+          <!-- wellness screenings -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 wellness-img" style="background-image: url('https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-spa text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Wellness screenings</h3><p class="text-gray-500 text-sm">Executive checkup, wellman.</p></div>
+          </div>
+          <!-- specialized diagnostics -->
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 specialized-img" style="background-image: url('https://images.pexels.com/photos/3992949/pexels-photo-3992949.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-dna text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Specialized</h3><p class="text-gray-500 text-sm">Allergy, hormonal, genetic.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT section with exact address & hours ===== -->
+    <section id="contact" class="scroll-mt-20 py-16 bg-gradient-to-b from-white to-blue-50">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Connect with us</h2>
+
+        <div class="grid md:grid-cols-3 gap-8 bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-blue-100">
+          <!-- call column -->
+          <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fas fa-phone-alt text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Give us a call</h3>
+            <a href="tel:+2349018888143" class="text-blue-700 text-lg font-medium hover:underline block">0901 888 8143</a>
+            <p class="text-gray-500 text-sm mt-2">24/7 hotline</p>
+          </div>
+          <!-- WhatsApp message column -->
+          <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fab fa-whatsapp text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Send us a Message</h3>
+            <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic" target="_blank" class="text-green-600 text-lg font-medium hover:underline block">0901 888 8143 <i class="fab fa-whatsapp ml-1"></i></a>
+            <p class="text-gray-500 text-sm mt-2">chat via WhatsApp</p>
+          </div>
+          <!-- location column (full details) -->
+          <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fas fa-map-pin text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Visit our Location</h3>
+            <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank" class="text-blue-700 hover:underline text-md font-medium">
+              66 Ogunlana Dr, Surulere,<br>Lagos 101283, G932+HH Lagos
+            </a>
+            <div class="mt-3 text-xs text-gray-600 space-y-1">
+              <p><span class="font-semibold">Sunday–Saturday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Daily:</span> 24/7 service</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-gray-600 mt-8 text-sm"><i class="fas fa-clock text-blue-600 mr-2"></i>Open 24 hours every day · 0901 888 8143</p>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER (2nd image style) ===== -->
+    <footer class="bg-gray-900 text-white pt-10 pb-6">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-6">
+          <p class="text-sm text-gray-300">© 2026 Lighthouse Diagnostics Ltd. All Rights Reserved.</p>
+          <div class="flex gap-8 text-sm font-medium text-gray-200 mt-4 md:mt-0">
+            <a href="#home" class="hover:text-white transition">Home</a>
+            <a href="#about" class="hover:text-white transition">About Us</a>
+            <a href="#contact" class="hover:text-white transition">Contact Us</a>
+          </div>
+        </div>
+        <div class="pt-5 text-xs text-gray-500 text-center md:text-left">
+          Touchstone Diagnostic – 66 Ogunlana Dr, Surulere, Lagos 101283 · 24/7 precision diagnostics.
         </div>
       </div>
     </footer>
   </main>
 
-  <!-- WhatsApp floating button (3rd image style) -->
-  <div class="whatsapp-float">
-    <a href="https://wa.me/2349018888143?text=Hello%20Touchstone" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <!-- ===== WHATSAPP floating button "Need Help? Chat with us" ===== -->
+  <div class="whatsapp-float fixed bottom-6 right-6 flex items-center gap-3 bg-green-600 text-white pl-4 pr-5 py-3 rounded-full shadow-xl hover:bg-green-700 transition-all cursor-pointer">
+    <i class="fab fa-whatsapp text-2xl"></i>
+    <span class="font-medium text-sm sm:text-base">Need Help? Chat with us</span>
+    <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic" target="_blank" class="absolute inset-0"></a>
   </div>
-
-  <!-- tiny inline style to keep everything 3d -->
 </body>
 </html>
