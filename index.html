@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Touchstone Diagnostics | 24/7 Medical Lab & Imaging Surulere</title>
   <!-- SEO meta with key phrase -->
-  <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: 24/7 laboratory, X-ray, ultrasound, fertility screening. Where precision meets diagnosis – same-day results, board-certified radiologists.">
-  <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening, where precision meets diagnosis">
+  <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: 24/7 laboratory, X-ray, ultrasound, fertility screening. Where precision meets compassion – reliable, fast, and affordable diagnostic results.">
+  <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening, where precision meets compassion">
   <!-- Fonts & icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,7 +51,7 @@
       }
     }
 
-    /* top bar – mobile first */
+    /* top bar – mobile first with functional links */
     .top-bar {
       background: var(--navy);
       color: white;
@@ -89,10 +89,17 @@
       gap: 1rem 1.5rem;
       font-size: 0.9rem;
     }
-    .top-contact span {
+    .top-contact a {
+      color: white;
+      text-decoration: none;
       display: flex;
       align-items: center;
       gap: 0.4rem;
+      transition: opacity 0.2s;
+    }
+    .top-contact a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
     }
     .top-contact i {
       color: var(--blue);
@@ -215,6 +222,7 @@
       text-align: center;
       font-weight: 700;
       margin-top: 0.5rem;
+      text-decoration: none;
     }
 
     /* hero */
@@ -253,12 +261,14 @@
       font-weight: 800;
       line-height: 1.2;
       color: var(--navy);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
-    .hero h1 span {
+    .hero h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
       color: var(--blue);
-      border-bottom: 3px solid var(--blue);
-      display: inline-block;
+      margin-bottom: 1rem;
+      line-height: 1.3;
     }
     .hero p {
       font-size: 1.1rem;
@@ -320,28 +330,30 @@
       aspect-ratio: 4/3;
     }
 
-    /* section titles */
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-      position: relative;
+    /* about section with image */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
     }
-    .section-title:after {
-      content: '';
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+    }
+    .about-image {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 30px 40px -20px var(--navy);
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
       display: block;
-      width: 70px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--navy));
-      margin-top: 0.5rem;
-      border-radius: 2px;
+      object-fit: cover;
     }
-    @media (max-width: 480px) {
-      .section-title { font-size: 1.9rem; }
-    }
-
-    /* about */
     .about-text p {
       font-size: 1.1rem;
       color: #2d3f53;
@@ -364,6 +376,27 @@
       color: #4a5f73;
       text-transform: uppercase;
       letter-spacing: 0.3px;
+    }
+
+    /* section titles */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--navy));
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+    @media (max-width: 480px) {
+      .section-title { font-size: 1.9rem; }
     }
 
     /* services grid */
@@ -480,6 +513,13 @@
       margin-bottom: 1.8rem;
       align-items: flex-start;
     }
+    .contact-detail a {
+      color: white;
+      text-decoration: none;
+    }
+    .contact-detail a:hover {
+      text-decoration: underline;
+    }
     .contact-detail i {
       width: 38px;
       height: 38px;
@@ -594,13 +634,13 @@
 </head>
 <body x-data="{ mobileMenu: false }">
 
-  <!-- top bar – mobile friendly -->
+  <!-- top bar with functional links -->
   <div class="top-bar">
     <div class="container">
       <div class="emergency"><i class="fas fa-exclamation-triangle"></i> 24/7 EMERGENCY</div>
       <div class="top-contact">
-        <span><i class="fas fa-phone-alt"></i> 0901 888 8143</span>
-        <span><i class="fas fa-map-marker-alt"></i> 66 Ogunlana Dr, Surulere</span>
+        <a href="tel:+2349018888143"><i class="fas fa-phone-alt"></i> 0901 888 8143</a>
+        <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank"><i class="fas fa-map-marker-alt"></i> 66 Ogunlana Dr, Surulere</a>
         <span><i class="fas fa-clock"></i> Open 24 Hours</span>
       </div>
     </div>
@@ -618,7 +658,7 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
-        <a href="https://wa.me/2349018888143" class="btn-nav"><i class="fab fa-whatsapp"></i> Book Now</a>
+        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn-nav">Book an Appointment</a>
       </nav>
       <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu"><i class="fas fa-bars"></i></button>
     </div>
@@ -628,41 +668,50 @@
       <a href="#about" @click="mobileMenu = false">About</a>
       <a href="#services" @click="mobileMenu = false">Services</a>
       <a href="#contact" @click="mobileMenu = false">Contact</a>
-      <a href="https://wa.me/2349018888143" class="mobile-wa-btn" @click="mobileMenu = false"><i class="fab fa-whatsapp"></i> WhatsApp Booking</a>
+      <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="mobile-wa-btn" @click="mobileMenu = false">Book an Appointment</a>
     </div>
   </header>
 
-  <!-- hero with new high-quality image and tagline -->
+  <!-- hero with new cinematic image and updated copy -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-flask"></i> Where precision meets diagnosis</div>
-        <h1>Advanced Diagnostics for <span>Better Healing</span></h1>
-        <p>State‑of‑the‑art laboratory and radiology services available 24/7 in Surulere. Same‑day results, board‑certified radiologists.</p>
+        <div class="hero-badge"><i class="fas fa-flask"></i> The Gold Standard of Clinical</div>
+        <h1>Touchstone Diagnostics:</h1>
+        <h2>Where Precision Meets Compassion</h2>
+        <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence. Located at 66 Ogunlana Drive, we are Lagos's trusted partner for wellness, imaging, and specialized medical testing.</p>
         <div class="hero-buttons">
-          <a href="https://wa.me/2349018888143" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+          <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn btn-primary">Book an Appointment</a>
           <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
       </div>
       <div class="hero-image">
-        <!-- professionally aesthetic high-quality image: medical team with modern equipment, conveying precision & care -->
+        <!-- Cinematic futuristic diagnostic center image -->
         <img src="https://images.pexels.com/photos/7089032/pexels-photo-7089032.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-             alt="Medical professionals analyzing digital scans in modern diagnostic center" 
+             alt="Futuristic medical diagnostic center with scientist at microscope and MRI scanner" 
              loading="eager">
       </div>
     </div>
   </section>
 
-  <!-- about (original text, no image) -->
+  <!-- about with new microscope image and heartbeat logo -->
   <section id="about" class="section">
     <div class="container">
       <h2 class="section-title">About Touchstone Diagnostics</h2>
-      <div class="about-text" style="max-width: 800px;">
-        <p>Located in Surulere, Touchstone Diagnostics is the gold standard for clinical precision. We believe accurate diagnosis is the touchstone of effective treatment. Our facility is equipped with advanced technology to ensure every result is delivered with speed and accuracy.</p>
-        <p>We specialize in cardiovascular health screening, cancer prevention, diabetes wellness, male & female fertility screening, imaging (X‑ray, ultrasound), laboratory medicine (hematology, microbiology, immunology), blood banking, and wellness packages.</p>
-        <div class="stats-mini">
-          <div class="stat-item"><span class="number">24/7</span> <span class="label">Always open</span></div>
-          <div class="stat-item"><span class="number"><24h</span> <span class="label">Result turnaround</span></div>
+      <div class="about-grid">
+        <div class="about-image">
+          <!-- Professional microscope with heartbeat-in-hand logo -->
+          <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+               alt="High-end digital medical microscope with heartbeat logo in clinical laboratory" 
+               loading="lazy">
+        </div>
+        <div class="about-text">
+          <p>Located in Surulere, Touchstone Diagnostics is the gold standard for clinical precision. We believe accurate diagnosis is the touchstone of effective treatment. Our facility is equipped with advanced technology to ensure every result is delivered with speed and accuracy.</p>
+          <p>We specialize in cardiovascular health screening, cancer prevention, diabetes wellness, male & female fertility screening, imaging (X‑ray, ultrasound), laboratory medicine (hematology, microbiology, immunology), blood banking, and wellness packages.</p>
+          <div class="stats-mini">
+            <div class="stat-item"><span class="number">24/7</span> <span class="label">Always open</span></div>
+            <div class="stat-item"><span class="number"><24h</span> <span class="label">Result turnaround</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -697,17 +746,17 @@
     </div>
   </section>
 
-  <!-- contact (instagram only) -->
+  <!-- contact with functional links -->
   <section id="contact" class="section">
     <div class="container">
       <h2 class="section-title">Contact & Location</h2>
       <div class="contact-grid">
         <div class="contact-info">
           <h3>Get in touch</h3>
-          <div class="contact-detail"><i class="fas fa-map-pin"></i><div><strong>66 Ogunlana Drive</strong><br>Surulere, Lagos 101283</div></div>
-          <div class="contact-detail"><i class="fas fa-phone-alt"></i><div><strong>24/7 Hotline</strong><br>0901 888 8143</div></div>
-          <div class="contact-detail"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><br>0901 888 8143</div></div>
-          <div class="contact-detail"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><br><a href="https://www.instagram.com/touchstone_diagnostics" target="_blank" style="color:white; text-decoration:underline;">@touchstone_diagnostics</a></div></div>
+          <div class="contact-detail"><i class="fas fa-map-pin"></i><div><strong>Visit us</strong><br><a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank">66 Ogunlana Drive, Surulere, Lagos 101283</a></div></div>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i><div><strong>Call 24/7</strong><br><a href="tel:+2349018888143">0901 888 8143</a></div></div>
+          <div class="contact-detail"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><br><a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics">0901 888 8143</a></div></div>
+          <div class="contact-detail"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><br><a href="https://www.instagram.com/touchstone_diagnostics" target="_blank">@touchstone_diagnostics</a></div></div>
           <div class="hours">
             <div><strong>Mon–Sun</strong><br>24 hours</div>
             <div><strong>Public Holidays</strong><br>24 hours</div>
