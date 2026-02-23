@@ -3,1282 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Touchstone Diagnostics | 24/7 Precision Medical Lab & Imaging Center Surulere</title>
-  
-  <!-- SEO Meta -->
-  <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: ISO-accredited 24/7 laboratory, digital X-ray, ultrasound, fertility screening, and wellness packages. Same-day results, board-certified radiologists.">
-  <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening, cancer prevention, blood test, HMO services Lagos">
-  
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Alpine.js for interactivity -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  
+  <title>Touchstone Diagnostic · Surulere · 24hr excellence</title>
+  <!-- SEO meta -->
+  <meta name="description" content="Touchstone Diagnostic in Surulere: 24/7 cardiovascular, cancer prevention, fertility, imaging & lab services. Same-day results, ISO-level care.">
+  <meta name="keywords" content="Best Diagnostic Center Surulere, 24 hour medical lab Lagos, affordable ultrasound Lagos, fertility screening Nigeria">
+  <!-- Tailwind + Inter + Font Awesome 6 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== RESET & VARIABLES ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    :root {
-      --navy: #002147;
-      --navy-light: #1a3a5e;
-      --blue: #0077be;
-      --blue-light: #e6f0fa;
-      --gray: #4a5568;
-      --gray-light: #f8fafc;
-      --white: #ffffff;
-      --shadow-sm: 0 10px 30px -15px rgba(0,33,71,0.2);
-      --shadow-md: 0 20px 40px -20px rgba(0,33,71,0.3);
-      --shadow-lg: 0 30px 60px -25px rgba(0,33,71,0.4);
-    }
-    
-    html {
-      scroll-behavior: smooth;
-      perspective: 1200px;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #1e293b;
-      background: var(--white);
-      overflow-x: hidden;
-    }
-    
-    /* ===== 3D ANIMATIONS ===== */
-    @keyframes float {
-      0% { transform: translateY(0) translateZ(0) rotateX(0deg); }
-      50% { transform: translateY(-10px) translateZ(20px) rotateX(2deg); }
-      100% { transform: translateY(0) translateZ(0) rotateX(0deg); }
-    }
-    
-    @keyframes cardGlow {
-      0% { box-shadow: var(--shadow-sm); }
-      100% { box-shadow: 0 30px 60px -20px var(--navy); }
-    }
-    
-    @keyframes softAppear {
-      0% { opacity: 0; transform: translateY(30px) translateZ(-50px); }
-      100% { opacity: 1; transform: translateY(0) translateZ(0); }
-    }
-    
-    .section-3d {
-      animation: softAppear 1s ease-out forwards;
-      transform-style: preserve-3d;
-    }
-    
-    .hover-3d {
-      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-      transform-style: preserve-3d;
-    }
-    
-    .hover-3d:hover {
-      transform: translateZ(30px) rotateX(1deg) rotateY(1deg);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .float {
-      animation: float 6s infinite ease-in-out;
-    }
-    
-    /* ===== UTILITY CLASSES ===== */
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    
-    .section {
-      padding: 5rem 0;
-    }
-    
-    .section-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--navy));
-      border-radius: 2px;
-    }
-    
-    .glass {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-    
-    /* ===== TOP BAR ===== */
-    .top-bar {
-      background: var(--navy);
-      color: white;
-      padding: 0.75rem 0;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border-bottom: 3px solid var(--blue);
-    }
-    
-    .top-bar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    
-    .emergency-badge {
-      background: #dc2626;
-      padding: 0.25rem 1rem;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.8; transform: scale(1.02); }
-      100% { opacity: 1; }
-    }
-    
-    /* ===== HEADER ===== */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e2e8f0;
-      box-shadow: 0 10px 30px -20px var(--navy);
-    }
-    
-    .header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 85px;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .logo-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform: rotate(3deg) translateZ(10px);
-      box-shadow: 0 15px 25px -10px var(--navy);
-    }
-    
-    .logo-icon i {
-      font-size: 2rem;
-      color: white;
-      transform: rotate(-3deg);
-    }
-    
-    .logo-text {
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-    
-    .logo-text span:first-child {
-      color: var(--navy);
-    }
-    
-    .logo-text span:last-child {
-      color: var(--blue);
-      font-weight: 400;
-      font-size: 1rem;
-      margin-left: 5px;
-    }
-    
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-    
-    .nav a {
-      text-decoration: none;
-      color: var(--navy);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      position: relative;
-      padding: 0.5rem 0;
-    }
-    
-    .nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--blue), var(--navy));
-      transition: width 0.3s;
-    }
-    
-    .nav a:hover::after {
-      width: 100%;
-    }
-    
-    .nav .btn-nav {
-      background: var(--navy);
-      color: white;
-      padding: 0.8rem 1.8rem;
-      border-radius: 100px;
-      box-shadow: 0 10px 20px -10px var(--navy);
-    }
-    
-    .nav .btn-nav:hover {
-      background: var(--blue);
-      transform: translateY(-2px);
-    }
-    
-    .nav .btn-nav::after {
-      display: none;
-    }
-    
-    .mobile-menu-btn {
-      display: none;
-      font-size: 2rem;
-      color: var(--navy);
-      cursor: pointer;
-    }
-    
-    /* ===== HERO SECTION (IMPROVED WITH POWERFUL IMAGE) ===== */
-    .hero {
-      position: relative;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-    
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-    
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-      filter: brightness(0.7) saturate(1.2);
-    }
-    
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, rgba(0,33,71,0.9) 0%, rgba(0,33,71,0.7) 50%, rgba(0,119,190,0.3) 100%);
-      z-index: 1;
-    }
-    
-    .hero .container {
-      position: relative;
-      z-index: 2;
-      color: white;
-      width: 100%;
-    }
-    
-    .hero-content {
-      max-width: 650px;
-      transform: translateZ(40px);
-    }
-    
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(5px);
-      padding: 0.7rem 1.5rem;
-      border-radius: 100px;
-      margin-bottom: 2rem;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    
-    .hero-badge i {
-      color: var(--blue);
-      font-size: 1.2rem;
-    }
-    
-    .hero h1 {
-      font-size: 4.2rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    
-    .hero h1 span {
-      color: #4db8ff;
-      border-bottom: 4px solid var(--blue);
-      display: inline-block;
-    }
-    
-    .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.95;
-      max-width: 550px;
-      line-height: 1.6;
-    }
-    
-    .hero-stats {
-      display: flex;
-      gap: 3rem;
-      margin: 3rem 0;
-    }
-    
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .hero-stat .number {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--blue);
-    }
-    
-    .hero-stat .label {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .hero-buttons {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .btn {
-      padding: 1.2rem 2.8rem;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transform-style: preserve-3d;
-    }
-    
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-      box-shadow: 0 20px 30px -10px rgba(0,119,190,0.5);
-    }
-    
-    .btn-primary:hover {
-      background: #0088dd;
-      transform: translateZ(20px) scale(1.05);
-      box-shadow: 0 30px 40px -10px rgba(0,119,190,0.7);
-    }
-    
-    .btn-outline-light {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-    }
-    
-    .btn-outline-light:hover {
-      background: white;
-      color: var(--navy);
-      transform: translateZ(20px);
-    }
-    
-    /* ===== ACCREDITATION BADGES ===== */
-    .accreditation {
-      background: var(--gray-light);
-      padding: 2rem 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    
-    .accreditation-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    
-    .badge-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    
-    .badge-item i {
-      font-size: 2rem;
-      color: var(--blue);
-    }
-    
-    /* ===== SERVICES GRID ===== */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .service-card {
-      background: white;
-      border-radius: 2rem;
-      padding: 2.5rem 1.8rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #eef2f6;
-      transition: all 0.3s;
-      transform-style: preserve-3d;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--blue), var(--navy));
-    }
-    
-    .service-card:hover {
-      transform: translateZ(30px) translateY(-10px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .service-icon {
-      width: 70px;
-      height: 70px;
-      background: var(--blue-light);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.8rem;
-    }
-    
-    .service-icon i {
-      font-size: 2.2rem;
-      color: var(--blue);
-      transition: transform 0.3s;
-    }
-    
-    .service-card:hover .service-icon i {
-      transform: scale(1.2) rotate(5deg);
-    }
-    
-    .service-card h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1rem;
-    }
-    
-    .service-card p {
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    
-    .service-link {
-      color: var(--blue);
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    /* ===== FEATURES SECTION ===== */
-    .features {
-      background: linear-gradient(135deg, var(--navy), var(--navy-light));
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .features::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,119,190,0.2) 0%, transparent 70%);
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .feature-item {
-      text-align: center;
-      padding: 2rem;
-    }
-    
-    .feature-icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-size: 2.2rem;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    
-    .feature-item h4 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .feature-item p {
-      opacity: 0.8;
-      font-size: 0.95rem;
-    }
-    
-    /* ===== TESTIMONIALS ===== */
-    .testimonials {
-      background: var(--gray-light);
-    }
-    
-    .testimonial-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #e2e8f0;
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .author-avatar {
-      width: 50px;
-      height: 50px;
-      background: var(--blue-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--blue);
-      font-weight: 700;
-    }
-    
-    /* ===== CONTACT SECTION ===== */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      background: white;
-      border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .contact-info {
-      background: var(--navy);
-      color: white;
-      padding: 3rem;
-    }
-    
-    .contact-info h3 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    
-    .contact-detail i {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--blue);
-    }
-    
-    .hours-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .hours-item {
-      background: rgba(255,255,255,0.1);
-      padding: 1rem;
-      border-radius: 1rem;
-      text-align: center;
-    }
-    
-    .contact-map {
-      height: 100%;
-      min-height: 400px;
-    }
-    
-    .contact-map iframe {
-      width: 100%;
-      height: 100%;
-    }
-    
-    /* ===== FOOTER ===== */
-    .footer {
-      background: #0a1929;
-      color: #94a3b8;
-      padding: 4rem 0 2rem;
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-    
-    .footer-logo {
-      color: white;
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    
-    .footer-links a {
-      color: #94a3b8;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.8rem;
-      transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-      color: white;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-    }
-    
-    .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid #1e293b;
-    }
-    
-    /* ===== WHATSAPP FLOAT ===== */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: #25D366;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      color: white;
-      box-shadow: 0 20px 30px -10px #075e54;
-      z-index: 100;
-      transition: all 0.3s;
-      animation: float 4s infinite;
-    }
-    
-    .whatsapp-float:hover {
-      transform: scale(1.1) rotate(5deg);
-      background: #20b859;
-    }
-    
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 3.5rem; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    
-    @media (max-width: 768px) {
-      .nav { display: none; }
-      .mobile-menu-btn { display: block; }
-      .hero h1 { font-size: 2.8rem; }
-      .hero-stats { flex-wrap: wrap; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .section-title { font-size: 2.2rem; }
-    }
-    
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2.2rem; }
-      .hero-buttons { flex-direction: column; }
-      .btn { width: 100%; justify-content: center; }
-    }
+    * { font-family: 'Inter', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    /* premium shadows, overlays */
+    .image-glow {
+      box-shadow: 0 25px 40px -15px rgba(0,89,158,0.3);
+      transition: transform 0.3s ease;
+    }
+    .image-glow:hover { transform: scale(1.01); }
+    .hero-overlay { background: linear-gradient(105deg, #ffffff 20%, rgba(255,255,255,0.92) 50%, rgba(219, 239, 255, 0.6) 100%); }
+    .card-hover { transition: all 0.25s; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -15px rgba(0,79,148,0.25); }
+    .mobile-menu { transition: opacity 0.2s, transform 0.25s; }
+    /* three‑dash interactive */
+    #menu-toggle:checked ~ #mobile-menu-panel { display: block; opacity: 1; transform: translateY(0); }
+    #mobile-menu-panel { display: none; opacity: 0; transform: translateY(-10px); }
+    /* beautiful image placeholders (now replaced by unsplash-like med images) */
+    .img-hero-main {
+      background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop');
+      background-size: cover; background-position: center; border-radius: 2rem;
+    }
+    .img-microscope {
+      background-image: url('https://images.unsplash.com/photo-1581595219315-a187d40c3226?q=80&w=800&auto=format&fit=crop');
+      background-size: cover; background-position: center; border-radius: 2rem;
+    }
+    .img-lab-equip {
+      background-image: url('https://images.unsplash.com/photo-1582719508461-905c6734fd3e?q=80&w=800&auto=format&fit=crop');
+    }
+    .img-ultrasound {
+      background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop');
+    }
+    .img-radiology {
+      background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop');
+    }
+    .whatsapp-float { z-index: 50; transition: transform 0.2s; }
+    .whatsapp-float:hover { transform: scale(1.07); }
+    footer a { transition: color 0.15s; }
   </style>
 </head>
-<body x-data="{ mobileMenu: false }">
+<body class="bg-white text-gray-800 antialiased">
 
-  <!-- TOP EMERGENCY BAR -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="flex items-center gap-4">
-        <span class="emergency-badge"><i class="fas fa-exclamation-triangle mr-2"></i>24/7 EMERGENCY</span>
-        <span><i class="fas fa-phone-alt mr-2 text-blue-400"></i>0901 888 8143</span>
-      </div>
-      <div class="flex items-center gap-6">
-        <span><i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>66 Ogunlana Dr, Surulere</span>
-        <span><i class="fas fa-clock mr-2 text-blue-400"></i>Open 24 Hours</span>
-      </div>
-    </div>
-  </div>
+  <!-- hidden checkbox for three‑dash menu control -->
+  <input type="checkbox" id="menu-toggle" class="hidden">
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <div class="logo-icon float">
-          <i class="fas fa-heartbeat"></i>
-        </div>
-        <div class="logo-text">
-          <span>TOUCHSTONE</span><span>DIAGNOSTICS</span>
-        </div>
+  <!-- ===== STICKY HEADER with logo + three‑dash (functional) ===== -->
+  <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm z-40">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
+      <!-- left: logo + name with heartbeat icon -->
+      <div class="flex items-center gap-3">
+        <i class="fas fa-heartbeat text-3xl text-blue-700 bg-blue-50 p-2.5 rounded-2xl shadow-sm"></i>
+        <span class="font-bold text-2xl tracking-tight text-gray-800">Touchstone <span class="font-light text-blue-700">Diagnostic</span></span>
       </div>
 
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="https://wa.me/2349018888143" class="btn-nav"><i class="fab fa-whatsapp mr-2"></i>Book Now</a>
+      <!-- desktop nav (visible md and up) -->
+      <nav class="hidden md:flex gap-8 text-gray-700 font-medium">
+        <a href="#home" class="hover:text-blue-700 transition">Home</a>
+        <a href="#about" class="hover:text-blue-700 transition">About</a>
+        <a href="#diagnostics" class="hover:text-blue-700 transition">Diagnostics</a>
+        <a href="#contact" class="hover:text-blue-700 transition">Contact</a>
       </nav>
 
-      <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu">
-        <i class="fas fa-bars"></i>
-      </button>
+      <!-- three‑dash hamburger (visible on mobile) — toggles menu -->
+      <label for="menu-toggle" class="md:hidden block cursor-pointer p-2 hover:bg-gray-100 rounded-xl transition">
+        <i class="fas fa-bars text-2xl text-gray-700"></i>
+      </label>
     </div>
 
-    <!-- Mobile Menu -->
-    <div x-show="mobileMenu" class="md:hidden bg-white border-t p-5" x-transition>
-      <div class="flex flex-col gap-4">
-        <a href="#home" @click="mobileMenu = false" class="font-bold py-2">Home</a>
-        <a href="#about" @click="mobileMenu = false" class="font-bold py-2">About</a>
-        <a href="#services" @click="mobileMenu = false" class="font-bold py-2">Services</a>
-        <a href="#contact" @click="mobileMenu = false" class="font-bold py-2">Contact</a>
-        <a href="https://wa.me/2349018888143" class="bg-green-600 text-white p-4 rounded-xl text-center font-bold">
-          <i class="fab fa-whatsapp mr-2"></i>WhatsApp Booking
-        </a>
-      </div>
+    <!-- MOBILE MENU PANEL (appears when checkbox checked) -->
+    <div id="mobile-menu-panel" class="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 px-5 py-5 shadow-xl rounded-b-2xl">
+      <nav class="flex flex-col gap-5 text-lg font-medium">
+        <a href="#home" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">🏠 Home</a>
+        <a href="#about" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">📖 About Us</a>
+        <a href="#diagnostics" class="py-2 border-b border-gray-100 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">🔬 Diagnostics</a>
+        <a href="#contact" class="py-2 hover:text-blue-700 transition" onclick="document.getElementById('menu-toggle').checked = false;">📞 Contact Us</a>
+      </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION WITH POWERFUL IMAGE -->
-  <section id="home" class="hero">
-    <div class="hero-bg">
-      <!-- HIGH-QUALITY IMAGE THAT SPEAKS TO THE MISSION -->
-      <img src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-           alt="Medical professional consulting patient with digital tablet in modern diagnostic center"
-           loading="eager">
-    </div>
-    <div class="hero-overlay"></div>
-    
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <i class="fas fa-certificate"></i>
-          <span>ISO 15189:2022 ACCREDITED</span>
-        </div>
-        
-        <h1>
-          Precision Diagnostics, 
-          <span>24/7 in Surulere</span>
-        </h1>
-        
-        <p>
-          Where advanced medical technology meets compassionate care. Board-certified radiologists, 
-          ISO-accredited laboratory, and same-day results—because your health can't wait.
-        </p>
-        
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="number">15+</span>
-            <span class="label">Years Excellence</span>
-          </div>
-          <div class="hero-stat">
-            <span class="number">24/7</span>
-            <span class="label">Always Open</span>
-          </div>
-          <div class="hero-stat">
-            <span class="number">50k+</span>
-            <span class="label">Patients Yearly</span>
+  <main>
+    <!-- ===== HOME SECTION (hero) ===== -->
+    <section id="home" class="scroll-mt-20 relative">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+        <!-- left content -->
+        <div>
+          <span class="inline-block bg-blue-600/10 text-blue-800 px-5 py-2 rounded-full text-sm font-semibold mb-6"><i class="fas fa-flask mr-2 text-blue-700"></i>24/7 · Surulere, Lagos</span>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-5">
+            Where precision meets <span class="text-blue-700">compassion</span>
+          </h1>
+          <p class="text-lg text-gray-600 mb-8 max-w-xl">
+            <span class="font-semibold text-gray-800">Reliable, fast & affordable</span> — cardiovascular screening, cancer prevention, fertility, imaging & lab services. Open 24 hours daily.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg transition flex items-center gap-2"><i class="fas fa-calendar-check"></i> Book an appointment</a>
+            <a href="#diagnostics" class="border-2 border-blue-700 text-blue-700 hover:bg-blue-50 px-8 py-3.5 rounded-full font-medium transition flex items-center gap-2"><i class="fas fa-microscope"></i> View test menu</a>
           </div>
         </div>
-        
-        <div class="hero-buttons">
-          <a href="https://wa.me/2349018888143" class="btn btn-primary">
-            <i class="fab fa-whatsapp"></i> Book Appointment
-          </a>
-          <a href="#services" class="btn btn-outline-light">
-            Explore Services <i class="fas fa-arrow-right ml-2"></i>
-          </a>
+        <!-- right: large aesthetic hero image (clinic/lab) -->
+        <div class="img-hero-main w-full h-80 md:h-96 rounded-3xl image-glow" style="background-image: url('https://images.unsplash.com/photo-1666214280391-9ff3b0c4c9ab?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center;">
+          <div class="w-full h-full bg-black/10 rounded-3xl flex items-end p-5 text-white font-semibold text-lg bg-gradient-to-t from-black/30 via-transparent">State‑of‑the‑art diagnostics · 24/7</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ACCREDITATION BADGES -->
-  <div class="accreditation">
-    <div class="container">
-      <div class="accreditation-grid">
-        <div class="badge-item">
-          <i class="fas fa-check-circle"></i>
-          <span>ISO 15189 Certified</span>
+    <!-- ===== ABOUT US section with beautiful microscope image ===== -->
+    <section id="about" class="scroll-mt-20 bg-gradient-to-b from-blue-50/40 to-white py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="text-blue-700 font-semibold tracking-wider text-sm uppercase">excellence in every slide</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">About Touchstone Diagnostic</h2>
         </div>
-        <div class="badge-item">
-          <i class="fas fa-check-circle"></i>
-          <span>HEFAMAA Registered</span>
-        </div>
-        <div class="badge-item">
-          <i class="fas fa-check-circle"></i>
-          <span>MLSCN Accredited</span>
-        </div>
-        <div class="badge-item">
-          <i class="fas fa-check-circle"></i>
-          <span>Radiology Society Member</span>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- left about text + service highlights -->
+          <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-blue-100">
+            <p class="text-xl text-gray-700 leading-relaxed mb-6">
+              At <strong class="text-blue-700">Touchstone Diagnostic</strong> (Surulere, Lagos), we set the gold standard for clinical precision. Specializing in:
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-heart-circle text-blue-600"></i><span class="text-sm font-medium">Cardiovascular health</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-ribbon text-blue-600"></i><span class="text-sm font-medium">Cancer prevention</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-droplet text-blue-600"></i><span class="text-sm font-medium">Diabetes wellness</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-venus-mars text-blue-600"></i><span class="text-sm font-medium">Fertility screening</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-x-ray text-blue-600"></i><span class="text-sm font-medium">Imaging & radiology</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-microscope text-blue-600"></i><span class="text-sm font-medium">Laboratory tests</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-spa text-blue-600"></i><span class="text-sm font-medium">Wellness screenings</span></div>
+              <div class="bg-blue-50 p-3 rounded-xl flex items-center gap-2"><i class="fas fa-dna text-blue-600"></i><span class="text-sm font-medium">Specialized diagnostics</span></div>
+            </div>
+            <p class="text-gray-600 border-l-4 border-blue-300 pl-4 italic text-sm">Accurate diagnosis is the touchstone of effective treatment — 24/7 in Surulere.</p>
+          </div>
+          <!-- right: aesthetically pleasing microscope (high‑res unsplash) -->
+          <div class="img-microscope w-full h-96 rounded-3xl image-glow shadow-2xl" style="background-image: url('https://images.unsplash.com/photo-1582719508461-905c6734fd3e?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center;">
+            <div class="w-full h-full bg-black/10 rounded-3xl flex items-end p-5 text-white font-semibold text-lg bg-gradient-to-t from-black/30">Advanced optics · precision analysis</div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ===== DIAGNOSTICS section (services grid) with aesthetic imagery ===== -->
+    <section id="diagnostics" class="scroll-mt-20 py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="text-center mb-14">
+          <span class="text-blue-700 font-semibold text-sm uppercase tracking-wider">comprehensive menu</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">Diagnostics we offer</h2>
+          <p class="text-gray-500 max-w-2xl mx-auto mt-4">Cutting‑edge technology · 24/7 availability · Surulere</p>
+        </div>
+
+        <!-- grid with some cards having background images to enhance aesthetics -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-blue-100 img-lab-equip" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-heart-pulse text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Cardiovascular</h3><p class="text-gray-500 text-sm">ECG, stress test, lipid profile, holter.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-purple-100" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-ribbon text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Cancer prevention</h3><p class="text-gray-500 text-sm">Tumor markers, Pap, low‑dose CT.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-green-100" style="background-image: url('https://images.unsplash.com/photo-1581595219315-a187d40c3226?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-droplet text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Diabetes wellness</h3><p class="text-gray-500 text-sm">HbA1c, glucose tolerance, insulin.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-pink-100" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=400&auto=format&fit=crop'); background-size: cover;"></div>
+            <div class="p-5"><i class="fas fa-venus-mars text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Fertility</h3><p class="text-gray-500 text-sm">Hormone panels, semen analysis.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-yellow-100 img-radiology" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="p-5"><i class="fas fa-x-ray text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Imaging & radiology</h3><p class="text-gray-500 text-sm">X‑ray, ultrasound, MRI, CT.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-indigo-100" style="background-image: url('https://images.unsplash.com/photo-1582719508461-905c6734fd3e?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="p-5"><i class="fas fa-microscope text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Laboratory tests</h3><p class="text-gray-500 text-sm">Hematology, microbiology.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-teal-100" style="background-image: url('https://images.unsplash.com/photo-1666214280391-9ff3b0c4c9ab?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="p-5"><i class="fas fa-spa text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Wellness screenings</h3><p class="text-gray-500 text-sm">Executive checkup, wellman.</p></div>
+          </div>
+          <div class="rounded-3xl bg-white border border-gray-200 overflow-hidden card-hover shadow-sm">
+            <div class="h-40 bg-blue-100" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop');"></div>
+            <div class="p-5"><i class="fas fa-dna text-3xl text-blue-700 mb-2"></i><h3 class="text-xl font-bold mb-1">Specialized</h3><p class="text-gray-500 text-sm">Allergy, hormonal, genetic.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT section with exact address & hours (Surulere) ===== -->
+    <section id="contact" class="scroll-mt-20 py-16 bg-gradient-to-b from-white to-blue-50">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Connect with us</h2>
+
+        <div class="grid md:grid-cols-3 gap-8 bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-blue-100">
+          <!-- call column -->
+          <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fas fa-phone-alt text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Give us a call</h3>
+            <a href="tel:+2349018888143" class="text-blue-700 text-lg font-medium hover:underline block">0901 888 8143</a>
+            <p class="text-gray-500 text-sm mt-2">24/7 hotline</p>
+          </div>
+          <!-- WhatsApp message column -->
+          <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fab fa-whatsapp text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Send us a Message</h3>
+            <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic" target="_blank" class="text-green-600 text-lg font-medium hover:underline block">0901 888 8143 <i class="fab fa-whatsapp ml-1"></i></a>
+            <p class="text-gray-500 text-sm mt-2">chat via WhatsApp</p>
+          </div>
+          <!-- location column (full details) -->
+          <div class="text-center md:text-left flex flex-col items-center md:items-start">
+            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 mb-4"><i class="fas fa-map-pin text-2xl"></i></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Visit our Location</h3>
+            <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank" class="text-blue-700 hover:underline text-md font-medium">
+              66 Ogunlana Dr, Surulere,<br>Lagos 101283, G932+HH Lagos
+            </a>
+            <div class="mt-3 text-xs text-gray-600 space-y-1">
+              <p><span class="font-semibold">Sunday–Saturday:</span> Open 24 hours</p>
+              <p><span class="font-semibold">Daily:</span> 24/7 service</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-gray-600 mt-8 text-sm"><i class="fas fa-clock text-blue-600 mr-2"></i>Open 24 hours every day · 0901 888 8143</p>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER (2nd image style) ===== -->
+    <footer class="bg-gray-900 text-white pt-10 pb-6">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-6">
+          <p class="text-sm text-gray-300">© 2026 Lighthouse Diagnostics Ltd. All Rights Reserved.</p>
+          <div class="flex gap-8 text-sm font-medium text-gray-200 mt-4 md:mt-0">
+            <a href="#home" class="hover:text-white transition">Home</a>
+            <a href="#about" class="hover:text-white transition">About Us</a>
+            <a href="#contact" class="hover:text-white transition">Contact Us</a>
+          </div>
+        </div>
+        <div class="pt-5 text-xs text-gray-500 text-center md:text-left">
+          Touchstone Diagnostic – 66 Ogunlana Dr, Surulere, Lagos 101283 · 24/7 precision diagnostics.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===== WHATSAPP floating button "Need Help? Chat with us" ===== -->
+  <div class="whatsapp-float fixed bottom-6 right-6 flex items-center gap-3 bg-green-600 text-white pl-4 pr-5 py-3 rounded-full shadow-xl hover:bg-green-700 transition-all cursor-pointer">
+    <i class="fab fa-whatsapp text-2xl"></i>
+    <span class="font-medium text-sm sm:text-base">Need Help? Chat with us</span>
+    <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostic" target="_blank" class="absolute inset-0"></a>
   </div>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <span class="text-blue-600 font-bold uppercase tracking-wider mb-4 block">About Us</span>
-          <h2 class="section-title">The Touchstone Standard</h2>
-          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-            Located in the heart of Surulere, Touchstone Diagnostics has redefined precision medicine 
-            in Lagos. Our state-of-the-art facility combines cutting-edge technology with a patient-first 
-            philosophy, ensuring every diagnosis is accurate, every result is timely, and every patient 
-            feels cared for.
-          </p>
-          <p class="text-lg text-gray-600 mb-8">
-            From routine blood work to advanced imaging, we maintain the highest standards of quality 
-            control, staff training, and equipment calibration.
-          </p>
-          
-          <div class="flex gap-6">
-            <div>
-              <div class="text-3xl font-bold text-blue-600">24/7</div>
-              <div class="text-sm text-gray-500">Always Open</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-blue-600">24h</div>
-              <div class="text-sm text-gray-500">Result Turnaround</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-blue-600">100%</div>
-              <div class="text-sm text-gray-500">Digital Reports</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="relative">
-          <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl"></div>
-          <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-               alt="Medical laboratory technicians at work" 
-               class="rounded-3xl shadow-2xl relative z-10 border-8 border-white hover-3d">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES SECTION -->
-  <section id="services" class="section bg-slate-50">
-    <div class="container">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-blue-600 font-bold uppercase tracking-wider mb-4 block">Our Services</span>
-        <h2 class="section-title text-center">Comprehensive Diagnostic Solutions</h2>
-        <p class="text-gray-600 text-lg">All tests are performed using the latest technology with strict quality control protocols.</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-heart-pulse"></i>
-          </div>
-          <h3>Cardiovascular Health</h3>
-          <p>ECG, stress testing, Holter monitoring, lipid profiles, and cardiac risk assessment.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-ribbon"></i>
-          </div>
-          <h3>Cancer Prevention</h3>
-          <p>Tumor markers, Pap smears, low-dose CT, mammography, and genetic risk screening.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-droplet"></i>
-          </div>
-          <h3>Diabetes Wellness</h3>
-          <p>HbA1c, glucose tolerance tests, insulin resistance panels, and diabetic foot checks.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-venus-mars"></i>
-          </div>
-          <h3>Fertility Screening</h3>
-          <p>Hormone panels, semen analysis, pelvic ultrasound, and AMH testing.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-x-ray"></i>
-          </div>
-          <h3>Imaging & Radiology</h3>
-          <p>Digital X-ray, ultrasound (abdominal/pelvic/obstetric), MRI, and CT scans.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-microscope"></i>
-          </div>
-          <h3>Laboratory Medicine</h3>
-          <p>Hematology, microbiology, immunology, clinical chemistry, and therapeutic drug monitoring.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-spa"></i>
-          </div>
-          <h3>Wellness Packages</h3>
-          <p>Executive health check, pre-employment screening, annual physicals, and customized panels.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-        
-        <div class="service-card hover-3d">
-          <div class="service-icon">
-            <i class="fas fa-dna"></i>
-          </div>
-          <h3>Specialized Diagnostics</h3>
-          <p>Allergy testing, hormonal assays, genetic screening, and infectious disease panels.</p>
-          <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES SECTION -->
-  <section class="features section">
-    <div class="container">
-      <div class="text-center text-white mb-12">
-        <h2 class="text-4xl font-bold mb-4">Why Choose Touchstone</h2>
-        <p class="text-xl opacity-90 max-w-3xl mx-auto">The gold standard for diagnostic excellence in Surulere</p>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="feature-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <h4>24/7 Availability</h4>
-          <p>Always open—including weekends and public holidays. No appointment needed for emergencies.</p>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">
-            <i class="fas fa-flask"></i>
-          </div>
-          <h4>ISO-Certified Lab</h4>
-          <p>International standards for accuracy, quality control, and equipment calibration.</p>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">
-            <i class="fas fa-user-md"></i>
-          </div>
-          <h4>Specialist Radiologists</h4>
-          <p>All imaging reports reviewed by board-certified radiologists with subspecialty training.</p>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h4>Digital Results</h4>
-          <p>Secure online portal and WhatsApp delivery—get results on your phone within 24 hours.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials">
-    <div class="container">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="section-title text-center">What Our Patients Say</h2>
-        <p class="text-gray-600">Trusted by thousands of patients and healthcare providers across Lagos</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="testimonial-card">
-          <i class="fas fa-quote-left text-3xl text-blue-300 mb-4"></i>
-          <p class="text-gray-700 mb-6">The staff were incredibly professional and the facility is spotless. My ultrasound results were ready in 2 hours. Highly recommended!</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AO</div>
-            <div>
-              <p class="font-bold">Adebayo O.</p>
-              <p class="text-sm text-gray-500">Surulere</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <i class="fas fa-quote-left text-3xl text-blue-300 mb-4"></i>
-          <p class="text-gray-700 mb-6">I've been using Touchstone for my diabetic monitoring for 3 years. Consistent quality, and they accept my HMO without issues.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">FK</div>
-            <div>
-              <p class="font-bold">Folake K.</p>
-              <p class="text-sm text-gray-500">Ikeja</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <i class="fas fa-quote-left text-3xl text-blue-300 mb-4"></i>
-          <p class="text-gray-700 mb-6">The radiologist took time to explain my scan results. Rare to find this level of care. Will definitely return.</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">CO</div>
-            <div>
-              <p class="font-bold">Chukwudi O.</p>
-              <p class="text-sm text-gray-500">Lagos Island</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="text-center mb-12">
-        <h2 class="section-title text-center">Visit Our Center</h2>
-        <p class="text-gray-600">We're conveniently located in Surulere, open 24/7 for all your diagnostic needs.</p>
-      </div>
-      
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Get in Touch</h3>
-          
-          <div class="contact-detail">
-            <i class="fas fa-map-pin"></i>
-            <div>
-              <p class="font-bold">Main Center</p>
-              <p class="text-blue-200">66 Ogunlana Drive, Surulere, Lagos 101283</p>
-            </div>
-          </div>
-          
-          <div class="contact-detail">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <p class="font-bold">24/7 Hotline</p>
-              <p class="text-blue-200">0901 888 8143</p>
-            </div>
-          </div>
-          
-          <div class="contact-detail">
-            <i class="fab fa-whatsapp"></i>
-            <div>
-              <p class="font-bold">WhatsApp Booking</p>
-              <p class="text-blue-200">0901 888 8143</p>
-            </div>
-          </div>
-          
-          <div class="contact-detail">
-            <i class="fab fa-instagram"></i>
-            <div>
-              <p class="font-bold">Follow Us</p>
-              <a href="https://www.instagram.com/touchstone_diagnostics" class="text-blue-200 hover:underline">@touchstone_diagnostics</a>
-            </div>
-          </div>
-          
-          <h4 class="text-xl font-bold mt-8 mb-4">Opening Hours</h4>
-          <div class="hours-grid">
-            <div class="hours-item">
-              <p class="font-bold">Mon - Sun</p>
-              <p>24 Hours</p>
-            </div>
-            <div class="hours-item">
-              <p class="font-bold">Public Holidays</p>
-              <p>24 Hours</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact-map">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.123456789!2d3.3512345!3d6.5012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c6bb8a5436d%3A0x6a0a09e80e1a1234!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng" 
-            allowfullscreen="" 
-            loading="lazy">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HMO PARTNERS -->
-  <section class="py-12 bg-white border-y border-slate-200">
-    <div class="container">
-      <p class="text-center text-slate-400 font-bold uppercase tracking-widest text-sm mb-8">Trusted by Major HMOs & Insurance Partners</p>
-      <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 hover:opacity-100 transition-all">
-        <span class="text-2xl font-black">HYGEIA</span>
-        <span class="text-2xl font-black">RELIANCE</span>
-        <span class="text-2xl font-black">AXA MANSARD</span>
-        <span class="text-2xl font-black">TOTAL HEALTH</span>
-        <span class="text-2xl font-black">AIICO</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-logo">TOUCHSTONE<span style="color: var(--blue);">DIAGNOSTICS</span></div>
-          <p class="mb-4">Precision is the touchstone of effective treatment. ISO-accredited diagnostics, 24/7 in Surulere.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-          </div>
-        </div>
-        
-        <div class="footer-links">
-          <h4 class="text-white font-bold mb-4">Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#services">Our Services</a>
-          <a href="#contact">Contact</a>
-        </div>
-        
-        <div class="footer-links">
-          <h4 class="text-white font-bold mb-4">Services</h4>
-          <a href="#">Laboratory</a>
-          <a href="#">Radiology</a>
-          <a href="#">Fertility</a>
-          <a href="#">Wellness</a>
-        </div>
-        
-        <div>
-          <h4 class="text-white font-bold mb-4">Contact Info</h4>
-          <p class="mb-2"><i class="fas fa-map-pin mr-2 text-blue-400"></i>66 Ogunlana Dr, Surulere</p>
-          <p class="mb-2"><i class="fas fa-phone mr-2 text-blue-400"></i>0901 888 8143</p>
-          <p class="mb-2"><i class="fas fa-clock mr-2 text-blue-400"></i>Open 24/7</p>
-        </div>
-      </div>
-      
-      <div class="copyright">
-        <p>© 2026 Touchstone Diagnostics Limited. All Rights Reserved. HEFAMAA Registered.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20need%20to%20book%20a%20test." 
-     class="whatsapp-float" 
-     target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
+  <!-- ensure mobile menu closes when clicking outside? optional but fine -->
+  <script>
+    (function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      // close menu when any mobile link clicked (already via onclick)
+      // also close if click outside (optional for better UX)
+      window.addEventListener('click', function(e) {
+        const isLabel = e.target.closest('label[for="menu-toggle"]');
+        const isPanel = e.target.closest('#mobile-menu-panel');
+        if (!isLabel && !isPanel && menuToggle.checked) {
+          menuToggle.checked = false;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
