@@ -1,430 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Touchstone Diagnostics · precision meets compassion</title>
-    <!-- SEO -->
-    <meta name="description" content="Touchstone Diagnostics Surulere: 24/7 medical lab, X-ray, ultrasound, fertility. Where precision meets compassion – reliable, fast, affordable." />
-    <!-- Tailwind + shadcn base (via CDN) + Inter font -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Framer Motion + React (via esm.sh) – light but complete -->
-    <script type="module" src="https://esm.sh/react@18.2.0?bundle"></script>
-    <script type="module" src="https://esm.sh/react-dom@18.2.0/client?bundle"></script>
-    <script type="module" src="https://esm.sh/framer-motion@10.16.4?bundle"></script>
-    <!-- shadcn/ui style foundation & lucide icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@radix-ui/react-slot@1.0.2/dist/index.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- custom subtle base (only necessary overrides) -->
-    <style>
-      * { font-family: 'Inter', sans-serif; }
-      html { scroll-behavior: smooth; }
-      .glass-nav { backdrop-filter: blur(12px); background: rgba(255,255,255,0.85); }
-      .hero-glow { text-shadow: 0 4px 20px rgba(0,119,190,0.2); }
-      .animate-float { animation: float 3s ease-in-out infinite; }
-      @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
-      .card-hover { transition: all 0.2s ease; }
-      .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -12px rgba(0,33,71,0.25); }
-      .wa-bounce { animation: bounce 2s infinite; }
-      @keyframes bounce { 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.1); } }
-      .bg-navy { background-color: #002147; }
-      .text-navy { color: #002147; }
-      .border-navy { border-color: #002147; }
-      .bg-blue { background-color: #0077be; }
-      .from-navy { --tw-gradient-from: #002147; }
-      .to-blue { --tw-gradient-to: #0077be; }
-    </style>
-  </head>
-  <body class="bg-white text-slate-800 antialiased">
-    <!-- REACT MOUNT -->
-    <div id="root"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Touchstone Diagnostics | 24/7 Medical Lab & Imaging Surulere</title>
+  <!-- SEO -->
+  <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: 24/7 laboratory, X-ray, ultrasound, fertility screening. Where precision meets compassion – reliable, fast, and affordable diagnostic results.">
+  <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening">
+  
+  <!-- Tailwind CSS (via CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome & Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS (Animate on Scroll) Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --navy: #002147;
+      --blue: #0077be;
+      --light-blue: #e6f0fa;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      overflow-x: hidden;
+      color: #1e293b;
+    }
+    
+    /* Custom animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-bounce-slow {
+      animation: bounce 2s ease-in-out infinite;
+    }
+    
+    .animate-pulse-slow {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    /* Staggered animation for children */
+    .stagger-children > * {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-children > *:nth-child(2) { animation-delay: 0.3s; }
+    .stagger-children > *:nth-child(3) { animation-delay: 0.5s; }
+    .stagger-children > *:nth-child(4) { animation-delay: 0.7s; }
+    .stagger-children > *:nth-child(5) { animation-delay: 0.9s; }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Card hover effects */
+    .service-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 33, 71, 0.1), 0 10px 10px -5px rgba(0, 33, 71, 0.04);
+    }
+    
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    
+    .glass-dark {
+      background: rgba(0, 33, 71, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    /* Sticky header with blur */
+    .sticky-header {
+      transition: all 0.3s ease;
+    }
+    
+    .sticky-header.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Nav underline animation */
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    /* Floating badge */
+    .floating-badge {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    /* WhatsApp float */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 50;
+      transition: all 0.3s ease;
+    }
+    
+    .wa-float:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+    }
+    
+    /* Mobile menu */
+    .mobile-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    /* Gradient backgrounds */
+    .bg-gradient-navy-blue {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    }
+    
+    /* Stats counter */
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="antialiased">
 
-    <!-- TYPE SCRIPT + COMPONENTS (react, motion, shadcn) -->
-    <script type="module">
-      import React, { useState, useEffect } from 'https://esm.sh/react@18.2.0?bundle';
-      import { createRoot } from 'https://esm.sh/react-dom@18.2.0/client?bundle';
-      import { motion, AnimatePresence } from 'https://esm.sh/framer-motion@10.16.4?bundle';
-      
-      // ------ shadcn/ui simple primitives (button, card, badge) ------
-      const Button = React.forwardRef(({ className, variant, asChild = false, ...props }, ref) => {
-        const Comp = asChild ? 'span' : 'button';
-        const base = "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/50 disabled:opacity-50";
-        const variants = {
-          default: "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/30 px-6 py-3",
-          outline: "border-2 border-navy text-navy bg-white hover:bg-navy hover:text-white px-6 py-3",
-          ghost: "text-navy hover:bg-slate-100",
-        };
-        return <Comp ref={ref} className={`${base} ${variants[variant] || variants.default} ${className}`} {...props} />;
-      });
-      
-      const Card = ({ className, children, hover = false }) => (
-        <div className={`bg-white rounded-3xl border border-slate-200 p-6 shadow-xl shadow-slate-200/60 ${hover ? 'card-hover' : ''} ${className}`}>
-          {children}
-        </div>
-      );
-      
-      const Badge = ({ children, className }) => (
-        <span className={`inline-flex items-center gap-1 bg-blue-50 text-navy px-4 py-2 rounded-full text-sm font-semibold ${className}`}>
-          {children}
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" 
+     class="wa-float animate-bounce-slow" 
+     target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Top Bar -->
+  <div class="bg-[#002147] text-white py-2 border-b-4 border-[#0077be]">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-sm">
+      <div class="bg-red-600 px-4 py-1 rounded-full font-bold flex items-center gap-2 mb-2 sm:mb-0">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>24/7 EMERGENCY</span>
+      </div>
+      <div class="flex flex-wrap gap-4 items-center justify-center">
+        <a href="tel:+2349018888143" class="hover:text-blue-300 transition flex items-center gap-2">
+          <i class="fas fa-phone-alt text-[#0077be]"></i> 0901 888 8143
+        </a>
+        <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank" class="hover:text-blue-300 transition flex items-center gap-2">
+          <i class="fas fa-map-marker-alt text-[#0077be]"></i> 66 Ogunlana Dr, Surulere
+        </a>
+        <span class="flex items-center gap-2">
+          <i class="fas fa-clock text-[#0077be]"></i> Open 24 Hours
         </span>
-      );
+      </div>
+    </div>
+  </div>
 
-      // ---------- floating whatsapp with bounce ----------
-      const WhatsAppFloat = () => (
-        <motion.a
-          href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics"
-          target="_blank"
-          className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl shadow-green-600/40 wa-bounce"
-          whileHover={{ scale: 1.15, rotate: 2 }}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', delay: 1.5 }}
-        >
-          <i className="lucide lucide-message-circle text-3xl"></i>
-        </motion.a>
-      );
+  <!-- Sticky Header -->
+  <header id="header" class="sticky top-0 z-40 sticky-header bg-white">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <div class="w-12 h-12 bg-gradient-navy-blue rounded-xl flex items-center justify-center shadow-lg">
+          <i class="fas fa-heartbeat text-white text-2xl"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-xl text-[#002147]">TOUCHSTONE</span>
+          <span class="text-[#0077be] font-medium ml-1 text-sm">DIAGNOSTICS</span>
+        </div>
+      </div>
 
-      // ---------- main App ----------
-      const App = () => {
-        const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-        const [scrolled, setScrolled] = useState(false);
-        
-        useEffect(() => {
-          const handleScroll = () => setScrolled(window.scrollY > 10);
-          window.addEventListener('scroll', handleScroll);
-          lucide.createIcons(); // init lucide icons
-          return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#home" class="nav-link font-semibold text-[#002147]">Home</a>
+        <a href="#about" class="nav-link font-semibold text-[#002147]">About</a>
+        <a href="#services" class="nav-link font-semibold text-[#002147]">Services</a>
+        <a href="#why-choose" class="nav-link font-semibold text-[#002147]">Why Us</a>
+        <a href="#contact" class="nav-link font-semibold text-[#002147]">Contact</a>
+        <a href="https://wa.me/2349018888143" class="bg-[#002147] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#0077be] transition-all shadow-lg hover:shadow-xl">
+          Book Appointment
+        </a>
+      </nav>
 
-        // navigation items
-        const navItems = ['Home', 'About', 'Services', 'Contact'];
-        
-        // services data (8 cards)
-        const services = [
-          { icon: 'flask', title: 'Clinical Lab', desc: 'Haematology, chemistry, hormones – fully automated' },
-          { icon: 'microscope', title: 'Histopathology', desc: 'Tissue biopsy & cancer screening' },
-          { icon: 'heart-pulse', title: 'Cardiac Assessment', desc: 'ECG, echo, stress test' },
-          { icon: 'baby', title: 'Obstetric Scan', desc: '2D/3D/4D ultrasound, fetal doppler' },
-          { icon: 'dna', title: 'Fertility', desc: 'Hormone profiling, semen analysis' },
-          { title: 'Digital X-ray', icon: 'scan', desc: 'Low-dose digital radiography' },
-          { title: 'CT Scan', icon: 'computer', desc: '128-slice helical CT' },
-          { title: 'Health Check', icon: 'clipboard-check', desc: 'Executive & pre-employment' }
-        ];
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="lg:hidden text-3xl text-[#002147]">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
 
-        // features for dark navy glass section
-        const features = [
-          { icon: 'clock', title: '24/7 Emergency', desc: 'Always open, always ready' },
-          { icon: 'gauge', title: '<24h reports', desc: 'Stat results when you need' },
-          { icon: 'badge-check', title: 'ISO quality', desc: 'Strict internal QC' },
-          { icon: 'users', title: 'Expert team', desc: 'Consultant pathologists' },
-        ];
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-200 py-4 px-4 absolute w-full shadow-xl">
+      <div class="flex flex-col gap-4">
+        <a href="#home" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Home</a>
+        <a href="#about" class="font-semibold text-[#002147] py-2 border-b border-gray-100">About</a>
+        <a href="#services" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Services</a>
+        <a href="#why-choose" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Why Us</a>
+        <a href="#contact" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Contact</a>
+        <a href="https://wa.me/2349018888143" class="bg-green-600 text-white py-3 rounded-full text-center font-bold mt-2">
+          <i class="fab fa-whatsapp mr-2"></i>Book via WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
 
-        return (
-          <div className="relative">
-            {/* Sticky header with blur */}
-            <motion.header 
-              className={`fixed top-0 left-0 w-full z-40 transition-all ${scrolled ? 'glass-nav border-b border-slate-200/80' : 'bg-transparent'}`}
-              initial={{ y: -100 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
-                {/* Logo */}
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#002147] to-[#0077be] rounded-xl flex items-center justify-center shadow-lg">
-                    <i className="lucide lucide-heart-pulse text-white text-2xl"></i>
-                  </div>
-                  <span className="font-extrabold text-xl tracking-tight text-navy">TOUCHSTONE<span className="text-blue-600 ml-1 font-normal text-sm">DIAGNOSTICS</span></span>
-                </div>
-
-                {/* Desktop nav */}
-                <nav className="hidden lg:flex items-center gap-8">
-                  {navItems.map(item => (
-                    <a key={item} href={`#${item.toLowerCase()}`} className="relative font-semibold text-navy group">
-                      {item}
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                    </a>
-                  ))}
-                  <Button variant="default" asChild>
-                    <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics">Book now</a>
-                  </Button>
-                </nav>
-
-                {/* Mobile burger */}
-                <button className="lg:hidden text-navy text-3xl" onClick={() => setMobileMenuOpen(true)}>
-                  <i className="lucide lucide-menu"></i>
-                </button>
-              </div>
-            </motion.header>
-
-            {/* Mobile menu drawer (AnimatePresence) */}
-            <AnimatePresence>
-              {mobileMenuOpen && (
-                <motion.div 
-                  className="fixed inset-0 bg-white z-50 lg:hidden flex flex-col p-8"
-                  initial={{ x: '100%' }}
-                  animate={{ x: 0 }}
-                  exit={{ x: '100%' }}
-                  transition={{ type: 'tween', duration: 0.3 }}
-                >
-                  <div className="flex justify-end">
-                    <button className="text-3xl" onClick={() => setMobileMenuOpen(false)}>
-                      <i className="lucide lucide-x"></i>
-                    </button>
-                  </div>
-                  <div className="flex flex-col gap-6 mt-10 text-2xl">
-                    {navItems.map(item => (
-                      <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="font-bold text-navy border-b border-slate-100 pb-2">
-                        {item}
-                      </a>
-                    ))}
-                    <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" className="bg-green-500 text-white rounded-full py-4 text-center font-bold mt-4">
-                      Book via WhatsApp
-                    </a>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* main content (offset header) */}
-            <main className="pt-20">
-
-              {/* HERO with staggered animation */}
-              <section id="home" className="container mx-auto px-4 lg:px-8 py-12 md:py-20">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <Badge className="mb-6 animate-float">
-                      <i className="lucide lucide-award"></i> Certified Lab · 24/7
-                    </Badge>
-                    <motion.h1 
-                      className="text-5xl md:text-6xl font-extrabold text-navy leading-tight"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      Touchstone <span className="text-blue-600">Diagnostics</span>
-                    </motion.h1>
-                    <motion.h2 
-                      className="text-3xl md:text-4xl font-semibold text-blue-600 mt-2 hero-glow"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      Where precision meets compassion
-                    </motion.h2>
-                    <motion.p 
-                      className="text-lg text-slate-600 mt-6 max-w-lg"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.6 }}
-                    >
-                      24/7 medical laboratory & imaging in Surulere. Fast, accurate, and always human.
-                    </motion.p>
-
-                    {/* stat badges */}
-                    <motion.div 
-                      className="flex flex-wrap gap-6 mt-8"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 }}
-                    >
-                      <div><span className="font-black text-2xl text-blue-600">24/7</span><span className="block text-xs uppercase tracking-wide">emergency</span></div>
-                      <div><span className="font-black text-2xl text-blue-600"><24h</span><span className="block text-xs uppercase">turnaround</span></div>
-                      <div><span className="font-black text-2xl text-blue-600">100%</span><span className="block text-xs uppercase">quality</span></div>
-                    </motion.div>
-
-                    <motion.div className="flex flex-wrap gap-4 mt-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-                      <Button variant="default" asChild>
-                        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics">Book an appointment</a>
-                      </Button>
-                      <Button variant="outline" asChild>
-                        <a href="#services">Explore services</a>
-                      </Button>
-                    </motion.div>
-                  </motion.div>
-
-                  {/* hero image with float */}
-                  <motion.div 
-                    className="relative"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                  >
-                    <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30">
-                      <img 
-                        src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop" 
-                        alt="Medical lab scientist with microscope" 
-                        className="w-full h-auto object-cover aspect-[4/3]"
-                      />
-                    </div>
-                    <div className="absolute -bottom-5 -left-5 bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-3 shadow-xl border border-slate-200 animate-float">
-                      <span className="font-bold text-navy">✨ ISO 15189 certified</span>
-                    </div>
-                  </motion.div>
-                </div>
-              </section>
-
-              {/* About section (anchor) */}
-              <section id="about" className="bg-slate-50 py-20">
-                <div className="container mx-auto px-4 lg:px-8">
-                  <motion.h2 
-                    className="text-4xl font-bold text-navy mb-4"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                  >
-                    About Touchstone
-                  </motion.h2>
-                  <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-navy rounded mb-12"></div>
-                  <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <motion.div 
-                      className="rounded-3xl overflow-hidden shadow-2xl"
-                      whileInView={{ scale: 1 }}
-                      initial={{ scale: 0.95 }}
-                      transition={{ type: 'spring' }}
-                    >
-                      <img src="https://images.unsplash.com/photo-1581595220892-b2cd6e6d5faf?w=800&auto=format&fit=crop" alt="modern clinic interior" className="w-full" />
-                    </motion.div>
-                    <div>
-                      <p className="text-lg text-slate-700 leading-relaxed">
-                        At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state‑of‑the‑art laboratory and radiology. Whether you require urgent cardiovascular screening, early cancer prevention, or specialised fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.
-                      </p>
-                      <div className="grid grid-cols-2 gap-4 mt-8">
-                        <div><span className="font-black text-3xl text-blue-600">15+</span><span className="block">years serving Lagos</span></div>
-                        <div><span className="font-black text-3xl text-blue-600">50k+</span><span className="block">patients yearly</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* SERVICES CARDS (8 items, grid, hover lift) */}
-              <section id="services" className="container mx-auto px-4 lg:px-8 py-20">
-                <h2 className="text-4xl font-bold text-navy">Comprehensive diagnostics</h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-navy rounded mt-2 mb-12"></div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {services.map((s, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05 }}
-                      viewport={{ once: true }}
-                    >
-                      <Card hover className="h-full">
-                        <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-4">
-                          <i className={`lucide lucide-${s.icon} text-3xl text-blue-600`}></i>
-                        </div>
-                        <h3 className="text-xl font-bold text-navy">{s.title}</h3>
-                        <p className="text-slate-500 mt-2 text-sm">{s.desc}</p>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </section>
-
-              {/* DARK NAVY "WHY CHOOSE US" glass-morphism cards */}
-              <section className="bg-navy py-20 text-white">
-                <div className="container mx-auto px-4 lg:px-8">
-                  <motion.h2 
-                    className="text-4xl font-bold text-white"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                  >
-                    Why choose <span className="text-blue-300">Touchstone?</span>
-                  </motion.h2>
-                  <div className="w-20 h-1 bg-blue-400 rounded mt-2 mb-12"></div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {features.map((f, idx) => (
-                      <motion.div 
-                        key={idx}
-                        className="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl p-6 shadow-xl"
-                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.18)' }}
-                      >
-                        <i className={`lucide lucide-${f.icon} text-4xl text-blue-300 mb-3 block`}></i>
-                        <h4 className="text-xl font-bold">{f.title}</h4>
-                        <p className="text-blue-100/80 text-sm mt-1">{f.desc}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-
-              {/* CONTACT with embedded map and channels */}
-              <section id="contact" className="container mx-auto px-4 lg:px-8 py-20">
-                <h2 className="text-4xl font-bold text-navy">Visit / Contact</h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-navy rounded mt-2 mb-12"></div>
-                <div className="grid md:grid-cols-2 gap-8 bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
-                  <div className="p-8 bg-navy text-white">
-                    <h3 className="text-2xl font-bold mb-6">Touchstone Diagnostics</h3>
-                    <div className="space-y-5">
-                      <div className="flex gap-3"><i className="lucide lucide-map-pin text-blue-300"></i> 66 Ogunlana Dr, Surulere, Lagos 101283</div>
-                      <div className="flex gap-3"><i className="lucide lucide-phone text-blue-300"></i> <a href="tel:+2349018888143" className="hover:underline">0901 888 8143</a></div>
-                      <div className="flex gap-3"><i className="lucide lucide-message-circle text-blue-300"></i> <a href="https://wa.me/2349018888143">WhatsApp 24/7</a></div>
-                      <div className="flex gap-3"><i className="lucide lucide-instagram text-blue-300"></i> @touchstonediagnostics</div>
-                      <div className="flex gap-3"><i className="lucide lucide-linkedin text-blue-300"></i> /company/touchstone-diagnostics</div>
-                    </div>
-                    <div className="mt-8 bg-white/10 p-4 rounded-2xl">
-                      <span className="font-bold block">⏰ Open 24 hours · every day</span>
-                      <span className="text-sm opacity-90">including public holidays</span>
-                    </div>
-                  </div>
-                  <div className="h-80 md:h-auto">
-                    <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.066435467169!2d3.3496833!3d6.5019526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8db3b2cb3f81%3A0x8d4d6fec16b3f4a1!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos%20101283!5e0!3m2!1sen!2sng!4v1710000000000" 
-                      width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" className="w-full h-full min-h-[300px]"
-                    ></iframe>
-                  </div>
-                </div>
-              </section>
-
-              {/* Footer */}
-              <footer className="bg-[#0a1929] text-slate-400 py-12">
-                <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div>
-                    <span className="text-white text-2xl font-bold">TOUCHSTONE<span className="text-blue-500">.</span></span>
-                    <p className="mt-3 text-sm">Where precision meets compassion. 24/7 diagnostic excellence in Surulere.</p>
-                  </div>
-                  <div>
-                    <h5 className="text-white font-semibold">Quick links</h5>
-                    <ul className="mt-3 space-y-2">
-                      <li><a href="#home" className="hover:text-white">Home</a></li>
-                      <li><a href="#about" className="hover:text-white">About</a></li>
-                      <li><a href="#services" className="hover:text-white">Services</a></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="text-white font-semibold">Legal</h5>
-                    <ul className="mt-3 space-y-2 text-sm">
-                      <li>Privacy policy</li>
-                      <li>Terms of use</li>
-                      <li>© 2025 Touchstone Diagnostics</li>
-                    </ul>
-                  </div>
-                </div>
-              </footer>
-            </main>
-
-            {/* WhatsApp float */}
-            <WhatsAppFloat />
+  <!-- Hero Section -->
+  <section id="home" class="relative overflow-hidden bg-gradient-to-br from-white via-white to-blue-50">
+    <div class="container mx-auto px-4 py-12 md:py-20">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="stagger-children">
+          <!-- Floating Badge -->
+          <div class="inline-flex items-center gap-2 bg-[#e6f0fa] px-5 py-2 rounded-full text-[#002147] font-semibold mb-6 floating-badge">
+            <i class="fas fa-flask text-[#0077be]"></i>
+            <span>The Gold Standard of Clinical Precision</span>
+            <i class="fas fa-certificate text-[#0077be] ml-2"></i>
           </div>
-        );
-      };
 
-      // render
-      const root = createRoot(document.getElementById('root'));
-      root.render(<App />);
+          <!-- Main Headline -->
+          <h1 class="text-5xl lg:text-6xl font-extrabold text-[#002147] leading-tight mb-2">
+            Touchstone <span class="text-[#0077be]">Diagnostics</span>
+          </h1>
+          
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#0077be] mb-6">
+            Where precision meets compassion
+          </h2>
+          
+          <p class="text-lg text-gray-600 mb-8 max-w-lg">
+            24/7 medical laboratory & imaging in Surulere. Fast, accurate, and always human – providing the foundation for your health journey.
+          </p>
+
+          <!-- Stats -->
+          <div class="flex flex-wrap gap-8 mb-8">
+            <div>
+              <div class="stat-number">24/7</div>
+              <div class="text-sm uppercase tracking-wider text-gray-500">Emergency</div>
+            </div>
+            <div>
+              <div class="stat-number"><24h</div>
+              <div class="text-sm uppercase tracking-wider text-gray-500">Turnaround</div>
+            </div>
+            <div>
+              <div class="stat-number">100%</div>
+              <div class="text-sm uppercase tracking-wider text-gray-500">Quality</div>
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap gap-4">
+            <a href="https://wa.me/2349018888143" class="bg-[#0077be] text-white px-8 py-4 rounded-full font-bold hover:bg-[#005c94] transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+              <i class="fab fa-whatsapp"></i> Book Appointment
+            </a>
+            <a href="#services" class="border-2 border-[#002147] text-[#002147] px-8 py-4 rounded-full font-bold hover:bg-[#002147] hover:text-white transition-all">
+              Explore Services
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop" 
+                 alt="Medical laboratory scientist at work" 
+                 class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700">
+          </div>
+          <!-- Floating Card -->
+          <div class="absolute -bottom-5 -left-5 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl border border-gray-200 floating-badge">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-star text-yellow-400"></i>
+              <span class="font-bold text-[#002147]">ISO 15189 Certified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl lg:text-5xl font-bold text-[#002147] mb-4">About Touchstone</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-[#002147] mx-auto"></div>
+      </div>
       
-      // re-init lucide after render (dynamic icons)
-      setTimeout(() => lucide.createIcons(), 100);
-    </script>
-    <!-- lucide auto-init fallback -->
-    <script>lucide?.createIcons();</script>
-  </body>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <div class="rounded-3xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1581595220892-b2cd6e6d5faf?w=800&auto=format&fit=crop" 
+                 alt="Modern medical clinic interior" 
+                 class="w-full h-auto object-cover aspect-[4/3]">
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            At <span class="font-bold text-[#0077be]">Touchstone Diagnostics</span>, we provide an accurate foundation for your health journey through state‑of‑the‑art laboratory and radiology. Whether you require urgent cardiovascular screening, early cancer prevention, or specialised fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-6 mt-8">
+            <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+              <div class="text-3xl font-black text-[#0077be]">15+</div>
+              <div class="text-sm text-gray-500">Years of Excellence</div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+              <div class="text-3xl font-black text-[#0077be]">50k+</div>
+              <div class="text-sm text-gray-500">Patients Yearly</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section (8 Cards) -->
+  <section id="services" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl lg:text-5xl font-bold text-[#002147] mb-4">Comprehensive Diagnostics</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-[#002147] mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service Card 1 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="100">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-flask text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Clinical Lab</h3>
+          <p class="text-gray-500 text-sm">Haematology, chemistry, hormones – fully automated</p>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="200">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-microscope text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Histopathology</h3>
+          <p class="text-gray-500 text-sm">Tissue biopsy & cancer screening</p>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="300">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-heartbeat text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Cardiac Assessment</h3>
+          <p class="text-gray-500 text-sm">ECG, echo, stress test</p>
+        </div>
+        
+        <!-- Service Card 4 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="400">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-baby text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Obstetric Scan</h3>
+          <p class="text-gray-500 text-sm">2D/3D/4D ultrasound, fetal doppler</p>
+        </div>
+        
+        <!-- Service Card 5 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="500">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-dna text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Fertility</h3>
+          <p class="text-gray-500 text-sm">Hormone profiling, semen analysis</p>
+        </div>
+        
+        <!-- Service Card 6 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="600">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-x-ray text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Digital X-ray</h3>
+          <p class="text-gray-500 text-sm">Low-dose digital radiography</p>
+        </div>
+        
+        <!-- Service Card 7 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="700">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-cog text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">CT Scan</h3>
+          <p class="text-gray-500 text-sm">128-slice helical CT</p>
+        </div>
+        
+        <!-- Service Card 8 -->
+        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="800">
+          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
+            <i class="fas fa-clipboard-check text-3xl text-[#0077be]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Health Check</h3>
+          <p class="text-gray-500 text-sm">Executive & pre-employment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us (Dark Navy Glass Section) -->
+  <section id="why-choose" class="py-20 bg-[#002147] relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#0077be] rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Why Choose <span class="text-[#0077be]">Touchstone?</span></h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-white mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="100">
+          <i class="fas fa-clock text-5xl text-[#0077be] mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">24/7 Emergency</h4>
+          <p class="text-blue-100 text-sm">Always open, always ready – any time, day or night</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="200">
+          <i class="fas fa-gauge-high text-5xl text-[#0077be] mb-4"></i>
+          <h4 class="text-xl font-bold mb-2"><24h Reports</h4>
+          <p class="text-blue-100 text-sm">Stat results when you need them most</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="300">
+          <i class="fas fa-certificate text-5xl text-[#0077be] mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">ISO Quality</h4>
+          <p class="text-blue-100 text-sm">Strict internal QC and international standards</p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="400">
+          <i class="fas fa-user-doctor text-5xl text-[#0077be] mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">Expert Team</h4>
+          <p class="text-blue-100 text-sm">Consultant pathologists & experienced radiologists</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section with Map -->
+  <section id="contact" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl lg:text-5xl font-bold text-[#002147] mb-4">Visit / Contact Us</h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-[#002147] mx-auto"></div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+        <!-- Contact Info -->
+        <div class="bg-[#002147] text-white p-8 lg:p-10" data-aos="fade-right">
+          <h3 class="text-2xl font-bold mb-8">Touchstone Diagnostics</h3>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-map-marker-alt text-[#0077be]"></i>
+              </div>
+              <div>
+                <p class="font-medium">66 Ogunlana Drive,</p>
+                <p class="text-blue-200">Surulere, Lagos 101283</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4 items-center">
+              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-phone-alt text-[#0077be]"></i>
+              </div>
+              <a href="tel:+2349018888143" class="hover:text-[#0077be] transition text-lg">0901 888 8143</a>
+            </div>
+            
+            <div class="flex gap-4 items-center">
+              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
+                <i class="fab fa-whatsapp text-[#0077be]"></i>
+              </div>
+              <a href="https://wa.me/2349018888143" class="hover:text-[#0077be] transition">WhatsApp 24/7</a>
+            </div>
+            
+            <div class="flex gap-4 items-center">
+              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
+                <i class="fab fa-instagram text-[#0077be]"></i>
+              </div>
+              <span>@touchstonediagnostics</span>
+            </div>
+            
+            <div class="flex gap-4 items-center">
+              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
+                <i class="fab fa-linkedin-in text-[#0077be]"></i>
+              </div>
+              <span>/company/touchstone-diagnostics</span>
+            </div>
+          </div>
+          
+          <div class="mt-8 bg-white/10 p-5 rounded-2xl">
+            <div class="flex items-center gap-2 text-xl font-bold mb-2">
+              <i class="fas fa-clock text-[#0077be]"></i>
+              <span>Open 24 hours</span>
+            </div>
+            <p class="text-blue-200 text-sm">Every day, including public holidays</p>
+          </div>
+        </div>
+        
+        <!-- Google Map -->
+        <div class="h-96 md:h-auto" data-aos="fade-left">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.066435467169!2d3.3496833!3d6.5019526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8db3b2cb3f81%3A0x8d4d6fec16b3f4a1!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos%20101283!5e0!3m2!1sen!2sng!4v1710000000000" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            class="w-full h-full min-h-[400px]">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a1929] text-slate-400 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-gradient-navy-blue rounded-lg flex items-center justify-center">
+              <i class="fas fa-heartbeat text-white"></i>
+            </div>
+            <span class="text-white text-2xl font-bold">TOUCHSTONE<span class="text-[#0077be]">.</span></span>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Where precision meets compassion. 24/7 diagnostic excellence in Surulere, Lagos.
+          </p>
+        </div>
+        
+        <div>
+          <h5 class="text-white font-semibold mb-4">Quick Links</h5>
+          <ul class="space-y-2">
+            <li><a href="#home" class="hover:text-white transition">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition">About</a></li>
+            <li><a href="#services" class="hover:text-white transition">Services</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="text-white font-semibold mb-4">Legal</h5>
+          <ul class="space-y-2 text-sm">
+            <li>Privacy Policy</li>
+            <li>Terms of Use</li>
+            <li>© 2025 Touchstone Diagnostics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+
+    // Sticky Header with Blur
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      // Change icon
+      const icon = menuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.className = 'fas fa-bars';
+      } else {
+        icon.className = 'fas fa-times';
+      }
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        menuBtn.querySelector('i').className = 'fas fa-bars';
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
 </html>
