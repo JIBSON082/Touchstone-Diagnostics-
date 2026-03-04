@@ -8,11 +8,9 @@
   <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: 24/7 laboratory, X-ray, ultrasound, fertility screening. Where precision meets compassion – reliable, fast, and affordable diagnostic results.">
   <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening, where precision meets compassion">
   <!-- Fonts & icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- AOS for scroll animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Alpine for mobile menu -->
+  <!-- Alpine for mobile menu (lightweight) -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
     * {
@@ -53,52 +51,7 @@
       }
     }
 
-    /* Custom Animations */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    .animate-bounce-slow {
-      animation: bounce 2s ease-in-out infinite;
-    }
-    
-    .fadeInUp {
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    
-    .stagger-item {
-      opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
-    }
-    
-    .stagger-item:nth-child(1) { animation-delay: 0.1s; }
-    .stagger-item:nth-child(2) { animation-delay: 0.3s; }
-    .stagger-item:nth-child(3) { animation-delay: 0.5s; }
-    .stagger-item:nth-child(4) { animation-delay: 0.7s; }
-    .stagger-item:nth-child(5) { animation-delay: 0.9s; }
-
-    /* top bar */
+    /* top bar – IMPROVED spacing & structure for mobile/desktop view */
     .top-bar {
       background: var(--navy);
       color: white;
@@ -111,6 +64,7 @@
       align-items: flex-start;
       gap: 0.5rem;
     }
+    /* Enhanced tablet/desktop layout */
     @media (min-width: 640px) {
       .top-bar .container {
         flex-direction: row;
@@ -119,6 +73,7 @@
         gap: 1rem;
       }
     }
+    /* Fine-tune for "desktop site" on mobile */
     @media (min-width: 640px) and (max-width: 768px) {
       .top-bar .container {
         flex-wrap: wrap;
@@ -169,20 +124,14 @@
       font-size: 1rem;
     }
 
-    /* header with enhanced blur */
+    /* header (unchanged, already good) */
     .header {
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
-      transition: all 0.3s ease;
-    }
-    .header.scrolled {
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
     .header .container {
       display: flex;
@@ -204,10 +153,6 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 10px 15px -8px rgba(0,33,71,0.4);
-      transition: transform 0.3s ease;
-    }
-    .logo-icon:hover {
-      transform: scale(1.05) rotate(5deg);
     }
     .logo-icon i {
       font-size: 1.8rem;
@@ -239,10 +184,6 @@
       font-size: 2rem;
       color: var(--navy);
       cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .mobile-menu-btn:hover {
-      transform: scale(1.1);
     }
     @media (min-width: 900px) {
       .mobile-menu-btn { display: none; }
@@ -259,39 +200,21 @@
         text-transform: uppercase;
         letter-spacing: 0.3px;
         padding: 0.5rem 0;
-        position: relative;
+        border-bottom: 2px solid transparent;
+        transition: 0.2s;
       }
-      .nav a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--blue);
-        transition: width 0.3s ease;
-      }
-      .nav a:hover::after {
-        width: 100%;
-      }
+      .nav a:hover { border-bottom-color: var(--blue); }
       .btn-nav {
         background: var(--navy);
         color: white !important;
         padding: 0.7rem 1.8rem !important;
         border-radius: 50px;
-        transition: all 0.3s ease !important;
+        border-bottom: none !important;
       }
-      .btn-nav:hover {
-        background: var(--blue);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px -5px rgba(0,119,190,0.4);
-      }
-      .btn-nav::after {
-        display: none;
-      }
+      .btn-nav:hover { background: var(--blue); }
     }
 
-    /* mobile menu dropdown */
+    /* mobile menu dropdown (unchanged) */
     .mobile-menu-dropdown {
       background: white;
       border-top: 1px solid var(--border);
@@ -300,8 +223,6 @@
       flex-direction: column;
       gap: 1.2rem;
       box-shadow: 0 20px 30px -15px rgba(0,33,71,0.2);
-      transform-origin: top;
-      transition: all 0.3s ease;
     }
     .mobile-menu-dropdown a {
       text-decoration: none;
@@ -310,11 +231,6 @@
       font-size: 1.2rem;
       padding: 0.5rem 0;
       border-bottom: 1px solid #eef2f6;
-      transition: all 0.2s ease;
-    }
-    .mobile-menu-dropdown a:hover {
-      color: var(--blue);
-      padding-left: 10px;
     }
     .mobile-wa-btn {
       background: #25D366;
@@ -325,36 +241,17 @@
       font-weight: 700;
       margin-top: 0.5rem;
       text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .mobile-wa-btn:hover {
-      background: #128C7E;
-      transform: scale(1.02);
     }
 
-    /* hero section with animations */
+    /* hero - unchanged */
     .hero {
       padding: 2rem 0 3rem;
       background: linear-gradient(115deg, #ffffff 50%, rgba(0,119,190,0.02) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 80%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,119,190,0.03) 0%, transparent 70%);
-      z-index: 0;
     }
     .hero .container {
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      position: relative;
-      z-index: 1;
     }
     @media (min-width: 768px) {
       .hero .container {
@@ -377,8 +274,6 @@
       font-weight: 600;
       color: var(--navy);
       font-size: 0.9rem;
-      box-shadow: 0 5px 15px rgba(0,119,190,0.1);
-      animation: float 3s ease-in-out infinite;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -386,8 +281,6 @@
       line-height: 1.2;
       color: var(--navy);
       margin-bottom: 0.75rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
     }
     .hero h2 {
       font-size: 1.8rem;
@@ -395,22 +288,16 @@
       color: var(--blue);
       margin-bottom: 1rem;
       line-height: 1.3;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.2s forwards;
     }
     .hero p {
       font-size: 1.1rem;
       color: #33455a;
       margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.4s forwards;
     }
     .hero-buttons {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.6s forwards;
     }
     @media (min-width: 480px) {
       .hero-buttons {
@@ -427,24 +314,18 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      transition: all 0.3s ease;
+      transition: 0.2s;
       font-size: 1rem;
       border: none;
       cursor: pointer;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
     .btn-primary {
       background: var(--blue);
       color: white;
       box-shadow: 0 12px 20px -10px rgba(0,119,190,0.4);
     }
-    .btn-primary:hover { 
-      background: #0088dd;
-      transform: translateY(-2px);
-      box-shadow: 0 20px 25px -10px rgba(0,119,190,0.6);
-    }
+    .btn-primary:hover { background: #0088dd; }
     .btn-outline {
       border: 2px solid var(--navy);
       color: var(--navy);
@@ -453,7 +334,6 @@
     .btn-outline:hover {
       background: var(--navy);
       color: white;
-      transform: translateY(-2px);
     }
 
     .hero-image {
@@ -463,8 +343,6 @@
       box-shadow: 0 30px 40px -20px var(--navy);
       position: relative;
       border: 1px solid rgba(255,255,255,0.3);
-      opacity: 0;
-      animation: fadeInUp 0.6s ease 0.4s forwards;
     }
     .hero-image::before {
       content: '';
@@ -483,13 +361,12 @@
       display: block;
       object-fit: cover;
       aspect-ratio: 4/3;
-      transition: transform 0.5s ease;
+      transition: transform 0.3s ease;
     }
     .hero-image:hover img {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
-    /* about section */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -539,10 +416,10 @@
       height: auto;
       display: block;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.4s ease;
     }
     .about-image:hover img {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     .about-text p {
@@ -589,7 +466,6 @@
       .section-title { font-size: 1.9rem; }
     }
 
-    /* services grid with card hover effects */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -608,12 +484,7 @@
       padding: 1.8rem 1.2rem;
       box-shadow: 0 12px 25px -12px rgba(0,33,71,0.15);
       border: 1px solid var(--border);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 30px -12px rgba(0,33,71,0.25);
-      border-color: var(--blue);
+      transition: 0.2s;
     }
     .service-icon {
       background: #e6f0fa;
@@ -624,18 +495,10 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1.2rem;
-      transition: all 0.3s ease;
-    }
-    .service-card:hover .service-icon {
-      background: var(--blue);
-    }
-    .service-card:hover .service-icon i {
-      color: white;
     }
     .service-icon i {
       font-size: 1.8rem;
       color: var(--blue);
-      transition: color 0.3s ease;
     }
     .service-card h3 {
       font-size: 1.3rem;
@@ -649,52 +512,29 @@
       line-height: 1.5;
     }
 
-    /* features section with glass morphism */
     .features {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-    .features::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 80%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,119,190,0.2) 0%, transparent 70%);
-      z-index: 0;
+      background: #f1f7fd;
     }
     .features-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
       margin-top: 2rem;
-      position: relative;
-      z-index: 1;
     }
     @media (min-width: 600px) {
-      .features-grid { grid-template-columns: repeat(4, 1fr); }
+      .features-grid { grid-template-columns: repeat(3, 1fr); }
     }
     .feature-item {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: white;
       border-radius: 2rem;
       padding: 2rem 1.5rem;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: all 0.3s ease;
-    }
-    .feature-item:hover {
-      transform: translateY(-5px) scale(1.02);
-      background: rgba(255,255,255,0.15);
-      border-color: var(--blue);
+      border: 1px solid var(--border);
     }
     .feature-item i {
       font-size: 2.2rem;
       color: var(--blue);
-      background: rgba(255,255,255,0.1);
+      background: #e6f0fa;
       width: 65px;
       height: 65px;
       border-radius: 30px;
@@ -702,25 +542,15 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 1.2rem;
-      transition: all 0.3s ease;
-    }
-    .feature-item:hover i {
-      background: var(--blue);
-      color: white;
-      transform: rotate(360deg);
     }
     .feature-item h4 {
       font-size: 1.2rem;
       font-weight: 700;
-      color: white;
+      color: var(--navy);
       margin-bottom: 0.5rem;
     }
-    .feature-item p {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.9rem;
-    }
 
-    /* contact section */
+    /* contact */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -747,18 +577,12 @@
       gap: 1rem;
       margin-bottom: 1.8rem;
       align-items: flex-start;
-      transition: all 0.3s ease;
-    }
-    .contact-detail:hover {
-      transform: translateX(5px);
     }
     .contact-detail a {
       color: white;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
     .contact-detail a:hover {
-      color: var(--blue);
       text-decoration: underline;
     }
     .contact-detail i {
@@ -771,12 +595,6 @@
       justify-content: center;
       color: var(--blue);
       flex-shrink: 0;
-      transition: all 0.3s ease;
-    }
-    .contact-detail:hover i {
-      background: var(--blue);
-      color: white;
-      transform: scale(1.1);
     }
     .hours {
       display: flex;
@@ -790,11 +608,6 @@
       border-radius: 2rem;
       text-align: center;
       flex: 1 0 auto;
-      transition: all 0.3s ease;
-    }
-    .hours div:hover {
-      background: var(--blue);
-      transform: scale(1.05);
     }
     .contact-map {
       height: 300px;
@@ -802,37 +615,9 @@
     .contact-map iframe {
       width: 100%;
       height: 100%;
-      transition: all 0.3s ease;
-    }
-    .contact-map iframe:hover {
-      opacity: 0.9;
     }
     @media (min-width: 800px) {
       .contact-map { height: 100%; min-height: 400px; }
-    }
-
-    /* social media links */
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .social-links a {
-      width: 45px;
-      height: 45px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 1.2rem;
-    }
-    .social-links a:hover {
-      background: var(--blue);
-      transform: translateY(-3px) scale(1.1);
     }
 
     /* footer */
@@ -873,22 +658,14 @@
       justify-content: center;
       color: white;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: background 0.2s;
     }
-    .social a:hover { 
-      background: var(--blue);
-      transform: translateY(-3px);
-    }
+    .social a:hover { background: var(--blue); }
     .footer-links a {
       display: block;
       color: #a0b3cc;
       text-decoration: none;
       margin-bottom: 0.7rem;
-      transition: all 0.3s ease;
-    }
-    .footer-links a:hover {
-      color: white;
-      transform: translateX(5px);
     }
     .copyright {
       text-align: center;
@@ -913,21 +690,17 @@
       color: white;
       box-shadow: 0 15px 25px -8px #075e54;
       z-index: 99;
-      transition: all 0.3s ease;
-      animation: bounce 2s ease-in-out infinite;
+      transition: 0.2s;
     }
-    .wa-float:hover { 
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 20px 30px -8px #075e54;
-    }
+    .wa-float:hover { transform: scale(1.1); }
 
     a, button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .btn, .nav a, .mobile-menu-btn { touch-action: manipulation; }
   </style>
 </head>
-<body x-data="{ mobileMenu: false }" x-init="$watch('mobileMenu', val => document.body.style.overflow = val ? 'hidden' : 'auto')">
+<body x-data="{ mobileMenu: false }">
 
-  <!-- top bar -->
+  <!-- top bar with functional links (IMPROVED spacing) -->
   <div class="top-bar">
     <div class="container">
       <div class="emergency"><i class="fas fa-exclamation-triangle"></i> 24/7 EMERGENCY</div>
@@ -940,7 +713,7 @@
   </div>
 
   <!-- header -->
-  <header class="header" id="header">
+  <header class="header">
     <div class="container">
       <div class="logo">
         <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
@@ -950,26 +723,22 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#why-choose">Why Us</a>
         <a href="#contact">Contact</a>
-        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="btn-nav">Book an Appointment</a>
+        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn-nav">Book an Appointment</a>
       </nav>
-      <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu">
-        <i :class="mobileMenu ? 'fas fa-times' : 'fas fa-bars'"></i>
-      </button>
+      <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu"><i class="fas fa-bars"></i></button>
     </div>
     <!-- mobile menu dropdown -->
-    <div x-show="mobileMenu" class="mobile-menu-dropdown" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2">
+    <div x-show="mobileMenu" class="mobile-menu-dropdown" x-transition>
       <a href="#home" @click="mobileMenu = false">Home</a>
       <a href="#about" @click="mobileMenu = false">About</a>
       <a href="#services" @click="mobileMenu = false">Services</a>
-      <a href="#why-choose" @click="mobileMenu = false">Why Us</a>
       <a href="#contact" @click="mobileMenu = false">Contact</a>
-      <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="mobile-wa-btn" @click="mobileMenu = false"><i class="fab fa-whatsapp mr-2"></i> Book an Appointment</a>
+      <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="mobile-wa-btn" @click="mobileMenu = false">Book an Appointment</a>
     </div>
   </header>
 
-  <!-- hero section -->
+  <!-- hero (unchanged) -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-content">
@@ -978,7 +747,7 @@
         <h2>Where Precision Meets Compassion</h2>
         <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
         <div class="hero-buttons">
-          <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
+          <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn btn-primary">Book an Appointment</a>
           <a href="#services" class="btn btn-outline">Explore Services</a>
         </div>
       </div>
@@ -990,272 +759,124 @@
     </div>
   </section>
 
-  <!-- about section -->
+  <!-- about (unchanged) -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-right">About Touchstone Diagnostics</h2>
+      <h2 class="section-title">About Touchstone Diagnostics</h2>
       <div class="about-grid">
-        <div class="about-image" data-aos="fade-right" data-aos-delay="100">
-          <img src="https://image2url.com/r2/default/images/1771865082330-35ded437-0f65-4521-8841-d2515c91af30.jpg" 
-               alt="Touchstone Diagnostics modern medical facility" 
+        <div class="about-image">
+          <img src="https://image2url.com/r2/default/images/1771865417774-cb1d786d-a598-4dc8-a853-07ecff98a3af.jpg" 
+               alt="High-end digital medical microscope with heartbeat logo in clinical laboratory" 
                loading="lazy">
         </div>
-        <div class="about-text" data-aos="fade-left" data-aos-delay="200">
-          <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
-          <p>Our team of experienced pathologists, radiologists, and laboratory scientists work round-the-clock to deliver accurate results with the compassion and care you deserve. We understand that behind every test result is a person seeking answers, and we're committed to providing those answers with precision and empathy.</p>
+        <div class="about-text">
+          <p>Located in Surulere, Touchstone Diagnostics is the gold standard for clinical precision. We believe accurate diagnosis is the touchstone of effective treatment. Our facility is equipped with advanced technology to ensure every result is delivered with speed and accuracy.</p>
+          <p>We specialize in cardiovascular health screening, cancer prevention, diabetes wellness, male & female fertility screening, imaging (X‑ray, ultrasound), laboratory medicine (hematology, microbiology, immunology), blood banking, and wellness packages.</p>
           <div class="stats-mini">
-            <div class="stat-item">
-              <div class="number">24/7</div>
-              <div class="label">Service</div>
-            </div>
-            <div class="stat-item">
-              <div class="number">15+</div>
-              <div class="label">Years</div>
-            </div>
-            <div class="stat-item">
-              <div class="number">50k+</div>
-              <div class="label">Patients</div>
-            </div>
+            <div class="stat-item"><span class="number">24/7</span> <span class="label">Always open</span></div>
+            <div class="stat-item"><span class="number"><24h</span> <span class="label">Result turnaround</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- services section -->
-  <section id="services" class="section" style="background: var(--light-bg);">
+  <!-- services -->
+  <section id="services" class="section" style="background: #f8fafc;">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-right">Our Diagnostic Services</h2>
+      <h2 class="section-title">Our Diagnostic Services</h2>
       <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
-          <div class="service-icon"><i class="fas fa-flask"></i></div>
-          <h3>Clinical Laboratory</h3>
-          <p>Haematology, clinical chemistry, hormone assays, and routine pathology with automated analyzers for accurate results.</p>
-        </div>
-        <!-- Service 2 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
-          <div class="service-icon"><i class="fas fa-microscope"></i></div>
-          <h3>Histopathology</h3>
-          <p>Tissue biopsy, cancer screening, and surgical pathology for definitive diagnosis and treatment planning.</p>
-        </div>
-        <!-- Service 3 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
-          <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
-          <h3>Cardiac Assessment</h3>
-          <p>ECG, echocardiography, stress testing, and cardiac enzyme monitoring for comprehensive heart health evaluation.</p>
-        </div>
-        <!-- Service 4 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
-          <div class="service-icon"><i class="fas fa-baby"></i></div>
-          <h3>Obstetric Scan</h3>
-          <p>2D/3D/4D ultrasound, fetal doppler, anomaly scans, and pregnancy monitoring by experienced sonographers.</p>
-        </div>
-        <!-- Service 5 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
-          <div class="service-icon"><i class="fas fa-dna"></i></div>
-          <h3>Fertility Screening</h3>
-          <p>Hormone profiling, semen analysis, ovulation tracking, and comprehensive fertility assessment for couples.</p>
-        </div>
-        <!-- Service 6 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="600">
-          <div class="service-icon"><i class="fas fa-x-ray"></i></div>
-          <h3>Digital X-Ray</h3>
-          <p>Low-dose digital radiography for chest, skeletal, and abdominal imaging with instant results.</p>
-        </div>
-        <!-- Service 7 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="700">
-          <div class="service-icon"><i class="fas fa-cog"></i></div>
-          <h3>CT Scan</h3>
-          <p>128-slice helical CT for detailed cross-sectional imaging with minimal radiation exposure.</p>
-        </div>
-        <!-- Service 8 -->
-        <div class="service-card" data-aos="zoom-in" data-aos-delay="800">
-          <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
-          <h3>Health Check Packages</h3>
-          <p>Executive health screening, pre-employment medicals, and customized wellness packages.</p>
-        </div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-heart-pulse"></i></div><h3>Cardiovascular Health</h3><p>ECG, stress tests, lipid profiles, Holter monitoring.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-ribbon"></i></div><h3>Cancer Prevention</h3><p>Tumor markers, Pap smear, low‑dose CT, mammography.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-droplet"></i></div><h3>Diabetes Wellness</h3><p>HbA1c, glucose tolerance, insulin resistance.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-venus-mars"></i></div><h3>Fertility Screening</h3><p>Hormone panels, semen analysis, pelvic ultrasound.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-x-ray"></i></div><h3>Imaging & Radiology</h3><p>Digital X‑ray, ultrasound (abdominal/pelvic/obstetric).</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-microscope"></i></div><h3>Laboratory Medicine</h3><p>Hematology, microbiology, immunology, clinical chemistry.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-dna"></i></div><h3>Specialized Diagnostics</h3><p>Allergy, hormonal assays, infectious disease panels.</p></div>
+        <div class="service-card"><div class="service-icon"><i class="fas fa-spa"></i></div><h3>Wellness Packages</h3><p>Executive health check, pre‑employment, annual physicals.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- why choose us section (features) -->
-  <section id="why-choose" class="features section">
+  <!-- why choose us -->
+  <section class="features section">
     <div class="container">
-      <h2 class="section-title" style="color: white;" data-aos="fade-right">Why Choose Touchstone?</h2>
+      <h2 class="section-title">Why Choose Touchstone</h2>
       <div class="features-grid">
-        <div class="feature-item" data-aos="flip-up" data-aos-delay="100">
-          <i class="fas fa-clock"></i>
-          <h4>24/7 Availability</h4>
-          <p>Round-the-clock service every day, including public holidays – we're always here when you need us.</p>
-        </div>
-        <div class="feature-item" data-aos="flip-up" data-aos-delay="200">
-          <i class="fas fa-gauge-high"></i>
-          <h4>Fast Turnaround</h4>
-          <p>Most results available within 24 hours, with stat results for emergency cases.</p>
-        </div>
-        <div class="feature-item" data-aos="flip-up" data-aos-delay="300">
-          <i class="fas fa-certificate"></i>
-          <h4>Quality Assured</h4>
-          <p>Strict internal quality control and participation in external quality assessment schemes.</p>
-        </div>
-        <div class="feature-item" data-aos="flip-up" data-aos-delay="400">
-          <i class="fas fa-user-doctor"></i>
-          <h4>Expert Team</h4>
-          <p>Consultant pathologists, experienced radiologists, and skilled laboratory scientists.</p>
-        </div>
+        <div class="feature-item"><i class="fas fa-clock"></i><h4>24/7 Availability</h4><p>Always open—weekends and holidays. No appointment needed for emergencies.</p></div>
+        <div class="feature-item"><i class="fas fa-flask"></i><h4>Advanced Technology</h4><p>Modern equipment and strict quality control for accurate results.</p></div>
+        <div class="feature-item"><i class="fas fa-user-md"></i><h4>Specialist Radiologists</h4><p>All imaging reports reviewed by board‑certified radiologists.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- contact section -->
+  <!-- contact with functional links (LINKEDIN ADDED) -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title" data-aos="fade-right">Contact Us</h2>
-      <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="section-title">Contact & Location</h2>
+      <div class="contact-grid">
         <div class="contact-info">
-          <h3>Touchstone Diagnostics</h3>
-          <div class="contact-detail">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <strong>66 Ogunlana Drive,</strong><br>
-              Surulere, Lagos 101283
-            </div>
-          </div>
-          <div class="contact-detail">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <a href="tel:+2349018888143">0901 888 8143</a><br>
-              <span style="font-size: 0.9rem; opacity: 0.8;">24/7 Hotline</span>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <i class="fab fa-whatsapp"></i>
-            <div>
-              <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment">WhatsApp: 0901 888 8143</a><br>
-              <span style="font-size: 0.9rem; opacity: 0.8;">Instant booking & inquiries</span>
-            </div>
-          </div>
-          
-          <!-- Social Media Links (Instagram & LinkedIn) -->
-          <div class="social-links">
-            <a href="https://instagram.com/touchstonediagnostics" target="_blank" title="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com/company/touchstone-diagnostics" target="_blank" title="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://facebook.com/touchstonediagnostics" target="_blank" title="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com/touchstone_dx" target="_blank" title="Twitter">
-              <i class="fab fa-x-twitter"></i>
-            </a>
-          </div>
-          
+          <h3>Get in touch</h3>
+          <div class="contact-detail"><i class="fas fa-map-pin"></i><div><strong>Visit us</strong><br><a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank">66 Ogunlana Drive, Surulere, Lagos 101283</a></div></div>
+          <div class="contact-detail"><i class="fas fa-phone-alt"></i><div><strong>Call 24/7</strong><br><a href="tel:+2349018888143">0901 888 8143</a></div></div>
+          <div class="contact-detail"><i class="fab fa-whatsapp"></i><div><strong>WhatsApp</strong><br><a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics">0901 888 8143</a></div></div>
+          <div class="contact-detail"><i class="fab fa-instagram"></i><div><strong>Instagram</strong><br><a href="https://www.instagram.com/touchstone_diagnostics?igsh=MW1sb242cDhsa2EweQ==" target="_blank">@touchstone_diagnostics</a></div></div>
+          <!-- NEW: LinkedIn link -->
+          <div class="contact-detail"><i class="fab fa-linkedin"></i><div><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/company/touchstone-diagnostic/" target="_blank">Touchstone Diagnostic</a></div></div>
           <div class="hours">
-            <div>
-              <i class="fas fa-clock"></i><br>
-              <strong>24 HOURS</strong><br>
-              <span style="font-size: 0.8rem;">Every day</span>
-            </div>
-            <div>
-              <i class="fas fa-calendar-check"></i><br>
-              <strong>Public Holidays</strong><br>
-              <span style="font-size: 0.8rem;">Always open</span>
-            </div>
+            <div><strong>Mon–Sun</strong><br>24 hours</div>
+            <div><strong>Public Holidays</strong><br>24 hours</div>
           </div>
         </div>
         <div class="contact-map">
+          <!-- FIXED: More reliable Google Maps embed with API key and region -->
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.066435467169!2d3.3496833!3d6.5019526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8db3b2cb3f81%3A0x8d4d6fec16b3f4a1!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos%20101283!5e0!3m2!1sen!2sng!4v1710000000000" 
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=66+Ogunlana+Dr+Surulere+Lagos+101283+Nigeria&region=NG" 
             width="100%" 
             height="100%" 
             style="border:0;" 
             allowfullscreen="" 
-            loading="lazy">
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- footer -->
+  <!-- footer (LINKEDIN ADDED to social links) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-logo">TOUCHSTONE<span>DIAGNOSTICS</span></div>
-          <p style="margin-bottom: 1rem;">Where precision meets compassion – your trusted partner in diagnostic excellence, 24 hours a day, 7 days a week.</p>
+          <p>66 Ogunlana Drive, Surulere, Lagos<br>Open 24 hours · 0901 888 8143</p>
           <div class="social">
-            <a href="https://instagram.com/touchstonediagnostics" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com/company/touchstone-diagnostics" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://facebook.com/touchstonediagnostics" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://wa.me/2349018888143" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/touchstone_diagnostics?igsh=MW1sb242cDhsa2EweQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <!-- NEW: LinkedIn in footer social -->
+            <a href="https://www.linkedin.com/company/touchstone-diagnostic/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
-        <div>
-          <h4 style="color: white; margin-bottom: 1rem;">Quick Links</h4>
-          <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#why-choose">Why Choose Us</a>
-            <a href="#contact">Contact</a>
-          </div>
+        <div class="footer-links">
+          <h4 style="color:white;">Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
         </div>
         <div>
-          <h4 style="color: white; margin-bottom: 1rem;">Our Location</h4>
-          <div class="footer-links">
-            <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank">66 Ogunlana Drive, Surulere</a>
-            <a href="tel:+2349018888143">Call: 0901 888 8143</a>
-            <a href="https://wa.me/2349018888143">WhatsApp: 0901 888 8143</a>
-            <span>info@touchstonediagnostics.com</span>
-          </div>
+          <h4 style="color:white;">Hours</h4>
+          <p>Every day: 24 hours<br>including public holidays</p>
         </div>
       </div>
       <div class="copyright">
-        <p>&copy; 2025 Touchstone Diagnostics. All rights reserved. | Where precision meets compassion</p>
+        © 2026 Touchstone Diagnostics Ltd. All rights reserved.
       </div>
     </div>
   </footer>
 
   <!-- whatsapp float -->
-  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="wa-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Initialize AOS (Animate on Scroll)
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-      easing: 'ease-in-out'
-    });
-
-    // Sticky header with blur effect
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
 </body>
 </html>
