@@ -4,44 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Touchstone Diagnostics | 24/7 Medical Lab & Imaging Surulere</title>
-  <!-- SEO -->
+  <!-- SEO meta with key phrase -->
   <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: 24/7 laboratory, X-ray, ultrasound, fertility screening. Where precision meets compassion – reliable, fast, and affordable diagnostic results.">
-  <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening">
-  
-  <!-- Tailwind CSS (via CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Font Awesome & Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening, where precision meets compassion">
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- AOS (Animate on Scroll) Library -->
+  <!-- AOS for scroll animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+  <!-- Alpine for mobile menu -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
     :root {
       --navy: #002147;
       --blue: #0077be;
-      --light-blue: #e6f0fa;
+      --light-bg: #f8fafc;
+      --gray: #4b5565;
+      --border: #e2e8f0;
     }
-    
     html {
       scroll-behavior: smooth;
-      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
-    
     body {
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: white;
       color: #1e293b;
+      line-height: 1.5;
+      overflow-x: hidden;
     }
-    
-    /* Custom animations */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section {
+      padding: 4rem 0;
+    }
+    @media (max-width: 640px) {
+      .section {
+        padding: 3rem 0;
+      }
+    }
+
+    /* Custom Animations */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -52,9 +64,15 @@
       50% { transform: scale(1.1); }
     }
     
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     .animate-float {
@@ -65,619 +83,1167 @@
       animation: bounce 2s ease-in-out infinite;
     }
     
-    .animate-pulse-slow {
-      animation: pulse 2s ease-in-out infinite;
+    .fadeInUp {
+      animation: fadeInUp 0.6s ease forwards;
     }
     
-    /* Staggered animation for children */
-    .stagger-children > * {
+    .stagger-item {
       opacity: 0;
       animation: fadeInUp 0.6s ease forwards;
     }
     
-    .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
-    .stagger-children > *:nth-child(2) { animation-delay: 0.3s; }
-    .stagger-children > *:nth-child(3) { animation-delay: 0.5s; }
-    .stagger-children > *:nth-child(4) { animation-delay: 0.7s; }
-    .stagger-children > *:nth-child(5) { animation-delay: 0.9s; }
-    
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
+    .stagger-item:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-item:nth-child(2) { animation-delay: 0.3s; }
+    .stagger-item:nth-child(3) { animation-delay: 0.5s; }
+    .stagger-item:nth-child(4) { animation-delay: 0.7s; }
+    .stagger-item:nth-child(5) { animation-delay: 0.9s; }
+
+    /* top bar */
+    .top-bar {
+      background: var(--navy);
+      color: white;
+      padding: 0.6rem 0;
+      border-bottom: 3px solid var(--blue);
+    }
+    .top-bar .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    @media (min-width: 640px) {
+      .top-bar .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+    }
+    @media (min-width: 640px) and (max-width: 768px) {
+      .top-bar .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1.2rem;
+      }
+      .top-contact {
+        justify-content: center;
       }
     }
-    
-    /* Card hover effects */
-    .service-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .emergency {
+      background: #dc2626;
+      padding: 0.3rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
     }
-    
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgba(0, 33, 71, 0.1), 0 10px 10px -5px rgba(0, 33, 71, 0.04);
+    .top-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      font-size: 0.9rem;
+      align-items: center;
     }
-    
-    /* Glassmorphism */
-    .glass {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+    .top-contact a, .top-contact span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
     }
-    
-    .glass-dark {
-      background: rgba(0, 33, 71, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .top-contact a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.2s;
     }
-    
-    /* Sticky header with blur */
-    .sticky-header {
-      transition: all 0.3s ease;
+    .top-contact a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
     }
-    
-    .sticky-header.scrolled {
-      background: rgba(255, 255, 255, 0.95);
+    .top-contact i {
+      color: var(--blue);
+      width: 1.2rem;
+      font-size: 1rem;
+    }
+
+    /* header with enhanced blur */
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      transition: all 0.3s ease;
     }
-    
-    /* Gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .header.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-    
-    /* Nav underline animation */
-    .nav-link {
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(145deg, var(--navy), var(--blue));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 15px -8px rgba(0,33,71,0.4);
+      transition: transform 0.3s ease;
+    }
+    .logo-icon:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+    .logo-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+    .logo-text {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .logo-text span:first-child { color: var(--navy); }
+    .logo-text span:last-child {
+      color: var(--blue);
+      font-weight: 400;
+      font-size: 0.85rem;
+      display: block;
+    }
+    @media (min-width: 480px) {
+      .logo-text { font-size: 1.5rem; }
+      .logo-text span:last-child { font-size: 0.95rem; display: inline; margin-left: 0.3rem; }
+    }
+
+    .nav {
+      display: none;
+    }
+    .mobile-menu-btn {
+      display: block;
+      font-size: 2rem;
+      color: var(--navy);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .mobile-menu-btn:hover {
+      transform: scale(1.1);
+    }
+    @media (min-width: 900px) {
+      .mobile-menu-btn { display: none; }
+      .nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--navy);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        padding: 0.5rem 0;
+        position: relative;
+      }
+      .nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--blue);
+        transition: width 0.3s ease;
+      }
+      .nav a:hover::after {
+        width: 100%;
+      }
+      .btn-nav {
+        background: var(--navy);
+        color: white !important;
+        padding: 0.7rem 1.8rem !important;
+        border-radius: 50px;
+        transition: all 0.3s ease !important;
+      }
+      .btn-nav:hover {
+        background: var(--blue);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(0,119,190,0.4);
+      }
+      .btn-nav::after {
+        display: none;
+      }
+    }
+
+    /* mobile menu dropdown */
+    .mobile-menu-dropdown {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-shadow: 0 20px 30px -15px rgba(0,33,71,0.2);
+      transform-origin: top;
+      transition: all 0.3s ease;
+    }
+    .mobile-menu-dropdown a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eef2f6;
+      transition: all 0.2s ease;
+    }
+    .mobile-menu-dropdown a:hover {
+      color: var(--blue);
+      padding-left: 10px;
+    }
+    .mobile-wa-btn {
+      background: #25D366;
+      color: white;
+      padding: 1rem;
+      border-radius: 60px;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .mobile-wa-btn:hover {
+      background: #128C7E;
+      transform: scale(1.02);
+    }
+
+    /* hero section with animations */
+    .hero {
+      padding: 2rem 0 3rem;
+      background: linear-gradient(115deg, #ffffff 50%, rgba(0,119,190,0.02) 100%);
       position: relative;
+      overflow: hidden;
     }
-    
-    .nav-link::after {
+    .hero::before {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--blue);
-      transition: width 0.3s ease;
+      top: -50%;
+      right: -10%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,119,190,0.03) 0%, transparent 70%);
+      z-index: 0;
     }
-    
-    .nav-link:hover::after {
-      width: 100%;
+    .hero .container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
     }
-    
-    /* Floating badge */
-    .floating-badge {
+    @media (min-width: 768px) {
+      .hero .container {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+      }
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #e6f0fa;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.9rem;
+      box-shadow: 0 5px 15px rgba(0,119,190,0.1);
       animation: float 3s ease-in-out infinite;
     }
-    
-    /* WhatsApp float */
-    .wa-float {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease 0.2s forwards;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #33455a;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease 0.4s forwards;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease 0.6s forwards;
+    }
+    @media (min-width: 480px) {
+      .hero-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 12px 20px -10px rgba(0,119,190,0.4);
+    }
+    .btn-primary:hover { 
+      background: #0088dd;
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -10px rgba(0,119,190,0.6);
+    }
+    .btn-outline {
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 30px 40px -20px var(--navy);
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.3);
+      opacity: 0;
+      animation: fadeInUp 0.6s ease 0.4s forwards;
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(0,33,71,0.1) 0%, rgba(0,119,190,0.1) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+      transition: transform 0.5s ease;
+    }
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* about section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .about-image {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 30px 40px -20px var(--navy);
+      position: relative;
+      border: 1px solid rgba(0,119,190,0.2);
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,33,71,0.08) 0%, rgba(0,119,190,0.08) 100%);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 2rem;
+    }
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 1.5rem;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: #2d3f53;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .stats-mini {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat-item .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .stat-item .label {
+      font-size: 0.85rem;
+      color: #4a5f73;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--navy));
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+    @media (max-width: 480px) {
+      .section-title { font-size: 1.9rem; }
+    }
+
+    /* services grid with card hover effects */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 500px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .service-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.2rem;
+      box-shadow: 0 12px 25px -12px rgba(0,33,71,0.15);
+      border: 1px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 30px -12px rgba(0,33,71,0.25);
+      border-color: var(--blue);
+    }
+    .service-icon {
+      background: #e6f0fa;
+      width: 55px;
+      height: 55px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      background: var(--blue);
+    }
+    .service-card:hover .service-icon i {
+      color: white;
+    }
+    .service-icon i {
+      font-size: 1.8rem;
+      color: var(--blue);
+      transition: color 0.3s ease;
+    }
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* features section with glass morphism */
+    .features {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .features::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,119,190,0.2) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    @media (min-width: 600px) {
+      .features-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .feature-item {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 2rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+    .feature-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      background: rgba(255,255,255,0.15);
+      border-color: var(--blue);
+    }
+    .feature-item i {
+      font-size: 2.2rem;
+      color: var(--blue);
+      background: rgba(255,255,255,0.1);
+      width: 65px;
+      height: 65px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .feature-item:hover i {
+      background: var(--blue);
+      color: white;
+      transform: rotate(360deg);
+    }
+    .feature-item h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .feature-item p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    /* contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      background: white;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -20px var(--navy);
+    }
+    @media (min-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .contact-info {
+      background: var(--navy);
+      color: white;
+      padding: 2rem 1.8rem;
+    }
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .contact-detail {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+    .contact-detail:hover {
+      transform: translateX(5px);
+    }
+    .contact-detail a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-detail a:hover {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+    .contact-detail i {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .contact-detail:hover i {
+      background: var(--blue);
+      color: white;
+      transform: scale(1.1);
+    }
+    .hours {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .hours div {
+      background: rgba(255,255,255,0.08);
+      padding: 0.8rem 1.5rem;
+      border-radius: 2rem;
+      text-align: center;
+      flex: 1 0 auto;
+      transition: all 0.3s ease;
+    }
+    .hours div:hover {
+      background: var(--blue);
+      transform: scale(1.05);
+    }
+    .contact-map {
+      height: 300px;
+    }
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    .contact-map iframe:hover {
+      opacity: 0.9;
+    }
+    @media (min-width: 800px) {
+      .contact-map { height: 100%; min-height: 400px; }
+    }
+
+    /* social media links */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 2rem;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-      z-index: 50;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+    .social-links a:hover {
+      background: var(--blue);
+      transform: translateY(-3px) scale(1.1);
+    }
+
+    /* footer */
+    .footer {
+      background: #0a1929;
+      color: #a0b3cc;
+      padding: 3rem 0 1.5rem;
+      margin-top: 3rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 640px) {
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .footer-logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .footer-logo span { color: var(--blue); }
+    .social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .social a {
+      width: 40px;
+      height: 40px;
+      background: #1e2e42;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
       transition: all 0.3s ease;
     }
-    
-    .wa-float:hover {
+    .social a:hover { 
+      background: var(--blue);
+      transform: translateY(-3px);
+    }
+    .footer-links a {
+      display: block;
+      color: #a0b3cc;
+      text-decoration: none;
+      margin-bottom: 0.7rem;
+      transition: all 0.3s ease;
+    }
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid #1e2e42;
+      font-size: 0.85rem;
+    }
+
+    /* whatsapp float */
+    .wa-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: white;
+      box-shadow: 0 15px 25px -8px #075e54;
+      z-index: 99;
+      transition: all 0.3s ease;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .wa-float:hover { 
       transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 20px 30px -8px #075e54;
     }
-    
-    /* Mobile menu */
-    .mobile-menu {
-      transition: transform 0.3s ease-in-out;
-    }
-    
-    /* Gradient backgrounds */
-    .bg-gradient-navy-blue {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-    }
-    
-    /* Stats counter */
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--blue);
-      line-height: 1;
-    }
+
+    a, button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .btn, .nav a, .mobile-menu-btn { touch-action: manipulation; }
   </style>
 </head>
-<body class="antialiased">
+<body x-data="{ mobileMenu: false }" x-init="$watch('mobileMenu', val => document.body.style.overflow = val ? 'hidden' : 'auto')">
 
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" 
-     class="wa-float animate-bounce-slow" 
-     target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <!-- Top Bar -->
-  <div class="bg-[#002147] text-white py-2 border-b-4 border-[#0077be]">
-    <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-sm">
-      <div class="bg-red-600 px-4 py-1 rounded-full font-bold flex items-center gap-2 mb-2 sm:mb-0">
-        <i class="fas fa-exclamation-triangle"></i>
-        <span>24/7 EMERGENCY</span>
-      </div>
-      <div class="flex flex-wrap gap-4 items-center justify-center">
-        <a href="tel:+2349018888143" class="hover:text-blue-300 transition flex items-center gap-2">
-          <i class="fas fa-phone-alt text-[#0077be]"></i> 0901 888 8143
-        </a>
-        <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank" class="hover:text-blue-300 transition flex items-center gap-2">
-          <i class="fas fa-map-marker-alt text-[#0077be]"></i> 66 Ogunlana Dr, Surulere
-        </a>
-        <span class="flex items-center gap-2">
-          <i class="fas fa-clock text-[#0077be]"></i> Open 24 Hours
-        </span>
+  <!-- top bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="emergency"><i class="fas fa-exclamation-triangle"></i> 24/7 EMERGENCY</div>
+      <div class="top-contact">
+        <a href="tel:+2349018888143"><i class="fas fa-phone-alt"></i> 0901 888 8143</a>
+        <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank"><i class="fas fa-map-marker-alt"></i> 66 Ogunlana Dr, Surulere</a>
+        <span><i class="fas fa-clock"></i> Open 24 Hours</span>
       </div>
     </div>
   </div>
 
-  <!-- Sticky Header -->
-  <header id="header" class="sticky top-0 z-40 sticky-header bg-white">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center gap-2">
-        <div class="w-12 h-12 bg-gradient-navy-blue rounded-xl flex items-center justify-center shadow-lg">
-          <i class="fas fa-heartbeat text-white text-2xl"></i>
-        </div>
-        <div>
-          <span class="font-extrabold text-xl text-[#002147]">TOUCHSTONE</span>
-          <span class="text-[#0077be] font-medium ml-1 text-sm">DIAGNOSTICS</span>
-        </div>
+  <!-- header -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="logo-text"><span>TOUCHSTONE</span><span>DIAGNOSTICS</span></div>
       </div>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-8">
-        <a href="#home" class="nav-link font-semibold text-[#002147]">Home</a>
-        <a href="#about" class="nav-link font-semibold text-[#002147]">About</a>
-        <a href="#services" class="nav-link font-semibold text-[#002147]">Services</a>
-        <a href="#why-choose" class="nav-link font-semibold text-[#002147]">Why Us</a>
-        <a href="#contact" class="nav-link font-semibold text-[#002147]">Contact</a>
-        <a href="https://wa.me/2349018888143" class="bg-[#002147] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#0077be] transition-all shadow-lg hover:shadow-xl">
-          Book Appointment
-        </a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#why-choose">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="btn-nav">Book an Appointment</a>
       </nav>
-
-      <!-- Mobile Menu Button -->
-      <button id="menuBtn" class="lg:hidden text-3xl text-[#002147]">
-        <i class="fas fa-bars"></i>
+      <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu">
+        <i :class="mobileMenu ? 'fas fa-times' : 'fas fa-bars'"></i>
       </button>
     </div>
-
-    <!-- Mobile Menu Dropdown -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-200 py-4 px-4 absolute w-full shadow-xl">
-      <div class="flex flex-col gap-4">
-        <a href="#home" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Home</a>
-        <a href="#about" class="font-semibold text-[#002147] py-2 border-b border-gray-100">About</a>
-        <a href="#services" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Services</a>
-        <a href="#why-choose" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Why Us</a>
-        <a href="#contact" class="font-semibold text-[#002147] py-2 border-b border-gray-100">Contact</a>
-        <a href="https://wa.me/2349018888143" class="bg-green-600 text-white py-3 rounded-full text-center font-bold mt-2">
-          <i class="fab fa-whatsapp mr-2"></i>Book via WhatsApp
-        </a>
-      </div>
+    <!-- mobile menu dropdown -->
+    <div x-show="mobileMenu" class="mobile-menu-dropdown" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2">
+      <a href="#home" @click="mobileMenu = false">Home</a>
+      <a href="#about" @click="mobileMenu = false">About</a>
+      <a href="#services" @click="mobileMenu = false">Services</a>
+      <a href="#why-choose" @click="mobileMenu = false">Why Us</a>
+      <a href="#contact" @click="mobileMenu = false">Contact</a>
+      <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="mobile-wa-btn" @click="mobileMenu = false"><i class="fab fa-whatsapp mr-2"></i> Book an Appointment</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="relative overflow-hidden bg-gradient-to-br from-white via-white to-blue-50">
-    <div class="container mx-auto px-4 py-12 md:py-20">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- Left Content -->
-        <div class="stagger-children">
-          <!-- Floating Badge -->
-          <div class="inline-flex items-center gap-2 bg-[#e6f0fa] px-5 py-2 rounded-full text-[#002147] font-semibold mb-6 floating-badge">
-            <i class="fas fa-flask text-[#0077be]"></i>
-            <span>The Gold Standard of Clinical Precision</span>
-            <i class="fas fa-certificate text-[#0077be] ml-2"></i>
+  <!-- hero section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-flask"></i> The Gold Standard of Clinical Precision</div>
+        <h1>Touchstone Diagnostics:</h1>
+        <h2>Where Precision Meets Compassion</h2>
+        <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
+          <a href="#services" class="btn btn-outline">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://image2url.com/r2/default/images/1771865082330-35ded437-0f65-4521-8841-d2515c91af30.jpg" 
+             alt="Futuristic medical diagnostic center with scientist at microscope and MRI scanner" 
+             loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- about section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">About Touchstone Diagnostics</h2>
+      <div class="about-grid">
+        <div class="about-image" data-aos="fade-right" data-aos-delay="100">
+          <img src="https://image2url.com/r2/default/images/1771865082330-35ded437-0f65-4521-8841-d2515c91af30.jpg" 
+               alt="Touchstone Diagnostics modern medical facility" 
+               loading="lazy">
+        </div>
+        <div class="about-text" data-aos="fade-left" data-aos-delay="200">
+          <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
+          <p>Our team of experienced pathologists, radiologists, and laboratory scientists work round-the-clock to deliver accurate results with the compassion and care you deserve. We understand that behind every test result is a person seeking answers, and we're committed to providing those answers with precision and empathy.</p>
+          <div class="stats-mini">
+            <div class="stat-item">
+              <div class="number">24/7</div>
+              <div class="label">Service</div>
+            </div>
+            <div class="stat-item">
+              <div class="number">15+</div>
+              <div class="label">Years</div>
+            </div>
+            <div class="stat-item">
+              <div class="number">50k+</div>
+              <div class="label">Patients</div>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Main Headline -->
-          <h1 class="text-5xl lg:text-6xl font-extrabold text-[#002147] leading-tight mb-2">
-            Touchstone <span class="text-[#0077be]">Diagnostics</span>
-          </h1>
-          
-          <h2 class="text-3xl lg:text-4xl font-bold text-[#0077be] mb-6">
-            Where precision meets compassion
-          </h2>
-          
-          <p class="text-lg text-gray-600 mb-8 max-w-lg">
-            24/7 medical laboratory & imaging in Surulere. Fast, accurate, and always human – providing the foundation for your health journey.
-          </p>
+  <!-- services section -->
+  <section id="services" class="section" style="background: var(--light-bg);">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">Our Diagnostic Services</h2>
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="service-icon"><i class="fas fa-flask"></i></div>
+          <h3>Clinical Laboratory</h3>
+          <p>Haematology, clinical chemistry, hormone assays, and routine pathology with automated analyzers for accurate results.</p>
+        </div>
+        <!-- Service 2 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="service-icon"><i class="fas fa-microscope"></i></div>
+          <h3>Histopathology</h3>
+          <p>Tissue biopsy, cancer screening, and surgical pathology for definitive diagnosis and treatment planning.</p>
+        </div>
+        <!-- Service 3 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+          <h3>Cardiac Assessment</h3>
+          <p>ECG, echocardiography, stress testing, and cardiac enzyme monitoring for comprehensive heart health evaluation.</p>
+        </div>
+        <!-- Service 4 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+          <div class="service-icon"><i class="fas fa-baby"></i></div>
+          <h3>Obstetric Scan</h3>
+          <p>2D/3D/4D ultrasound, fetal doppler, anomaly scans, and pregnancy monitoring by experienced sonographers.</p>
+        </div>
+        <!-- Service 5 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+          <div class="service-icon"><i class="fas fa-dna"></i></div>
+          <h3>Fertility Screening</h3>
+          <p>Hormone profiling, semen analysis, ovulation tracking, and comprehensive fertility assessment for couples.</p>
+        </div>
+        <!-- Service 6 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="600">
+          <div class="service-icon"><i class="fas fa-x-ray"></i></div>
+          <h3>Digital X-Ray</h3>
+          <p>Low-dose digital radiography for chest, skeletal, and abdominal imaging with instant results.</p>
+        </div>
+        <!-- Service 7 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="700">
+          <div class="service-icon"><i class="fas fa-cog"></i></div>
+          <h3>CT Scan</h3>
+          <p>128-slice helical CT for detailed cross-sectional imaging with minimal radiation exposure.</p>
+        </div>
+        <!-- Service 8 -->
+        <div class="service-card" data-aos="zoom-in" data-aos-delay="800">
+          <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Health Check Packages</h3>
+          <p>Executive health screening, pre-employment medicals, and customized wellness packages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <!-- Stats -->
-          <div class="flex flex-wrap gap-8 mb-8">
+  <!-- why choose us section (features) -->
+  <section id="why-choose" class="features section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;" data-aos="fade-right">Why Choose Touchstone?</h2>
+      <div class="features-grid">
+        <div class="feature-item" data-aos="flip-up" data-aos-delay="100">
+          <i class="fas fa-clock"></i>
+          <h4>24/7 Availability</h4>
+          <p>Round-the-clock service every day, including public holidays – we're always here when you need us.</p>
+        </div>
+        <div class="feature-item" data-aos="flip-up" data-aos-delay="200">
+          <i class="fas fa-gauge-high"></i>
+          <h4>Fast Turnaround</h4>
+          <p>Most results available within 24 hours, with stat results for emergency cases.</p>
+        </div>
+        <div class="feature-item" data-aos="flip-up" data-aos-delay="300">
+          <i class="fas fa-certificate"></i>
+          <h4>Quality Assured</h4>
+          <p>Strict internal quality control and participation in external quality assessment schemes.</p>
+        </div>
+        <div class="feature-item" data-aos="flip-up" data-aos-delay="400">
+          <i class="fas fa-user-doctor"></i>
+          <h4>Expert Team</h4>
+          <p>Consultant pathologists, experienced radiologists, and skilled laboratory scientists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">Contact Us</h2>
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-info">
+          <h3>Touchstone Diagnostics</h3>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
             <div>
-              <div class="stat-number">24/7</div>
-              <div class="text-sm uppercase tracking-wider text-gray-500">Emergency</div>
-            </div>
-            <div>
-              <div class="stat-number"><24h</div>
-              <div class="text-sm uppercase tracking-wider text-gray-500">Turnaround</div>
-            </div>
-            <div>
-              <div class="stat-number">100%</div>
-              <div class="text-sm uppercase tracking-wider text-gray-500">Quality</div>
+              <strong>66 Ogunlana Drive,</strong><br>
+              Surulere, Lagos 101283
             </div>
           </div>
-
-          <!-- Buttons -->
-          <div class="flex flex-wrap gap-4">
-            <a href="https://wa.me/2349018888143" class="bg-[#0077be] text-white px-8 py-4 rounded-full font-bold hover:bg-[#005c94] transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
-              <i class="fab fa-whatsapp"></i> Book Appointment
+          <div class="contact-detail">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <a href="tel:+2349018888143">0901 888 8143</a><br>
+              <span style="font-size: 0.9rem; opacity: 0.8;">24/7 Hotline</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment">WhatsApp: 0901 888 8143</a><br>
+              <span style="font-size: 0.9rem; opacity: 0.8;">Instant booking & inquiries</span>
+            </div>
+          </div>
+          
+          <!-- Social Media Links (Instagram & LinkedIn) -->
+          <div class="social-links">
+            <a href="https://instagram.com/touchstonediagnostics" target="_blank" title="Instagram">
+              <i class="fab fa-instagram"></i>
             </a>
-            <a href="#services" class="border-2 border-[#002147] text-[#002147] px-8 py-4 rounded-full font-bold hover:bg-[#002147] hover:text-white transition-all">
-              Explore Services
+            <a href="https://linkedin.com/company/touchstone-diagnostics" target="_blank" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://facebook.com/touchstonediagnostics" target="_blank" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/touchstone_dx" target="_blank" title="Twitter">
+              <i class="fab fa-x-twitter"></i>
             </a>
           </div>
-        </div>
-
-        <!-- Right Image -->
-        <div class="relative" data-aos="fade-left" data-aos-duration="1000">
-          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
-            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop" 
-                 alt="Medical laboratory scientist at work" 
-                 class="w-full h-auto object-cover aspect-[4/3] hover:scale-105 transition-transform duration-700">
-          </div>
-          <!-- Floating Card -->
-          <div class="absolute -bottom-5 -left-5 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl border border-gray-200 floating-badge">
-            <div class="flex items-center gap-2">
-              <i class="fas fa-star text-yellow-400"></i>
-              <span class="font-bold text-[#002147]">ISO 15189 Certified</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl lg:text-5xl font-bold text-[#002147] mb-4">About Touchstone</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-[#002147] mx-auto"></div>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
-          <div class="rounded-3xl overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1581595220892-b2cd6e6d5faf?w=800&auto=format&fit=crop" 
-                 alt="Modern medical clinic interior" 
-                 class="w-full h-auto object-cover aspect-[4/3]">
-          </div>
-        </div>
-        
-        <div data-aos="fade-left">
-          <p class="text-lg text-gray-700 leading-relaxed mb-6">
-            At <span class="font-bold text-[#0077be]">Touchstone Diagnostics</span>, we provide an accurate foundation for your health journey through state‑of‑the‑art laboratory and radiology. Whether you require urgent cardiovascular screening, early cancer prevention, or specialised fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.
-          </p>
           
-          <div class="grid grid-cols-2 gap-6 mt-8">
-            <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <div class="text-3xl font-black text-[#0077be]">15+</div>
-              <div class="text-sm text-gray-500">Years of Excellence</div>
+          <div class="hours">
+            <div>
+              <i class="fas fa-clock"></i><br>
+              <strong>24 HOURS</strong><br>
+              <span style="font-size: 0.8rem;">Every day</span>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
-              <div class="text-3xl font-black text-[#0077be]">50k+</div>
-              <div class="text-sm text-gray-500">Patients Yearly</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section (8 Cards) -->
-  <section id="services" class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl lg:text-5xl font-bold text-[#002147] mb-4">Comprehensive Diagnostics</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-[#002147] mx-auto"></div>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Service Card 1 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="100">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-flask text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Clinical Lab</h3>
-          <p class="text-gray-500 text-sm">Haematology, chemistry, hormones – fully automated</p>
-        </div>
-        
-        <!-- Service Card 2 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="200">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-microscope text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Histopathology</h3>
-          <p class="text-gray-500 text-sm">Tissue biopsy & cancer screening</p>
-        </div>
-        
-        <!-- Service Card 3 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="300">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-heartbeat text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Cardiac Assessment</h3>
-          <p class="text-gray-500 text-sm">ECG, echo, stress test</p>
-        </div>
-        
-        <!-- Service Card 4 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="400">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-baby text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Obstetric Scan</h3>
-          <p class="text-gray-500 text-sm">2D/3D/4D ultrasound, fetal doppler</p>
-        </div>
-        
-        <!-- Service Card 5 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="500">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-dna text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Fertility</h3>
-          <p class="text-gray-500 text-sm">Hormone profiling, semen analysis</p>
-        </div>
-        
-        <!-- Service Card 6 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="600">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-x-ray text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Digital X-ray</h3>
-          <p class="text-gray-500 text-sm">Low-dose digital radiography</p>
-        </div>
-        
-        <!-- Service Card 7 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="700">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-cog text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">CT Scan</h3>
-          <p class="text-gray-500 text-sm">128-slice helical CT</p>
-        </div>
-        
-        <!-- Service Card 8 -->
-        <div class="service-card bg-white p-6 rounded-3xl shadow-xl border border-gray-100" data-aos="zoom-in" data-aos-delay="800">
-          <div class="w-16 h-16 bg-[#e6f0fa] rounded-2xl flex items-center justify-center mb-4">
-            <i class="fas fa-clipboard-check text-3xl text-[#0077be]"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#002147] mb-2">Health Check</h3>
-          <p class="text-gray-500 text-sm">Executive & pre-employment</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us (Dark Navy Glass Section) -->
-  <section id="why-choose" class="py-20 bg-[#002147] relative overflow-hidden">
-    <!-- Background pattern -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#0077be] rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">Why Choose <span class="text-[#0077be]">Touchstone?</span></h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-white mx-auto"></div>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Feature 1 -->
-        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="100">
-          <i class="fas fa-clock text-5xl text-[#0077be] mb-4"></i>
-          <h4 class="text-xl font-bold mb-2">24/7 Emergency</h4>
-          <p class="text-blue-100 text-sm">Always open, always ready – any time, day or night</p>
-        </div>
-        
-        <!-- Feature 2 -->
-        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="200">
-          <i class="fas fa-gauge-high text-5xl text-[#0077be] mb-4"></i>
-          <h4 class="text-xl font-bold mb-2"><24h Reports</h4>
-          <p class="text-blue-100 text-sm">Stat results when you need them most</p>
-        </div>
-        
-        <!-- Feature 3 -->
-        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="300">
-          <i class="fas fa-certificate text-5xl text-[#0077be] mb-4"></i>
-          <h4 class="text-xl font-bold mb-2">ISO Quality</h4>
-          <p class="text-blue-100 text-sm">Strict internal QC and international standards</p>
-        </div>
-        
-        <!-- Feature 4 -->
-        <div class="glass-dark rounded-3xl p-8 text-white hover:scale-105 transition-transform duration-300" data-aos="flip-up" data-aos-delay="400">
-          <i class="fas fa-user-doctor text-5xl text-[#0077be] mb-4"></i>
-          <h4 class="text-xl font-bold mb-2">Expert Team</h4>
-          <p class="text-blue-100 text-sm">Consultant pathologists & experienced radiologists</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section with Map -->
-  <section id="contact" class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-4xl lg:text-5xl font-bold text-[#002147] mb-4">Visit / Contact Us</h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-[#0077be] to-[#002147] mx-auto"></div>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-8 bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-        <!-- Contact Info -->
-        <div class="bg-[#002147] text-white p-8 lg:p-10" data-aos="fade-right">
-          <h3 class="text-2xl font-bold mb-8">Touchstone Diagnostics</h3>
-          
-          <div class="space-y-6">
-            <div class="flex gap-4">
-              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
-                <i class="fas fa-map-marker-alt text-[#0077be]"></i>
-              </div>
-              <div>
-                <p class="font-medium">66 Ogunlana Drive,</p>
-                <p class="text-blue-200">Surulere, Lagos 101283</p>
-              </div>
-            </div>
-            
-            <div class="flex gap-4 items-center">
-              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
-                <i class="fas fa-phone-alt text-[#0077be]"></i>
-              </div>
-              <a href="tel:+2349018888143" class="hover:text-[#0077be] transition text-lg">0901 888 8143</a>
-            </div>
-            
-            <div class="flex gap-4 items-center">
-              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
-                <i class="fab fa-whatsapp text-[#0077be]"></i>
-              </div>
-              <a href="https://wa.me/2349018888143" class="hover:text-[#0077be] transition">WhatsApp 24/7</a>
-            </div>
-            
-            <div class="flex gap-4 items-center">
-              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
-                <i class="fab fa-instagram text-[#0077be]"></i>
-              </div>
-              <span>@touchstonediagnostics</span>
-            </div>
-            
-            <div class="flex gap-4 items-center">
-              <div class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
-                <i class="fab fa-linkedin-in text-[#0077be]"></i>
-              </div>
-              <span>/company/touchstone-diagnostics</span>
+            <div>
+              <i class="fas fa-calendar-check"></i><br>
+              <strong>Public Holidays</strong><br>
+              <span style="font-size: 0.8rem;">Always open</span>
             </div>
           </div>
-          
-          <div class="mt-8 bg-white/10 p-5 rounded-2xl">
-            <div class="flex items-center gap-2 text-xl font-bold mb-2">
-              <i class="fas fa-clock text-[#0077be]"></i>
-              <span>Open 24 hours</span>
-            </div>
-            <p class="text-blue-200 text-sm">Every day, including public holidays</p>
-          </div>
         </div>
-        
-        <!-- Google Map -->
-        <div class="h-96 md:h-auto" data-aos="fade-left">
+        <div class="contact-map">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.066435467169!2d3.3496833!3d6.5019526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8db3b2cb3f81%3A0x8d4d6fec16b3f4a1!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos%20101283!5e0!3m2!1sen!2sng!4v1710000000000" 
             width="100%" 
             height="100%" 
             style="border:0;" 
             allowfullscreen="" 
-            loading="lazy" 
-            class="w-full h-full min-h-[400px]">
+            loading="lazy">
           </iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-[#0a1929] text-slate-400 py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
         <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-10 h-10 bg-gradient-navy-blue rounded-lg flex items-center justify-center">
-              <i class="fas fa-heartbeat text-white"></i>
-            </div>
-            <span class="text-white text-2xl font-bold">TOUCHSTONE<span class="text-[#0077be]">.</span></span>
+          <div class="footer-logo">TOUCHSTONE<span>DIAGNOSTICS</span></div>
+          <p style="margin-bottom: 1rem;">Where precision meets compassion – your trusted partner in diagnostic excellence, 24 hours a day, 7 days a week.</p>
+          <div class="social">
+            <a href="https://instagram.com/touchstonediagnostics" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/company/touchstone-diagnostics" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://facebook.com/touchstonediagnostics" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/2349018888143" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
-          <p class="text-sm leading-relaxed">
-            Where precision meets compassion. 24/7 diagnostic excellence in Surulere, Lagos.
-          </p>
         </div>
-        
         <div>
-          <h5 class="text-white font-semibold mb-4">Quick Links</h5>
-          <ul class="space-y-2">
-            <li><a href="#home" class="hover:text-white transition">Home</a></li>
-            <li><a href="#about" class="hover:text-white transition">About</a></li>
-            <li><a href="#services" class="hover:text-white transition">Services</a></li>
-            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
-          </ul>
+          <h4 style="color: white; margin-bottom: 1rem;">Quick Links</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#why-choose">Why Choose Us</a>
+            <a href="#contact">Contact</a>
+          </div>
         </div>
-        
         <div>
-          <h5 class="text-white font-semibold mb-4">Legal</h5>
-          <ul class="space-y-2 text-sm">
-            <li>Privacy Policy</li>
-            <li>Terms of Use</li>
-            <li>© 2025 Touchstone Diagnostics</li>
-          </ul>
+          <h4 style="color: white; margin-bottom: 1rem;">Our Location</h4>
+          <div class="footer-links">
+            <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank">66 Ogunlana Drive, Surulere</a>
+            <a href="tel:+2349018888143">Call: 0901 888 8143</a>
+            <a href="https://wa.me/2349018888143">WhatsApp: 0901 888 8143</a>
+            <span>info@touchstonediagnostics.com</span>
+          </div>
         </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Touchstone Diagnostics. All rights reserved. | Where precision meets compassion</p>
       </div>
     </div>
   </footer>
+
+  <!-- whatsapp float -->
+  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics%2C%20I%20would%20like%20to%20book%20an%20appointment" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     // Initialize AOS (Animate on Scroll)
     AOS.init({
-      duration: 1000,
+      duration: 800,
       once: true,
-      offset: 100
+      offset: 100,
+      easing: 'ease-in-out'
     });
 
-    // Sticky Header with Blur
+    // Sticky header with blur effect
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
-      if (window.scrollY > 10) {
+      if (window.scrollY > 50) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
-    });
-
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    menuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-      // Change icon
-      const icon = menuBtn.querySelector('i');
-      if (mobileMenu.classList.contains('hidden')) {
-        icon.className = 'fas fa-bars';
-      } else {
-        icon.className = 'fas fa-times';
-      }
-    });
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.add('hidden');
-        menuBtn.querySelector('i').className = 'fas fa-bars';
-      });
     });
 
     // Smooth scroll for anchor links
@@ -686,7 +1252,7 @@
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
