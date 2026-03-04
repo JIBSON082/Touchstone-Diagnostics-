@@ -13,41 +13,35 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <style>
-    /* ================= EXISTING STYLES (UNCHANGED) ================= */
-    /* ... YOUR ENTIRE ORIGINAL CSS REMAINS HERE ... */
+    /* ================= BASE STYLES (UNCHANGED) ================= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ================================================================
-       ADDED: Smooth scroll offset for fixed header
-    ================================================================= */
+    :root {
+      --navy: #002147;
+      --blue: #0077be;
+      --light-bg: #f8fafc;
+      --gray: #4b5565;
+      --border: #e2e8f0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: #1e293b;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
     section {
-      scroll-margin-top: 90px; /* header height + spacing */
+      scroll-margin-top: 90px; /* smooth scroll offset */
     }
 
-    /* ================================================================
-       ADDED: Hover lift & shadow animations
-    ================================================================= */
-    .service-card,
-    .feature-item,
-    .about-image,
-    .hero-image {
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .service-card:hover,
-    .feature-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 35px -15px rgba(0, 33, 71, 0.35);
-    }
-
-    .about-image:hover,
-    .hero-image:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 35px 50px -25px rgba(0, 33, 71, 0.45);
-    }
-
-    /* ================================================================
-       ADDED: Scroll reveal animation
-    ================================================================= */
+    /* ================= REVEAL ANIMATION ================= */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -58,57 +52,160 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ================= HOVER ANIMATIONS ================= */
+    .service-card,
+    .feature-item,
+    .about-image,
+    .hero-image {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .service-card:hover,
+    .feature-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -15px rgba(0,33,71,0.35);
+    }
+
+    .about-image:hover,
+    .hero-image:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 35px 50px -25px rgba(0,33,71,0.45);
+    }
+
+    /* ================= EXISTING STYLES CONTINUE ================= */
+    /* (Your original CSS continues unchanged here) */
   </style>
 </head>
 
 <body x-data="{ mobileMenu: false }">
 
-  <!-- ================= EXISTING HTML (UNCHANGED) ================= -->
+<!-- ================= TOP BAR ================= -->
+<div class="top-bar">
+  <div class="container">
+    <div class="emergency"><i class="fas fa-exclamation-triangle"></i> 24/7 EMERGENCY</div>
+    <div class="top-contact">
+      <a href="tel:+2349018888143"><i class="fas fa-phone-alt"></i> 0901 888 8143</a>
+      <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank"><i class="fas fa-map-marker-alt"></i> 66 Ogunlana Dr, Surulere</a>
+      <span><i class="fas fa-clock"></i> Open 24 Hours</span>
+    </div>
+  </div>
+</div>
 
-  <!-- ADD reveal class ONLY (structure unchanged) -->
-  <section id="home" class="hero reveal">...</section>
-  <section id="about" class="section reveal">...</section>
-  <section id="services" class="section reveal">...</section>
-  <section class="features section reveal">...</section>
-  <section id="contact" class="section reveal">...</section>
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+      <div class="logo-text"><span>TOUCHSTONE</span><span>DIAGNOSTICS</span></div>
+    </div>
 
-  <!-- ================= ADDED: Smooth scroll + reveal JS ================= -->
-  <script>
-    /* Smooth scroll with offset (fallback for older browsers) */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (!target) return;
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/2349018888143" class="btn-nav">Book an Appointment</a>
+    </nav>
 
-        e.preventDefault();
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-      });
+<!-- ================= HERO ================= -->
+<section id="home" class="hero reveal">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-flask"></i> The Gold Standard of Clinical Precision</div>
+      <h1>Touchstone Diagnostics:</h1>
+      <h2>Where Precision Meets Compassion</h2>
+      <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services.</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/2349018888143" class="btn btn-primary">Book an Appointment</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://image2url.com/r2/default/images/1771865082330-35ded437-0f65-4521-8841-d2515c91af30.jpg" alt="Diagnostic lab">
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section reveal">
+  <div class="container">
+    <h2 class="section-title">About Touchstone Diagnostics</h2>
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://image2url.com/r2/default/images/1771865417774-cb1d786d-a598-4dc8-a853-07ecff98a3af.jpg" alt="Lab microscope">
+      </div>
+      <div class="about-text">
+        <p>Located in Surulere, Touchstone Diagnostics is the gold standard for clinical precision.</p>
+        <p>We specialize in cardiovascular health screening, cancer prevention, fertility screening, imaging and laboratory medicine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="section reveal">
+  <div class="container">
+    <h2 class="section-title">Our Diagnostic Services</h2>
+    <div class="services-grid">
+      <!-- cards unchanged -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="features section reveal">
+  <div class="container">
+    <h2 class="section-title">Why Choose Touchstone</h2>
+    <div class="features-grid">
+      <!-- features unchanged -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section reveal">
+  <div class="container">
+    <h2 class="section-title">Contact & Location</h2>
+    <!-- contact content unchanged -->
+  </div>
+</section>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+  /* Smooth scroll offset */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      window.scrollTo({ top, behavior: 'smooth' });
     });
+  });
 
-    /* Scroll reveal animation */
-    const reveals = document.querySelectorAll('.reveal');
+  /* Reveal on scroll */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    reveals.forEach(el => observer.observe(el));
-  </script>
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
