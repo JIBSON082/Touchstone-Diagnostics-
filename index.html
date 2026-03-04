@@ -8,291 +8,318 @@
   <meta name="description" content="Touchstone Diagnostics in Surulere, Lagos: 24/7 laboratory, X-ray, ultrasound, fertility screening. Where precision meets compassion – reliable, fast, and affordable diagnostic results.">
   <meta name="keywords" content="diagnostic center Surulere, 24 hour medical lab Lagos, ultrasound scan, fertility screening, where precision meets compassion">
   
-  <!-- Tailwind + custom animations (added as requested, preserving all original content) -->
+  <!-- Tailwind + custom animations (now fully applied, no boring layout) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Custom animation layer – stunning but non‑intrusive, keeps original layout -->
-  <style>
-    @keyframes floatSoft {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0px); }
-    }
-    @keyframes glowPulse {
-      0% { box-shadow: 0 0 0 0 rgba(0,119,190,0.3); }
-      70% { box-shadow: 0 0 0 12px rgba(0,119,190,0); }
-      100% { box-shadow: 0 0 0 0 rgba(0,119,190,0); }
-    }
-    @keyframes subtleScale {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.02); }
-    }
-    @keyframes slideUpFade {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    /* Smooth scroll behavior – global, pure CSS */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* enhanced card hover animations (preserve original spacing) */
-    .service-card, .feature-item, .contact-grid, .hero-image, .about-image {
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
-    }
-    .service-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 30px 40px -20px #002147;
-    }
-    .feature-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 25px 35px -18px #0077be;
-    }
-    .hero-image {
-      animation: floatSoft 5s infinite ease-in-out;
-    }
-    .about-image {
-      transition: transform 0.5s ease;
-    }
-    .about-image:hover {
-      animation: subtleScale 0.4s forwards;
-    }
-    /* subtle entrance for sections (uses intersection observer via tiny inline script) */
-    .section-fade {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .section-fade.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* floating badge extra shimmer */
-    .hero-badge {
-      transition: box-shadow 0.3s;
-    }
-    .hero-badge:hover {
-      animation: glowPulse 2s infinite;
-    }
-    /* keep all original dimensions and styles – only overlay animations + smooth nav */
-    .top-bar, .header, .logo, .nav, .btn, .mobile-menu-btn, .container, .hero, .about, .services, .features, .contact, .footer {
-      /* original classes untouched, we just attach animations */
-    }
-    /* fix any tailwind overlap: disable preflight to keep original margins? we use tailwind utilities only, layout stays 100% original */
-    body {
-      font-family: 'Inter', sans-serif; /* keep original */
-    }
-    /* ensure original spacing: no unintended reset */
-    * {
-      /* keep original box-sizing */
-    }
-    /* make sure anchor offsets for fixed header (smooth nav) */
-    .scroll-offset {
-      scroll-margin-top: 80px;
-    }
-    @media (max-width: 640px) {
-      .scroll-offset {
-        scroll-margin-top: 70px;
-      }
-    }
-    /* image loading fix (minor: original had "eage" truncation, keep as was) */
-  </style>
   <!-- Fonts & icons (original) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Alpine for mobile menu (lightweight, original) -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- tiny intersection observer for fade animations (adds .visible) - pure vanilla, no react needed -->
+  
+  <!-- Custom animation keyframes + smooth scroll + enhancements -->
+  <style>
+    /* smooth scroll - global */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* offset for fixed header */
+    }
+    @media (max-width: 640px) {
+      html { scroll-padding-top: 70px; }
+    }
+
+    /* animations */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(0,119,190,0.5); }
+      70% { box-shadow: 0 0 0 15px rgba(0,119,190,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,119,190,0); }
+    }
+    @keyframes scaleIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(40px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    /* base style (preserve original font/colors, but now with tailwind utilities) */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: white;
+      color: #1e293b;
+    }
+    /* section fade observer (intersection) */
+    .section-fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.9s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* image unique animations */
+    .hero-image {
+      animation: float 6s infinite ease-in-out;
+      transition: all 0.4s;
+    }
+    .hero-image:hover {
+      animation: none;
+      transform: scale(1.02) translateY(-5px);
+    }
+    .about-image {
+      transition: all 0.5s;
+    }
+    .about-image:hover {
+      transform: scale(1.02) rotate(0.5deg);
+      box-shadow: 0 30px 40px -20px #002147;
+    }
+    .service-card, .feature-item {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 25px 35px -15px #002147;
+    }
+    .feature-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -12px #0077be;
+    }
+    .btn-primary {
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 30px -8px #0077be;
+    }
+    .hero-badge {
+      animation: pulseGlow 3s infinite;
+    }
+
+    /* keep original variables for colors, but tailwind is additive */
+    :root {
+      --navy: #002147;
+      --blue: #0077be;
+    }
+    /* ensure header sticky works with tailwind */
+    .header {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+    }
+    /* fix any conflict: original classes remain, we use them + tailwind utilities */
+    .top-bar { background: #002147; } 
+    .emergency { background: #dc2626; }
+  </style>
+</head>
+<body x-data="{ mobileMenu: false }" class="antialiased">
+
+  <!-- top bar (unchanged) -->
+  <div class="top-bar text-white py-2"> <!-- added tailwind for spacing but keep original structure -->
+    <div class="container flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
+      <div class="emergency"><i class="fas fa-exclamation-triangle"></i> 24/7 EMERGENCY</div>
+      <div class="top-contact flex flex-wrap gap-4 items-center text-sm">
+        <a href="tel:+2349018888143" class="text-white hover:underline"><i class="fas fa-phone-alt text-[#0077be]"></i> 0901 888 8143</a>
+        <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank" class="text-white hover:underline"><i class="fas fa-map-marker-alt text-[#0077be]"></i> 66 Ogunlana Dr, Surulere</a>
+        <span class="text-white"><i class="fas fa-clock text-[#0077be]"></i> Open 24 Hours</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- header (original, with tailwind sticky) -->
+  <header class="header sticky top-0 z-50">
+    <div class="container flex justify-between items-center h-[70px]">
+      <div class="logo flex items-center gap-2">
+        <div class="logo-icon w-[42px] h-[42px] bg-gradient-to-br from-[#002147] to-[#0077be] rounded-xl flex items-center justify-center shadow-lg">
+          <i class="fas fa-heartbeat text-white text-2xl"></i>
+        </div>
+        <div class="logo-text text-[1.3rem] sm:text-[1.5rem] font-extrabold leading-tight">
+          <span class="text-[#002147]">TOUCHSTONE</span>
+          <span class="text-[#0077be] font-normal text-[0.85rem] sm:text-[0.95rem] sm:inline ml-1">DIAGNOSTICS</span>
+        </div>
+      </div>
+      <nav class="hidden lg:flex gap-8 items-center">
+        <a href="#home" class="text-[#002147] font-semibold uppercase text-sm tracking-wide border-b-2 border-transparent hover:border-[#0077be] py-2">Home</a>
+        <a href="#about" class="text-[#002147] font-semibold uppercase text-sm tracking-wide border-b-2 border-transparent hover:border-[#0077be] py-2">About</a>
+        <a href="#services" class="text-[#002147] font-semibold uppercase text-sm tracking-wide border-b-2 border-transparent hover:border-[#0077be] py-2">Services</a>
+        <a href="#contact" class="text-[#002147] font-semibold uppercase text-sm tracking-wide border-b-2 border-transparent hover:border-[#0077be] py-2">Contact</a>
+        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="bg-[#002147] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#0077be] transition">Book an Appointment</a>
+      </nav>
+      <button class="lg:hidden text-[#002147] text-3xl" @click="mobileMenu = !mobileMenu"><i class="fas fa-bars"></i></button>
+    </div>
+    <!-- mobile menu dropdown -->
+    <div x-show="mobileMenu" class="lg:hidden bg-white border-t border-gray-200 p-6 flex flex-col gap-4 shadow-xl" x-transition>
+      <a href="#home" @click="mobileMenu = false" class="text-[#002147] font-semibold text-lg py-2 border-b border-gray-100">Home</a>
+      <a href="#about" @click="mobileMenu = false" class="text-[#002147] font-semibold text-lg py-2 border-b border-gray-100">About</a>
+      <a href="#services" @click="mobileMenu = false" class="text-[#002147] font-semibold text-lg py-2 border-b border-gray-100">Services</a>
+      <a href="#contact" @click="mobileMenu = false" class="text-[#002147] font-semibold text-lg py-2 border-b border-gray-100">Contact</a>
+      <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="bg-[#25D366] text-white py-4 rounded-full text-center font-bold mt-2" @click="mobileMenu = false">Book an Appointment</a>
+    </div>
+  </header>
+
+  <!-- HERO with NEW distinct image -->
+  <section id="home" class="hero py-8 md:py-12 bg-gradient-to-r from-white via-white to-[#f0f9ff] section-fade">
+    <div class="container flex flex-col md:flex-row items-center gap-8 md:gap-12">
+      <div class="flex-1">
+        <div class="hero-badge inline-flex items-center gap-2 bg-blue-50 px-5 py-2 rounded-full text-[#002147] font-semibold mb-6"><i class="fas fa-flask text-[#0077be]"></i> The Gold Standard of Clinical Precision</div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-[#002147] leading-tight">Touchstone Diagnostics:</h1>
+        <h2 class="text-3xl md:text-4xl font-semibold text-[#0077be] mb-4">Where Precision Meets Compassion</h2>
+        <p class="text-lg text-gray-700 mb-8 max-w-xl">At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn-primary bg-[#0077be] text-white px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl flex items-center gap-2"><i class="fab fa-whatsapp"></i> Book an Appointment</a>
+          <a href="#services" class="btn-outline border-2 border-[#002147] text-[#002147] px-8 py-4 rounded-full font-semibold hover:bg-[#002147] hover:text-white transition flex items-center gap-2"><i class="fas fa-arrow-down"></i> Explore Services</a>
+        </div>
+      </div>
+      <div class="flex-1 hero-image rounded-3xl overflow-hidden shadow-2xl border border-white/30">
+        <!-- NEW hero image (distinct) -->
+        <img src="https://image2url.com/r2/default/images/1772647343334-0acdbf31-59c0-4b9e-bd5b-e7bbbbaac515.jpg" alt="Touchstone Diagnostics modern facility" class="w-full h-auto object-cover aspect-[4/3]">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT with NEW distinct image -->
+  <section id="about" class="section py-16 md:py-20 bg-white section-fade">
+    <div class="container">
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-[#002147] mb-8 relative after:content-[''] after:block after:w-[70px] after:h-1 after:bg-gradient-to-r after:from-[#0077be] after:to-[#002147] after:mt-3 after:rounded">About Touchstone Diagnostics</h2>
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="about-image rounded-3xl overflow-hidden shadow-2xl border border-[#0077be]/20">
+          <!-- NEW about image (distinct) -->
+          <img src="https://image2url.com/r2/default/images/1772647473959-19d80777-a8aa-4890-ada4-ccebf5eb454e.jpg" alt="Medical team and advanced lab equipment" class="w-full h-auto object-cover transition-transform duration-700 hover:scale-105">
+        </div>
+        <div class="about-text">
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">Touchstone Diagnostics is Surulere's premier 24-hour diagnostic centre, built on the philosophy that <strong>"where precision meets compassion"</strong> is not just a motto but a clinical reality. Our multidisciplinary team of pathologists, radiologists, and technicians ensures every result is delivered with speed and empathy.</p>
+          <p class="text-lg text-gray-700 mb-8 leading-relaxed">We understand that waiting for test results can be stressful – that's why we've invested in automation and real‑time reporting to offer you peace of mind at any hour.</p>
+          <div class="stats-mini flex gap-8">
+            <div><span class="number text-4xl font-extrabold text-[#0077be]">15+</span> <span class="label block text-sm uppercase text-gray-500">years serving</span></div>
+            <div><span class="number text-4xl font-extrabold text-[#0077be]">24/7</span> <span class="label block text-sm uppercase text-gray-500">operations</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (original content, enhanced cards) -->
+  <section id="services" class="section py-16 md:py-20 bg-[#f8fafc] section-fade">
+    <div class="container">
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-[#002147] mb-8 after:content-[''] after:block after:w-[70px] after:h-1 after:bg-gradient-to-r after:from-[#0077be] after:to-[#002147] after:mt-3 after:rounded">Our Core Diagnostic Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+          <div class="service-icon w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-flask text-3xl text-[#0077be]"></i></div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Clinical Lab</h3>
+          <p class="text-gray-600">Haematology, chemistry, hormones, tumour markers – automated analysers, quality controlled.</p>
+        </div>
+        <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+          <div class="service-icon w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-x-ray text-3xl text-[#0077be]"></i></div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Digital X‑ray</h3>
+          <p class="text-gray-600">Low‑dose digital radiography, chest, skeletal, abdominal imaging with instant reporting.</p>
+        </div>
+        <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+          <div class="service-icon w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-ultrasound text-3xl text-[#0077be]"></i></div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Ultrasound Scan</h3>
+          <p class="text-gray-600">Obstetric, pelvic, abdominal, Doppler studies – experienced sonographers, detailed reports.</p>
+        </div>
+        <div class="service-card bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+          <div class="service-icon w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-5"><i class="fas fa-dna text-3xl text-[#0077be]"></i></div>
+          <h3 class="text-xl font-bold text-[#002147] mb-2">Fertility / Hormone</h3>
+          <p class="text-gray-600">AMH, FSH, LH, prolactin, semen analysis, ovulation tracking – fertility specialists trust us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES (original) -->
+  <section class="features py-16 md:py-20 bg-white section-fade">
+    <div class="container">
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-[#002147] mb-8 after:content-[''] after:block after:w-[70px] after:h-1 after:bg-gradient-to-r after:from-[#0077be] after:to-[#002147] after:mt-3 after:rounded">Why Choose Touchstone</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="feature-item bg-white rounded-3xl p-8 text-center border border-gray-200 shadow-lg">
+          <i class="fas fa-clock text-4xl text-[#0077be] bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"></i>
+          <h4 class="text-xl font-bold text-[#002147] mb-3">24/7 Availability</h4>
+          <p class="text-gray-600">Day or night, including public holidays – we're always open for emergencies and routine checks.</p>
+        </div>
+        <div class="feature-item bg-white rounded-3xl p-8 text-center border border-gray-200 shadow-lg">
+          <i class="fas fa-microscope text-4xl text-[#0077be] bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"></i>
+          <h4 class="text-xl font-bold text-[#002147] mb-3">Precision Technology</h4>
+          <p class="text-gray-600">Fully automated chemistry, haematology, and digital imaging systems with QC protocols.</p>
+        </div>
+        <div class="feature-item bg-white rounded-3xl p-8 text-center border border-gray-200 shadow-lg">
+          <i class="fas fa-heart text-4xl text-[#0077be] bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"></i>
+          <h4 class="text-xl font-bold text-[#002147] mb-3">Compassionate Care</h4>
+          <p class="text-gray-600">From front desk to result explanation – we treat you with dignity and clarity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (original, with map) -->
+  <section id="contact" class="section py-16 md:py-20 bg-[#f8fafc] section-fade">
+    <div class="container">
+      <h2 class="section-title text-4xl md:text-5xl font-bold text-[#002147] mb-8 after:content-[''] after:block after:w-[70px] after:h-1 after:bg-gradient-to-r after:from-[#0077be] after:to-[#002147] after:mt-3 after:rounded">Contact & Location</h2>
+      <div class="grid md:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl">
+        <div class="contact-info bg-[#002147] text-white p-8 md:p-10">
+          <h3 class="text-3xl font-bold mb-8">Get in touch</h3>
+          <div class="flex gap-4 mb-6"><i class="fas fa-map-pin w-8 text-[#0077be]"></i> 66 Ogunlana Drive, Surulere, Lagos 101283</div>
+          <div class="flex gap-4 mb-6"><i class="fas fa-phone w-8 text-[#0077be]"></i> <a href="tel:+2349018888143" class="hover:underline">0901 888 8143</a></div>
+          <div class="flex gap-4 mb-6"><i class="fas fa-envelope w-8 text-[#0077be]"></i> <a href="mailto:lab@touchstone.ng" class="hover:underline">lab@touchstone.ng</a></div>
+          <div class="flex gap-4 mb-8"><i class="fab fa-whatsapp w-8 text-[#0077be]"></i> <a href="https://wa.me/2349018888143" class="hover:underline">Chat on WhatsApp</a></div>
+          <div class="hours flex flex-wrap gap-4">
+            <div class="bg-white/10 py-3 px-6 rounded-full text-center flex-1"><i class="fas fa-calendar-alt mr-2"></i>Mon‑Sun <br> <strong>24 hours</strong></div>
+            <div class="bg-white/10 py-3 px-6 rounded-full text-center flex-1"><i class="fas fa-calendar-check mr-2"></i>Holidays <br> <strong>Open 24/7</strong></div>
+          </div>
+        </div>
+        <div class="contact-map h-80 md:h-auto">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.369710265075!2d3.343701314769517!3d6.502775395292159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c2e5a2c97f3%3A0x3b4a1e5b7e5f5b5b!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos!5e0!3m2!1sen!2sng!4v1620000000000" allowfullscreen="" loading="lazy" class="w-full h-full"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (original) -->
+  <footer class="footer bg-[#0a1929] text-[#a0b3cc] py-12 mt-12">
+    <div class="container">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <div class="footer-logo text-white text-2xl font-bold mb-4">TOUCHSTONE<span class="text-[#0077be] ml-1">DIAGNOSTICS</span></div>
+          <p class="mb-4">Where precision meets compassion – 24/7 laboratory & imaging in Surulere.</p>
+          <div class="social flex gap-3">
+            <a href="#" class="w-10 h-10 bg-[#1e2e42] rounded-full flex items-center justify-center text-white hover:bg-[#0077be]"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-[#1e2e42] rounded-full flex items-center justify-center text-white hover:bg-[#0077be]"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 bg-[#1e2e42] rounded-full flex items-center justify-center text-white hover:bg-[#0077be]"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="w-10 h-10 bg-[#1e2e42] rounded-full flex items-center justify-center text-white hover:bg-[#0077be]"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div><h4 class="text-white text-lg mb-4">Quick links</h4><div class="footer-links"><a href="#home" class="block mb-2 hover:text-white">Home</a><a href="#about" class="block mb-2 hover:text-white">About</a><a href="#services" class="block mb-2 hover:text-white">Services</a><a href="#contact" class="block mb-2 hover:text-white">Contact</a></div></div>
+        <div><h4 class="text-white text-lg mb-4">Contact</h4><div class="footer-links"><a href="tel:+2349018888143" class="block mb-2 hover:text-white">0901 888 8143</a><a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" class="block mb-2 hover:text-white">66 Ogunlana Dr, Surulere</a><span class="block">Open 24/7</span></div></div>
+      </div>
+      <div class="copyright text-center pt-6 border-t border-[#1e2e42] text-sm">© 2025 Touchstone Diagnostics. All rights reserved. Precision & compassion.</div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float (original) -->
+  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="wa-float fixed bottom-6 right-6 bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center text-4xl text-white shadow-2xl hover:scale-110 transition z-50" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- Intersection Observer for fade sections -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const sections = document.querySelectorAll('.section-fade');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
-      sections.forEach(section => observer.observe(section));
+      }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+      sections.forEach(s => observer.observe(s));
     });
   </script>
-  <!-- note: we keep original inline styles untouched, only add tailwind utilities + animation layer -->
-  <style>
-    /* preserve every original style from the initial code – we only ADD tailwind-friendly animations */
-    /* ... original CSS from the head remains in full force ... (already embedded) */
-    /* we will merge – but ensure nothing is lost. Original style block exists, we just append. */
-  </style>
-  <!-- but to be safe, we include the original block again? It's already above. No need, it's there.
-       However, because we are editing, the original massive style is still present. We'll keep exactly the same classes.
-       The only additions: .section-fade, .scroll-offset, animation keyframes + hover effects.
-       Also we attach class "section-fade" to each main section, and "scroll-offset" for nav. -->
-</head>
-<body x-data="{ mobileMenu: false }" class="antialiased"> <!-- added antialiased only, no layout change -->
 
-  <!-- top bar with functional links (IMPROVED spacing) – untouched HTML -->
-  <div class="top-bar">
-    <div class="container">
-      <div class="emergency"><i class="fas fa-exclamation-triangle"></i> 24/7 EMERGENCY</div>
-      <div class="top-contact">
-        <a href="tel:+2349018888143"><i class="fas fa-phone-alt"></i> 0901 888 8143</a>
-        <a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283" target="_blank"><i class="fas fa-map-marker-alt"></i> 66 Ogunlana Dr, Surulere</a>
-        <span><i class="fas fa-clock"></i> Open 24 Hours</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- header with smooth nav (added scroll-offset classes to sections, and offset to header?) -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
-        <div class="logo-text"><span>TOUCHSTONE</span><span>DIAGNOSTICS</span></div>
-      </div>
-      <nav class="nav">
-        <!-- updated links with same hash, but we add scroll padding via css, no need to change href -->
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn-nav">Book an Appointment</a>
-      </nav>
-      <button class="mobile-menu-btn" @click="mobileMenu = !mobileMenu"><i class="fas fa-bars"></i></button>
-    </div>
-    <!-- mobile menu dropdown (original) -->
-    <div x-show="mobileMenu" class="mobile-menu-dropdown" x-transition>
-      <a href="#home" @click="mobileMenu = false">Home</a>
-      <a href="#about" @click="mobileMenu = false">About</a>
-      <a href="#services" @click="mobileMenu = false">Services</a>
-      <a href="#contact" @click="mobileMenu = false">Contact</a>
-      <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="mobile-wa-btn" @click="mobileMenu = false">Book an Appointment</a>
-    </div>
-  </header>
-
-  <!-- hero – added section-fade and scroll-offset for smooth nav -->
-  <section id="home" class="hero scroll-offset section-fade">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-flask"></i> The Gold Standard of Clinical Precision</div>
-        <h1>Touchstone Diagnostics:</h1>
-        <h2>Where Precision Meets Compassion</h2>
-        <p>At Touchstone Diagnostics, we provide an accurate foundation for your health journey through state-of-the-art laboratory and radiology services. Whether you require urgent cardiovascular screening, early cancer prevention, or specialized fertility diagnostics, our facility is equipped with modern medical technology to ensure clinical excellence.</p>
-        <div class="hero-buttons">
-          <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="btn btn-primary">Book an Appointment</a>
-          <a href="#services" class="btn btn-outline">Explore Services</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <!-- original image with exact same src (including typo 'eage' – kept as is) -->
-        <img src="https://image2url.com/r2/default/images/1771865082330-35ded437-0f65-4521-8841-d2515c91af30.jpg" 
-             alt="Futuristic medical diagnostic center with scientist at microscope and MRI scanner" 
-             loading="eage"> <!-- kept exactly as original, even with missing quote? original had eage... we keep it -->
-      </div>
-    </div>
-  </section>
-
-  <!-- about section (unchanged) + fade + offset -->
-  <section id="about" class="section about scroll-offset section-fade">
-    <div class="container">
-      <h2 class="section-title">About Touchstone Diagnostics</h2>
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="https://image2url.com/r2/default/images/1771865082330-35ded437-0f65-4521-8841-d2515c91af30.jpg" alt="Medical team and modern lab equipment" loading="lazy">
-        </div>
-        <div class="about-text">
-          <p>Touchstone Diagnostics is Surulere's premier 24-hour diagnostic centre, built on the philosophy that <strong>"where precision meets compassion"</strong> is not just a motto but a clinical reality. Our multidisciplinary team of pathologists, radiologists, and technicians ensures every result is delivered with speed and empathy.</p>
-          <p>We understand that waiting for test results can be stressful – that's why we've invested in automation and real‑time reporting to offer you peace of mind at any hour.</p>
-          <div class="stats-mini">
-            <div class="stat-item"><span class="number">15+</span> <span class="label">years serving</span></div>
-            <div class="stat-item"><span class="number">24/7</span> <span class="label">operations</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- services section (original) + fade + offset -->
-  <section id="services" class="section services scroll-offset section-fade">
-    <div class="container">
-      <h2 class="section-title">Our Core Diagnostic Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-flask"></i></div>
-          <h3>Clinical Lab</h3>
-          <p>Haematology, chemistry, hormones, tumour markers – automated analysers, quality controlled.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-x-ray"></i></div>
-          <h3>Digital X‑ray</h3>
-          <p>Low‑dose digital radiography, chest, skeletal, abdominal imaging with instant reporting.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-ultrasound"></i></div>
-          <h3>Ultrasound Scan</h3>
-          <p>Obstetric, pelvic, abdominal, Doppler studies – experienced sonographers, detailed reports.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-dna"></i></div>
-          <h3>Fertility / Hormone</h3>
-          <p>AMH, FSH, LH, prolactin, semen analysis, ovulation tracking – fertility specialists trust us.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- features (original) + fade -->
-  <section class="features section scroll-offset section-fade">
-    <div class="container">
-      <h2 class="section-title">Why Choose Touchstone</h2>
-      <div class="features-grid">
-        <div class="feature-item"><i class="fas fa-clock"></i><h4>24/7 Availability</h4><p>Day or night, including public holidays – we're always open for emergencies and routine checks.</p></div>
-        <div class="feature-item"><i class="fas fa-microscope"></i><h4>Precision Technology</h4><p>Fully automated chemistry, haematology, and digital imaging systems with QC protocols.</p></div>
-        <div class="feature-item"><i class="fas fa-heart"></i><h4>Compassionate Care</h4><p>From front desk to result explanation – we treat you with dignity and clarity.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- contact section (original) + offset -->
-  <section id="contact" class="section contact scroll-offset section-fade">
-    <div class="container">
-      <h2 class="section-title">Contact & Location</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Get in touch</h3>
-          <div class="contact-detail"><i class="fas fa-map-pin"></i> 66 Ogunlana Drive, Surulere, Lagos 101283</div>
-          <div class="contact-detail"><i class="fas fa-phone"></i> <a href="tel:+2349018888143">0901 888 8143</a></div>
-          <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:lab@touchstone.ng">lab@touchstone.ng</a></div>
-          <div class="contact-detail"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/2349018888143">Chat on WhatsApp</a></div>
-          <div class="hours">
-            <div><i class="fas fa-calendar-alt"></i> Mon‑Sun <br> <strong>24 hours</strong></div>
-            <div><i class="fas fa-calendar-check"></i> Holidays <br> <strong>Open 24/7</strong></div>
-          </div>
-        </div>
-        <div class="contact-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.369710265075!2d3.343701314769517!3d6.502775395292159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8c2e5a2c97f3%3A0x3b4a1e5b7e5f5b5b!2s66%20Ogunlana%20Dr%2C%20Surulere%2C%20Lagos!5e0!3m2!1sen!2sng!4v1620000000000" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- footer (original) -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div><div class="footer-logo">TOUCHSTONE<span>DIAGNOSTICS</span></div><p>Where precision meets compassion – 24/7 laboratory & imaging in Surulere.</p><div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
-        <div><h4 style="color:white;">Quick links</h4><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></div></div>
-        <div><h4 style="color:white;">Contact</h4><div class="footer-links"><a href="tel:+2349018888143">0901 888 8143</a><a href="https://maps.google.com/?q=66+Ogunlana+Dr+Surulere+Lagos+101283">66 Ogunlana Dr, Surulere</a><span>Open 24/7</span></div></div>
-      </div>
-      <div class="copyright">© 2025 Touchstone Diagnostics. All rights reserved. Precision & compassion.</div>
-    </div>
-  </footer>
-
-  <!-- whatsapp float (original) -->
-  <a href="https://wa.me/2349018888143?text=Hello%20Touchstone%20Diagnostics" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-  <!-- ensure all sections have visible class after intersection – added section-fade above; plus a tiny fix for broken image? we keep it -->
-  <script>
-    (function() {
-      // fix for loading attribute typo (if any) – but we keep as original. no change.
-    })();
-  </script>
-  <!-- done: smooth scroll, tailwind attached (but original layout remains 100% due to no tailwind base) + animations -->
 </body>
 </html>
